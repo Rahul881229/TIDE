@@ -1,0 +1,1133 @@
+.ol-popup {
+  /* background-color: #fff0; */
+  background-color: rgba(0, 0, 0, 0);
+  border: 0px solid;
+  /* z-index: 99999; */
+  z-index: auto;
+  left: -110px;
+}
+
+.ol-popup-closer {
+  display: none;
+}
+
+.ol-popup::before {
+  /*  border-top-color: #ccc0; */
+  border-width: 0px;
+  left: 48px;
+  margin-left: -11px;
+}
+
+.ol-popup::after {
+  /*  border-top-color: #fff0; */
+  border-width: 0px;
+  left: 48px;
+  margin-left: -10px;
+}
+
+.trinityTooltip {
+  /*  background-color: #141d24; */
+  position: relative;
+  height: 30vh;
+  width: 20vw;
+  box-shadow: 0px 0px 8px #fff;
+  border-radius: 5px;
+  /*display:none;*/
+}
+
+/*
+		Company: Trinity Mobility Pvt Ltd;
+		Created By Sanjith
+		Contact: sanjith.s@trinitymobility.com;
+	*/
+
+.toolLayout {
+  height: 145px;
+}
+
+.toolTipSub {
+  height: 200px !important;
+  width: 300px !important;
+}
+
+.toolTipEnvi {
+  max-height: 230px !important;
+  width: 300px !important;
+}
+
+.toolTipVMBSub {
+  height: 215px !important;
+  width: 315px !important;
+}
+
+.toolTipPAMultiSelect,
+.toolTipVMBMultiSelect {
+  height: 200px !important;
+  width: 300px !important;
+}
+
+.toolTipPA {
+  height: 200px !important;
+}
+
+.toolSplitLight {
+  height: 96% !important;
+}
+
+.live {
+  height: 175px;
+}
+
+.resourceFire {
+  /* height: 149px; */
+  height: 165px;
+}
+
+.ecb {
+  /* height: 115px; */
+  height: 125px;
+}
+
+.twitter {
+  height: 206px;
+  width: 160px;
+}
+
+.twitterSC {
+  height: 212px;
+  width: 200px;
+}
+
+.smalltool {
+  height: 50px;
+  width: 200px;
+}
+
+.clusterTool {
+  height: 50px;
+  width: 200px;
+}
+
+.floortool {
+  height: 77px;
+  width: 200px;
+}
+
+.livetool {
+  z-index: 100000;
+}
+
+.inci {
+  height: 140px;
+}
+
+.route {
+  height: 118px;
+  width: 233px;
+}
+
+.paLine {
+  height: 163px;
+  width: 275px;
+}
+
+.paCircle {
+  height: 163px;
+  width: 275px;
+}
+
+.PAtooltip {
+  height: 174px;
+}
+
+.vmbMulti {
+  height: 163px;
+  width: 275px;
+}
+
+.envTool {
+  height: 203px !important;
+}
+
+.trinityTooltip:after {
+  content: " ";
+  height: 0;
+  position: absolute;
+  width: 0px;
+  border: 10px solid transparent;
+  /* border-top-color: #333; */
+  /*   border-top-color: #20262e; */
+  top: 100%;
+  left: 48%;
+  margin-left: -10px;
+}
+
+/* .trinityTooltip .imgShadow {
+  -webkit-filter: drop-shadow(0px 0px 3px #fff);
+  filter: drop-shadow(0px 0px 3px #fff);
+} */
+
+.trinityTooltip .toolTitle {
+  /* background-color: #4d8eb7; */
+  height: 4vh;
+  width: 100%;
+  padding: 0.5vh 0;
+  border-radius: 5px 5px 0 0;
+}
+
+.trinityTooltip .toolTitle label {
+  font-size: 2vh;
+  padding: 2px 0px 0px 5px;
+  height: 3vh;
+  margin: 0;
+
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 75%;
+  white-space: nowrap;
+}
+
+.trinityTooltip .toolTitle a.tooltipBack {
+  cursor: pointer;
+  /*  color: #e4e9e6; */
+  font-size: 12px;
+  font-weight: initial;
+  display: inline-block;
+  line-height: 0px;
+  padding: 11px 6px;
+  text-decoration: none;
+}
+
+.trinityTooltip .toolTitle a.tooltipBack:before {
+  content: "<";
+}
+
+.trinityTooltip .toolTitle .tooltipBack {
+  float: right;
+  cursor: pointer;
+  /* padding: 2px 5px 0px 0px; */
+  height: 20px;
+  line-height: 20px;
+}
+
+.trinityTooltip .toolTitle .tooltipBack img {
+  width: 15px;
+  height: 15px;
+}
+
+.trinityTooltip .toolTitle i {
+  font-size: 2vh;
+  /*  color: #e4e4e4; */
+}
+
+.trinityTooltip .toolTitle i:hover {
+  /*  color: #fff; */
+  box-shadow: 0px 0px 10px 0px #fff;
+}
+
+.trinityTooltip .toolTitle .camOpenWindow {
+  /* float:right; */
+  cursor: pointer;
+  position: absolute;
+  right: 29px;
+  padding-top: 1px;
+  margin-top: 1px;
+  display: none; /* live stream fullscreen button display fjdi */
+}
+
+.trinityTooltip .toolTitle .camOpenWindow img {
+  width: 15px;
+  height: 15px;
+}
+
+.trinityTooltip .toolTitle div.tooltipClose {
+  float: right;
+  cursor: pointer;
+  padding: 0px 5px;
+  line-height: 20px;
+  height: 20px;
+}
+.trinityTooltip .toolTitle div.tooltipMax {
+  float: right;
+  cursor: pointer;
+  padding: 0px 5px;
+  line-height: 20px;
+  height: 20px;
+}
+
+.trinityTooltip .toolTitle div.tooltipClose img {
+  width: 15px;
+  height: 15px;
+}
+
+.trinityTooltip .toolTitle a.tooltipClose {
+  right: 0;
+  cursor: pointer;
+  /* color: #c7e9d6; */
+  font-size: 12px;
+  font-weight: initial;
+  display: inline-block;
+  line-height: 0px;
+  padding: 11px 6px;
+  text-decoration: none;
+}
+
+.trinityTooltip .toolTitle a.tooltipClose:before {
+  content: "\00d7"; /*X symbol*/
+}
+
+.trinityTooltip .toolContent {
+  position: absolute;
+  padding: 0px;
+  height: 26vh;
+  width: 100%;
+  font-size: 12px;
+  /* color: #d5d5d5; */
+  border-radius: 5px;
+}
+
+.trinityTooltip .toolContent .errorLabel {
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  height: 100%;
+  line-height: 10;
+  /* color: white; */
+  font-size: 14px;
+}
+
+.trinityTooltip .toolContent .emptyContent {
+  text-align: center;
+  width: 100%;
+  padding-top: 15%;
+}
+
+.trinityTooltip .toolContentData {
+  position: absolute;
+  padding: 0px;
+  /*height: 100px;*/
+  height: 170px;
+  width: 100%;
+  font-size: 12px;
+  /* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; */
+  /*  color: #d5d5d5; */
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+.trinityTooltip .toolContentData .livetool table {
+  /*  color: white; */
+  font-size: 12px;
+}
+
+.trinityTooltip .toolContentData .emptyContent {
+  text-align: center;
+  width: 100%;
+  padding-top: 10%;
+}
+
+.trinityTooltip .wifiContent {
+  font-size: 12px;
+}
+
+.trinityTooltip .wifiContent .emptyContent {
+  text-align: center;
+  width: 100%;
+  padding-top: 10%;
+  /* color: white; */
+}
+
+.toolTab2 {
+  display: none;
+}
+
+.trinityTooltip .lightingContent table {
+  /*  color: white; */
+  font-size: 12px;
+}
+
+/* .trinityTooltip .lightingContent .labelhead {
+  color: #009688;
+} */
+
+.trinityTooltip .wifiContent table {
+  /* color: white; */
+  font-size: 12px;
+}
+
+/* .trinityTooltip .wifiContent .labelhead {
+  color: #009688;
+} */
+
+.trinityTooltip .toolContent p {
+  text-align: center;
+  margin: 3px 0px;
+  width: 100%;
+}
+
+.toolContent .toolSplit {
+  height: 100%;
+  position: relative;
+  top: 0; /* newsanjith */
+  margin-top: 4px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.toolTipLoader {
+  position: absolute;
+  left: 43%;
+  top: 35%;
+  display: none;
+}
+
+.toolTipLoader img {
+  width: 40px;
+  height: 40px;
+}
+
+/* .toolSplit table label {
+  color: #fff;
+  font-size: 1.5vh !important;
+} */
+
+.toolContent .toolSplit .nav-link {
+  padding: 1px 5px !important;
+  /* color: #fff; */
+}
+
+.toolContent .toolSplit .nav-tabs .nav-item {
+  cursor: pointer;
+  font-size: 1.8vh;
+}
+
+.toolContent .toolSplit a:not([href]):not([tabindex]):focus {
+  /* color: #fff; */
+  border-color: transparent;
+}
+.toolContent .toolSplit a:not([href]):not([tabindex]):hover {
+  /* color: #1f77b4; */
+  border-color: transparent;
+}
+
+/* .toolContent .toolSplit .nav-tabs .nav-item.show .nav-link,
+.toolContent .toolSplit .nav-tabs .nav-link.active {
+  color: #495057 !important;
+} */
+
+.toolContent .toolSplit .alertEventContent {
+  margin-top: 5px;
+  font-size: 1.8vh;
+}
+
+.toolContent .toolSplit .alertEventContent table td {
+  padding-left: 2px;
+  border: 1px solid;
+  /*  color: #6ac1f8; */
+  text-align: center;
+}
+
+.livePopupScreen {
+  height: 100% !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+}
+
+.withoutPopupBtn {
+  height: 97% !important;
+}
+
+.paMultiSelectContentSplit {
+  overflow-y: auto;
+}
+
+/* .twitterSC .toolContent { newsanjith
+	height: 92%;
+} 
+
+.twitterSC .toolContent .toolSplit { // newsanjith 
+	height: 50%;
+}
+*/
+.trinityTooltip .toolContent .toolSplit .twitterImgDiv {
+  text-align: center;
+  /*border: 1px solid white;
+	margin: 2px 26px 2px 26px;*/
+  padding: 2px 2px 2px 2px;
+  height: 87px;
+}
+
+.trinityTooltip .toolContent .toolSplit .twitterImgDiv img {
+  height: 81px;
+  width: 102px;
+}
+
+.toolContent .toolSplit .socialMsgBox {
+  width: 94%;
+  height: 75%;
+  resize: none;
+  background-color: transparent;
+  border: 1px solid;
+  margin: 1% 3% 2% 3%;
+  /*  color: #fff; */
+}
+
+.toolContent .toolSplit .socialMsgInfo {
+  text-align: center;
+  width: 100%;
+  margin: 0;
+  /*  color: #fff; */
+  font-size: 12px;
+}
+
+.toolContent .toolSplitPA {
+  height: 109px;
+  margin-top: 2px;
+  overflow-y: auto;
+}
+
+.toolContent .toolSplitPA p {
+  text-align: center;
+  margin: 0px 0 2px 0;
+  width: 100%;
+}
+
+.toolContent .incSplit {
+  height: 91px;
+}
+
+.toolContent .PASplit {
+  height: 125px;
+}
+
+.toolContent .toolSplit table {
+  text-align: left;
+  height: 75%;
+  width: 96%;
+  margin-left: 2%;
+  position: relative;
+  /*  color: #fff; */
+}
+
+.toolContent .toolSplit .detailsTable {
+  height: auto !important;
+}
+
+.toolContent .toolSplit .paListTable,
+.toolContent .toolSplit .vmbListTable {
+  height: auto !important;
+}
+
+.toolContent .toolSplit .paListTable td,
+.toolContent .toolSplit .vmbListTable td {
+  text-align: center;
+  border: 1px solid;
+}
+
+.toolContent .toolSplit table tr.border_bottom {
+  vertical-align: middle;
+  line-height: 11px;
+  border-collapse: collapse;
+  border-bottom: 1px solid;
+}
+
+.toolContent .toolSplit table tr.border_no_bottom {
+  vertical-align: middle;
+  line-height: 11px;
+  border-collapse: collapse;
+}
+
+/* .toolContent .toolSplit table tr.len {
+	line-height: 9px !important;
+	position: relative;
+} */
+
+.toolContent .toolSplit table tr.twitb {
+  text-align: center;
+}
+
+.toolContent .toolSplit table td {
+  padding-left: 2px;
+}
+
+.toolContent .toolSplit .detailsTable th,
+.toolContent .toolSplit .detailsTable td {
+  border: 1px solid;
+}
+
+.toolContent .toolSplit table i {
+  font-size: 12px;
+}
+
+.toolContent .toolSplit table img,
+.toolContent .toolButton button img {
+  height: 20px;
+  width: 20px;
+}
+
+.toolContent .toolSplit table #associateViewBtn {
+  font-size: 16px;
+  /*  color: #fff; */
+  cursor: pointer;
+}
+
+.toolContent .toolSplit table label {
+  /* color: #ffffff; */
+  font-size: 1.7vh;
+  margin: 0px !important;
+}
+
+.toolContent .toolSplit table th {
+  padding: 1px;
+  border: 1px solid;
+  /*   color: #6ac1f8; */
+  text-align: center;
+}
+
+.toolContent .toolSplit table th > label {
+  /*  color: #6ac1f8; */
+  font-weight: bold;
+  font-size: 12px;
+}
+
+/* .toolContent .toolSplit .vmbDateDiv {
+	width: 50%;
+	float: left;
+	text-align: center;
+} */
+
+.toolContent .toolSplit .vmbDateDiv {
+  width: 100%;
+  float: left;
+  text-align: center;
+  height: auto;
+  border-bottom: 1px solid;
+}
+
+.toolContent .toolSplit .vmbDateDiv .vmbDateOptionRadio,
+.toolContent .toolSplit .vmbDateDiv .vmbDateSelect {
+  float: left;
+  text-align: left;
+  width: 50%;
+}
+
+.toolContent .toolSplit .vmbDateDiv .vmbDateOptionRadio label {
+  width: 100%;
+}
+
+.toolContent .toolSplit #vmbMinuteInput {
+  padding: 10px 4px 10px 0px;
+  text-align: center;
+}
+
+.toolContent .toolSplit #vmbDateOption {
+  padding: 0px 0px 0px 10px;
+}
+
+.toolContent .toolSplit #vmbDateInput {
+  padding: 2px 4px 2px 0px;
+}
+
+.toolContent .toolSplit .vmbDateDiv label {
+  margin-bottom: 0px;
+  cursor: pointer;
+}
+.toolContent .toolSplit .vmbDateDiv .vmbDateInput {
+  float: none;
+  width: 100%;
+  height: 20px;
+  border-radius: 3px;
+  border: 1px solid;
+  text-align: center;
+  margin: 0px;
+  font-size: 14px;
+  background-color: transparent;
+  /* color: white; */
+}
+
+.toolContent .toolSplit .vmbDateDiv .vmbMinuteInput {
+  float: none;
+  width: 65%;
+  height: 20px;
+  border-radius: 3px;
+  border: 1px solid;
+  text-align: center;
+  margin: 0px;
+  font-size: 14px;
+  background-color: transparent;
+  /*  color: white; */
+}
+
+.toolContent .toolSplit .vmbMsgTypeDiv {
+  margin: 0 0;
+  text-align: center;
+  width: 100%;
+}
+
+.toolContent .toolSplit .vmbMsgTypeDiv .vmbMsgTypeRadio {
+  width: 33%;
+  float: left;
+  margin: 5px 0px;
+}
+
+.toolContent .toolSplit .vmbMsgTypeDiv .KIOSKMsgTypeRadio {
+  width: 33%;
+  float: left;
+  margin: 5px 0px;
+}
+
+.toolContent .toolSplit .vmbMsgTypeDiv .vmbMsgTypeRadio input {
+  margin: 0 !important;
+}
+
+.toolContent .toolSplit .vmbMsgTypeDiv .vmbMsgTypeRadio label:hover,
+.toolContent .toolSplit .vmbMsgTypeDiv .vmbMsgTypeRadio input:hover {
+  cursor: pointer;
+}
+
+.toolContent .toolSplit .vmbMessage {
+  width: 95%;
+  height: 40%;
+  resize: none;
+  background-color: transparent !important;
+  border: 1px solid;
+  margin: 0 8px;
+  /*  color: #fff; */
+}
+
+.toolContent .toolSplit .vmbSendInfoLabel {
+  display: none;
+  padding-top: 1%;
+  width: 100%;
+  text-align: center;
+}
+
+.toolContent .toolButton {
+  width: 100%;
+  text-align: center;
+  border-top: 1px solid;
+  /* background-color: #333; */
+  /*  background-color: #141d24; */
+  /* height: 100%; */
+  height: 15%;
+  position: absolute;
+  bottom: 0px; /* newsanjith */
+  border-radius: 0 0 5px 5px;
+}
+
+.toolContent .toolButton i {
+  /* color: #efefef; */
+  padding-right: 5px;
+}
+
+.toolContent .toolButton .button {
+  /* background-color: #333; */
+  background-color: transparent;
+  /*  color: #fff; */
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  display: inline-block;
+  font-size: 1.7vh;
+  width: auto;
+  height: 100%;
+  padding: 0px 0px 0px 0px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  outline-style: none;
+}
+
+.toolContent .toolButton .button label {
+  margin: 0px !important;
+  cursor: pointer;
+}
+.toolContent .toolButton .button .imgDiv {
+  padding: 0 0px 0 0;
+}
+
+.toolContent .toolButton .button .imgDiv img {
+  width: 15px;
+  height: 15px;
+  position: relative;
+  top: -2px;
+}
+
+.toolContent .toolButton .alamEvent {
+  width: auto;
+  padding: 0px 5px;
+}
+
+.toolContent .toolButton .count {
+  width: 20%;
+}
+
+.toolContent .toolButton .common {
+  width: 20%;
+}
+
+.toolContent .toolButton .details {
+  width: 25%;
+}
+
+.toolContent .toolButton .camera {
+  width: 20%;
+}
+
+.toolContent .toolButton .layoutbtn {
+  width: 30%;
+}
+
+.toolContent .toolButton .parking {
+  width: 30%;
+}
+
+.toolContent .toolButton .itms {
+  width: 20%;
+}
+
+.toolContent .toolButton .paMultiple {
+  width: 23%;
+}
+
+.toolContent .toolButton .itmsR {
+  width: 21%;
+}
+
+.toolContent .toolButton .buidling {
+  width: 24%;
+}
+
+.toolContent .toolButton .workForce {
+  width: 45%;
+}
+
+.toolContent .toolButton .one {
+  width: 50%;
+}
+
+.toolContent .toolButton .two {
+  width: 45%;
+}
+
+.toolContent .toolButton .three {
+  width: 33%;
+}
+
+.toolContent .toolButton .trafficBtn {
+  width: 40%;
+}
+
+.toolContent .toolButton .otherPA {
+  width: 32%;
+}
+
+.toolContent .toolButton .displayNone {
+  display: none;
+}
+
+.toolContent .toolButton .lighting {
+  width: 33%;
+}
+
+/* .toolContent .toolButton .button:hover {
+  background-color: #6ac1f844 !important;
+} */
+
+.toolContent .toolButtonArea {
+  width: 100%;
+  text-align: center;
+  border-top: 1px solid;
+  /* background-color: #333; */
+  /* background-color: #20262e; */
+  height: 100%;
+  height: auto;
+  position: absolute;
+  bottom: 0px; /* newsanjith */
+}
+
+.toolContent .toolButtonArea i {
+  /* color: #efefef; */
+  padding-right: 5px;
+}
+
+.toolContent .toolButtonArea .button {
+  /* background-color: #333; */
+  /* background-color: #20262e;
+  color: #fff; */
+  border: none;
+  text-align: center;
+  display: inline-block;
+  font-size: 14px;
+  width: 80%;
+  height: 25px;
+  padding: 0px 0px 0px 0px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+/* .toolContent .toolButtonArea .button:hover {
+  background-color: #1d1d1d;
+} */
+
+/* .toolContent .toolButtonArea .buttonWidth{
+		width: 33%;
+	} */
+
+/* Side Button Style Start */
+.toolContent .toolSideBar {
+  position: absolute;
+  top: 1px;
+  right: -25px;
+  width: 25px;
+  height: auto;
+  text-align: center;
+}
+
+.toolContent .toolSideBar .button {
+  /*  background-color: rgba(20, 29, 36, 0.75); */
+  border: none;
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+  height: 25px;
+  padding: 0px 0px 0px 0px;
+  cursor: pointer;
+  margin-bottom: 4%;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  border-right: 1px solid;
+}
+
+/* .toolContent .toolSideBar .button:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+} */
+
+.toolContent .toolSideBar .button i {
+  /*  color: white; */
+  font-size: 14px;
+}
+
+.toolContent .toolSideBar .button label {
+  /*  color: white; */
+  font-size: 18px;
+  /* font-family: verdana; */
+}
+
+.toolContent .toolSideBar .button img {
+  width: 20px;
+  height: 20px;
+}
+/* Side Button Style End */
+
+.paSelectAll,
+.paSelect,
+.vmbSelectAll,
+.vmbSelect {
+  cursor: pointer;
+  margin: 0 !important;
+}
+
+.paSelectAll input,
+.paSelect input,
+.vmbSelectAll input,
+.vmbSelect input {
+  cursor: pointer;
+  opacity: 1 !important;
+  margin: 0 !important;
+}
+
+.paCheckbox {
+  opacity: 1 !important;
+}
+
+.paMsgCheckbox {
+  opacity: 1 !important;
+  margin: 5px 4px 0px 2px !important;
+  cursor: pointer;
+}
+
+#paMsgCheckboxM {
+  margin: 5px !important;
+}
+
+.paSlctAllCheckbox {
+  opacity: 1 !important;
+  margin: 4px 2px !important;
+}
+
+.paMsgDropDown {
+  width: 100%;
+  /*  color: white; */
+  background-color: transparent;
+  display: none;
+  border: 1px solid;
+  font-size: 11px;
+}
+
+.paMsgDropDown option {
+  /*   background-color: #333333;
+  color: white; */
+  border: 1px solid;
+}
+
+#paMsgDropDownListM {
+  width: 110px;
+  /* color: white; */
+  background-color: transparent;
+  display: none;
+  border: 1px solid;
+  float: left;
+  margin: 4px 0 0 5px;
+  font-size: 11px;
+  /* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; */
+}
+
+#paMsgDropDownListM option {
+  /*   background-color: #333333;
+  color: white; */
+  border: 1px solid;
+}
+
+.vmbCheckbox {
+  opacity: 1 !important;
+}
+
+.vmbMsgCheckbox {
+  opacity: 1 !important;
+  margin: 5px 4px 0px 2px !important;
+}
+
+#vmbMsgCheckboxM {
+  margin: 5px !important;
+}
+
+.vmbSlctAllCheckbox {
+  opacity: 1 !important;
+  margin: 4px 2px !important;
+}
+
+.vmbMsgDropDown,
+.vmbEnviDropDown {
+  width: 90%;
+  /*  color: white; */
+  background-color: transparent;
+  display: none;
+  border: 1px solid;
+  font-size: 11px;
+  margin: 0 15px;
+}
+
+.vmbMsgDropDown option,
+.vmbEnviDropDown option {
+  /* background-color: #333333;
+  color: white; */
+  border: 1px solid;
+}
+
+#vmbEnviDropDownData {
+  display: none;
+}
+
+#vmbMsgDropDownListM {
+  width: 110px;
+  /* color: white; */
+  background-color: transparent;
+  display: none;
+  border: 1px solid;
+  float: left;
+  margin: 4px 0 0 5px;
+  font-size: 11px;
+  /* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; */
+}
+
+#vmbMsgDropDownListM option {
+  /*  background-color: #333333;
+  color: white; */
+  border: 1px solid;
+}
+
+.onoffswitch {
+  position: relative;
+  width: 40px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.onoffswitch-checkbox {
+  display: none;
+}
+
+.onoffswitch-label {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid;
+  border-radius: 0px;
+  margin: 0px !important;
+}
+
+.onoffswitch-inner {
+  display: block;
+  width: 200%;
+  margin-left: -100%;
+  transition: margin 0.3s ease-in 0s;
+}
+
+.onoffswitch-inner:before,
+.onoffswitch-inner:after {
+  display: block;
+  float: left;
+  width: 50%;
+  height: 18px;
+  padding: 0;
+  line-height: 15px;
+  font-size: 7px;
+  /*  color: white; */
+  font-weight: bold;
+  box-sizing: border-box;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.onoffswitch-inner:before {
+  content: "ON";
+  padding-left: 1px;
+  /*  background-color: #cccccc;
+  color: #222222; */
+  text-align: left;
+}
+
+.onoffswitch-inner:after {
+  content: "OFF";
+  padding-right: 2px;
+  /*   background-color: #cccccc;
+  color: #222222; */
+  text-align: right;
+}
+
+.onoffswitch-switch {
+  display: block;
+  width: 20px;
+  margin: 0px;
+  /*  background: #ce4343; */
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 20px;
+  transition: all 0.3s ease-in 0s;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+  margin-left: 0;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+  right: 0px;
+  /*  background-color: #009688; */
+}
+/* Popup onoff slider Style ends*/

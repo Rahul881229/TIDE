@@ -1,0 +1,293 @@
+@import "../../assets/variable";
+
+.dark {
+  input {
+    color: $dark-text-color !important;
+  }
+
+  .prev {
+    border-right-color: $dark-text-color !important;
+  }
+
+  .next {
+    border-left-color: $dark-text-color !important;
+  }
+}
+
+.light {
+  input {
+    color: $light-text-color !important;
+  }
+
+  .prev {
+    border-right-color: $light-text-color !important;
+  }
+
+  .next {
+    border-left-color: $light-text-color !important;
+  }
+}
+
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: 1px solid #fff;
+  outline: none;
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+  margin: 0 25px;
+  border-radius: 50%;
+  font-size: 17px;
+  border-bottom: 1px solid #fff;
+  padding-bottom: 15px;
+}
+
+.tab img {
+  height: 25px;
+  width: 25px;
+  margin-top: 4px;
+  object-fit: cover;
+}
+
+/* Change background color of buttons on hover */
+// .tab button:hover {
+//   border: 2px solid $btn-cta-color;
+// }
+/* Create an active/current tablink class */
+
+// .tab button.active {
+//   border: 1px solid $btn-cta-color;
+// }
+
+/* Style the tab content */
+// .tabcontent {
+//   display   : none;
+//   padding   : 35px 16px;
+//   color     : #fff;
+//   font-size : 14px;
+//   border-top: none;
+//   width     : 500px;
+// }
+
+// .tab-btns {
+//   border-bottom : 1px solid #ccc;
+//   padding-bottom: 15px;
+// }
+
+/* Second Part */
+/* The important part */
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  height: auto;
+}
+
+.stepper {
+  display: block;
+  overflow: visible;
+  height: 2.1em;
+  background: transparent;
+  padding: 1px;
+  font-size: 1em;
+}
+
+.stepper input {
+  width: 3em;
+  height: 100%;
+  text-align: center;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font-size: 1em;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.stepper span {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.stepper input:focus {
+  border: none;
+  outline: none;
+}
+
+// .stepper-2 {
+//   margin-top: 20px;
+//   display   : block;
+//   padding   : 12px 0;
+// }
+
+// .stepper-2>span {
+//   margin-left  : 20px;
+//   display      : block;
+//   margin-bottom: 20px;
+//   margin-top   : 20px;
+// }
+
+.stepper-1 span {
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+}
+
+.stepper-1 .prev {
+  border-right: 7px solid #fff;
+}
+
+.stepper-1 .next {
+  border-left: 7px solid #fff;
+}
+
+// .stepper-2 span {
+//   border-left : 7px solid transparent;
+//   border-right: 7px solid transparent;
+// }
+
+// .stepper-2 .prev {
+//   border-bottom: 7px solid #fff;
+// }
+
+// .stepper-2 .next {
+//   border-top: 7px solid #fff;
+// }
+
+.stepper button:focus {
+  outline: none;
+}
+
+.prevTabBtn,
+.nextTabBtn {
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+.prevTabBtn > img,
+.nextTabBtn > img {
+  width: 24px;
+  object-fit: cover;
+}
+
+:host {
+  display: inline-block;
+  width: 100%;
+  contain: content;
+}
+
+:host([background]) {
+  background: var(--background-color, #9e9e9e);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+#btns {
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+  position: relative;
+  top: 35px;
+  cursor: pointer;
+}
+
+#panels {
+  border-top: 1px solid $dark-text-color;
+  padding: 5px 10px;
+  height: 200px;
+  overflow: auto;
+  font-size: 12px;
+  font-family: "trinity", "Open Sans";
+  color: $dark-text-color;
+}
+
+#tabs {
+  -webkit-user-select: none;
+  user-select: none;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+#tabs slot {
+  display: inline-flex;
+  /* Safari bug. Treats <slot> as a parent */
+}
+
+/* Safari does not support #id prefixes on ::slotted
+     See https://bugs.webkit.org/show_bug.cgi?id=160538 */
+
+#tabs ::slotted(*) {
+  margin: 0;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  cursor: pointer;
+  background: transparent;
+  color: $dark-text-color;
+  border: 1px solid $dark-text-color;
+  border-radius: 50%;
+  margin: 0 12px;
+  font-size: 0.8rem;
+  outline: none;
+  z-index: 2;
+}
+
+#tabs ::slotted(button:not(:disabled):not(.disabled)) {
+  cursor: pointer;
+}
+
+#tabs ::slotted([aria-selected="true"]) {
+  /* font-weight: 600;
+    background: #b7b7b7;
+    box-shadow: none; */
+  border: 1px solid $primary-bg-color !important;
+}
+
+#tabs ::slotted(.disabled),
+#tabs ::slotted(:disabled) {
+  color: #7b7b7b !important;
+  border-color: #7b7b7b !important;
+}
+
+#tabs ::slotted(:focus) {
+  z-index: 1;
+  /* make sure focus ring doesn't get buried */
+}
+
+#panels ::slotted([aria-hidden="true"]) {
+  display: none;
+}
+
+.dark {
+  ::slotted(*) {
+    /* color: $dark-text-color !important; */
+    border-color: $dark-text-color !important;
+  }
+  #panels {
+    border-top-color: $dark-text-color !important;
+    color: $dark-text-color !important;
+  }
+}
+
+.light {
+  ::slotted(*) {
+    /* color: $light-text-color !important; */
+    border-color: $light-text-color !important;
+  }
+  #panels {
+    border-top-color: $light-text-color !important;
+    color: $light-text-color !important;
+  }
+}

@@ -1,0 +1,230 @@
+@import "../../assets/variable";
+
+.dark {
+  .showSelected {
+    background-color: $dark-bg-color !important;
+    color: $dark-text-color !important;
+    border-color: $default-border-color !important;
+  }
+
+  .selectListDiv {
+    // border-color: 1px solid $light-bg-color !important;
+    background-color: $dark-theme-bg !important;
+  }
+
+  .showSelected::after {
+    border-top-color: $dark-arrow-border-color !important;
+  }
+
+  .search-input-box {
+    background-color: $dark-bg-color !important;
+    color: $dark-text-color !important;
+  }
+
+  .options-container .option {
+    color: $dark-text-color !important;
+  }
+}
+
+.light {
+  .showSelected {
+    background-color: $light-bg-color !important;
+    color: $light-text-color !important;
+    border-color: $light-text-color !important;
+  }
+
+  .selectListDiv {
+    // border-color: 1px solid $light-bg-color !important;
+    background-color: $light-bg-color !important;
+  }
+
+  .showSelected::after {
+    border-top-color: $light-arrow-border-color !important;
+  }
+
+  .search-input-box {
+    background-color: $light-bg-color !important;
+    color: $light-text-color !important;
+    border-bottom-color: $dark-bg-color !important;
+  }
+
+  .options-container .option {
+    color: $light-text-color !important;
+  }
+}
+
+.select-box {
+  font-family: "trinity", "Open Sans";
+  min-width: 150px;
+  font-size: $form-default-font-size;
+  position: relative;
+  text-align: initial;
+}
+
+.select-box .options-container {
+  // background: #262626;
+  // color: #fff;
+  width: 100%;
+  z-index: 3;
+  overflow-y: auto;
+  height: auto;
+  max-height: 160px;
+  padding-bottom: 5px;
+}
+
+.showSelected {
+  //  background: $dark-bg-color;
+  // color: #f5f6fa;
+  position: relative;
+  padding: 7px 10px;
+  cursor: pointer;
+  top: 0px;
+  border: 1px solid #131313;
+}
+
+.showSelected::after {
+  content: "";
+  position: absolute;
+  right: 10px;
+  left: auto;
+  top: 10px;
+  height: 0;
+  width: 0;
+  border-top: 5px solid #fff;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+}
+
+.showSelected.lang::after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  right: auto;
+  top: 10px;
+  height: 0;
+  width: 0;
+  border-top: 5px solid #fff;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+}
+
+.showSelected.sm {
+  padding: 2px 10px;
+}
+
+.showSelected.lg {
+  padding: 9px 10px;
+}
+
+.select-box.transparent .showSelected {
+  border: 0 !important;
+}
+
+.select-box .selectListDiv {
+  display: none;
+  border: 1px solid #000000;
+  display: none;
+  background-color: #262626;
+  position: absolute;
+  width: 99.9%;
+  z-index: 3;
+}
+
+.select-box .selectListDiv.active {
+  display: block;
+  // max-height: 240px;
+  // opacity: 1;
+  // overflow-y: auto;
+  /*  margin-top: 54px; */
+}
+
+.select-box .options-container::-webkit-scrollbar {
+  width: 8px;
+  background: #fff;
+}
+
+.select-box .options-container::-webkit-scrollbar-thumb {
+  background: $drpdon-select-color;
+}
+
+.options-container .option {
+  padding: 5px;
+  cursor: pointer;
+  // color: #fff;
+}
+
+.options-container .option.selected {
+  background-color: #404040;
+  color: #fff;
+}
+
+.options-container .option:hover {
+  background: $drpdon-select-color;
+}
+
+.select-box label {
+  cursor: pointer;
+}
+
+.options-container .option .radio {
+  display: none;
+}
+
+/* Searchbox */
+.search-box {
+  display: none;
+}
+
+.search-input-box {
+  /* padding: 10px 5px;
+  font-size: 1.8vh;
+  outline: none;
+  background: #404040;
+  color: #fff;
+  z-index: 3;
+  border: 1px solid transparent;
+  width: 98.5%;
+  display: block; */
+  outline: none;
+  background: #404040;
+  color: #fff;
+  opacity: 1;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 6px;
+  border: 1px solid transparent;
+  font-size: 12px;
+  display: block;
+}
+
+.search-input-box.hide {
+  display: none;
+}
+
+.left-border,
+.right-border {
+  display: none;
+  width: 8px;
+  height: 8px;
+  background: #404040;
+  position: absolute;
+  top: 65px;
+  z-index: 4;
+}
+
+.right-border {
+  right: 5px;
+}
+
+.make-active {
+  display: inline-block;
+}
+
+.search-box input:focus {
+  outline: none;
+}
+
+.select-box .search-box input {
+  opacity: 1;
+  pointer-events: auto;
+}

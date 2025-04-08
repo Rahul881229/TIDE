@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_2448" data-name="Rectangle 2448" width="32" height="32" transform="translate(235 164)" fill="#131313" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <rect id="Rectangle_2453" data-name="Rectangle 2453" width="23" height="23" transform="translate(0 0.757)" fill="#131313"/>
+    </clipPath>
+    <clipPath id="clip-Dashboard_1">
+      <rect width="32" height="32"/>
+    </clipPath>
+  </defs>
+  <g id="Dashboard_1" data-name="Dashboard – 1" clip-path="url(#clip-Dashboard_1)">
+    <rect width="32" height="32" fill="rgba(255,255,255,0)"/>
+    <g id="Mask_Group_38" data-name="Mask Group 38" transform="translate(-235 -163.65)" clip-path="url(#clip-path)">
+      <g id="Mask_Group_43" data-name="Mask Group 43" transform="translate(240 168.243)" clip-path="url(#clip-path-2)">
+        <g id="growth" transform="translate(0 0.023)">
+          <path id="Path_3841" data-name="Path 3841" d="M23.734,21.031H22.343v-14H18.125v14H16.734V12.594H12.562v8.437H11.172V9.813H7V21.031H5.609V13.985H1.391v7.046H0v1.391H23.734Z" transform="translate(0 1.313)" fill="#131313"/>
+          <path id="Path_3842" data-name="Path 3842" d="M23.7,5.563V0H18.093V1.391h3.235L14.616,8.056,9.054,2.493.172,11.329l.983.983,7.9-7.852,5.563,5.563,7.7-7.649V5.563Z" transform="translate(0.032)" fill="#131313"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

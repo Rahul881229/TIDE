@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="217.552" height="217.552" viewBox="0 0 217.552 217.552">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_4468" data-name="Rectangle 4468" width="107" height="107" transform="translate(-9565 6247)" fill="#bfbfbf" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="VMD_Inactive_map_view" data-name="VMD Inactive map view" transform="translate(-1518.712 -291.894)">
+    <circle id="Ellipse_331" data-name="Ellipse 331" cx="102.072" cy="102.072" r="102.072" transform="translate(1525.416 298.598)" fill="#bfbfbf"/>
+    <path id="Path_8404" data-name="Path 8404" d="M83.277,0A83.277,83.277,0,1,1,0,83.277,83.277,83.277,0,0,1,83.277,0Z" transform="translate(1544.212 317.393)" fill="#404040"/>
+    <g id="VMD_Inactive" data-name="VMD Inactive" transform="translate(11138.988 -5900.258)" clip-path="url(#clip-path)">
+      <g id="signage" transform="translate(-9551.942 6260.058)">
+        <path id="Path_8508" data-name="Path 8508" d="M78.54,0H2.37A2.37,2.37,0,0,0,0,2.37V53.15a2.37,2.37,0,0,0,2.37,2.37H78.54a2.37,2.37,0,0,0,2.37-2.37V2.37A2.37,2.37,0,0,0,78.54,0ZM37.748,42.994a2.37,2.37,0,0,1-2.37,2.37H12.526a2.37,2.37,0,0,1-2.37-2.37V22.682a2.37,2.37,0,0,1,2.37-2.37H35.377a2.37,2.37,0,0,1,2.37,2.37Zm20.481-2.708H45.533a2.37,2.37,0,0,1,0-4.741H58.228A2.37,2.37,0,0,1,58.228,40.287ZM68.384,30.131H45.533a2.37,2.37,0,0,1,0-4.741H68.384A2.37,2.37,0,0,1,68.384,30.131Zm0-15.234H12.526a2.37,2.37,0,0,1,0-4.741H68.384A2.37,2.37,0,0,1,68.384,14.9Z" fill="#bfbfbf"/>
+        <path id="Path_8509" data-name="Path 8509" d="M55.56,158.533H73.67V174.1H55.56Zm15.4,51.117H68.255v-13.2a2.711,2.711,0,0,1,2.708-2.707H50.65a2.711,2.711,0,0,1,2.707,2.707v13.2H50.65a2.37,2.37,0,0,0,0,4.741H70.962A2.37,2.37,0,0,0,70.962,209.65Zm40.624,0h-2.708v-13.2a2.711,2.711,0,0,1,2.708-2.707H91.274a2.711,2.711,0,0,1,2.707,2.707v13.2H91.274a2.37,2.37,0,0,0,0,4.741h20.312A2.37,2.37,0,0,0,111.586,209.65Z" transform="translate(-40.663 -133.48)" fill="#bfbfbf"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,111 @@
+.pagination {
+    display: -ms-flexbox;
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    border-radius: 0.25rem;
+}
+
+.pagination .page-item {
+    margin: 0 2px;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    background-color: transparent;
+}
+
+// .pagination.sm .page-item {
+//     min-width: 25px;
+//     height: 25px;
+// }
+
+// .pagination.lg .page-item {
+//     min-width: 35px;
+//     height: 35px;
+// }
+
+.pagination .page-link {
+    color: #bfbfbf;
+    background-color: #3f3f3f;
+    border: 1px solid #1d1d1d;
+    font-size: 12px;
+    font-family: sans-serif;
+    min-width: 30px;
+    display: flex;
+    height: 30px;
+    align-items: center;
+    justify-items: center;
+}
+
+.pagination.light .page-link {
+    color: #000;
+    background-color: #fff;
+    border: 1px solid #404040;
+}
+
+.pagination.sm .page-link {
+    font-size: 10px;
+    min-width: 25px;
+    height: 25px;
+}
+
+.pagination.lg .page-link {
+    font-size: 14px;
+    min-width: 35px;
+    height: 35px;
+}
+
+.pagination .page-link label {
+    width: 100%;
+    text-align: center;
+}
+
+.pagination .page-link img {
+    width: 14px;
+    height: 14px;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+
+.pagination.light .page-link img {
+    filter: brightness(40%);
+}
+
+.pagination[lang="ar"] .page-link img {
+    transform: rotate(180deg);
+}
+
+.pagination.sm .page-link img {
+    width: 10px;
+    height: 10px;
+}
+
+.pagination.lg .page-link img {
+    width: 16px;
+    height: 16px;
+}
+
+.pagination .page-link-text {
+    background-color: transparent;
+    border: 0;
+    color: #bfbfbf;
+}
+
+.pagination.light .page-link-text {
+    color: #000;
+    border: 0;
+}
+
+.pagination .page-item.active .page-link {
+    z-index: 1;
+    color: #bfbfbf;
+    background-color: #009688;
+    border: 1px solid #1d1d1d;
+    text-decoration: none;
+}
+
+.pagination.light .page-item.active .page-link {
+    color: #fff;
+    background-color: #919191;
+}

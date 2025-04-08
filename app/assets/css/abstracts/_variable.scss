@@ -1,0 +1,69 @@
+$themes: (trinity: (primaryBackgroundColor:#FFFFFF,
+    secondaryBackgroundColor:#F2F2F2,
+    tertiaryBackgroundColor:#BFBFBF,
+    quaternaryBackgroundColor:#8C8C8C,
+
+    primaryTextColor: #131313,
+    secondaryTextColor: #262626,
+    ternaryTextColor: #404040,
+
+    redTextColor:#C00000,
+    yellowTextColor:#E68619,
+    tealTextColor:#1CBECA,
+
+    buttonPrimaryColor: #009688,
+  ),
+  honeywell: (primaryBackgroundColor:#FFFFFF,
+    secondaryBackgroundColor:#F2F2F2,
+    tertiaryBackgroundColor:#BFBFBF,
+    quaternaryBackgroundColor:#8C8C8C,
+
+    primaryTextColor: #131313,
+    secondaryTextColor: #262626,
+    ternaryTextColor: #404040,
+
+    redTextColor:#C00000,
+    yellowTextColor:#E68619,
+    tealTextColor:#1CBECA,
+
+    buttonPrimaryColor: #009688,
+  ),
+  light: (primaryBackgroundColor:#FFFFFF,
+    secondaryBackgroundColor:#F2F2F2,
+    tertiaryBackgroundColor:#BFBFBF,
+    quaternaryBackgroundColor:#8C8C8C,
+
+    primaryTextColor: #131313,
+    secondaryTextColor: #262626,
+    ternaryTextColor: #404040,
+
+    redTextColor:#C00000,
+    yellowTextColor:#E68619,
+    tealTextColor:#1CBECA,
+
+    buttonPrimaryColor: #009688,
+  ),
+  dark: (primaryBackgroundColor:#131313,
+    secondaryBackgroundColor:#262626,
+    tertiaryBackgroundColor:#404040,
+    quaternaryBackgroundColor:#8C8C8C,
+
+    primaryTextColor: #FFFFFF,
+    secondaryTextColor: #F2F2F2,
+    ternaryTextColor: #BFBFBF,
+
+    redTextColor:#C00000,
+    yellowTextColor:#E68619,
+    tealTextColor:#1CBECA,
+
+    buttonPrimaryColor: #009688,
+  ),
+  nautica: (backgroundColor: #222,
+    textColor: #ddd,
+    buttonTextColor: #aaa,
+    buttonTextTransform: uppercase,
+    buttonTextHoverColor: #ddd,
+    buttonColor: #333,
+    buttonBorder: 1px solid #aaa,
+  ),
+);

@@ -1,0 +1,41 @@
+t-layout {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  t-pagelayout {
+    width: 100%;
+    display: flex;
+  }
+  t-pagelayout-25 {
+    width: 25%;
+    display: flex;
+  }
+  t-pagelayout-30 {
+    width: 30%;
+    display: flex;
+  }
+  t-pagelayout-40 {
+    width: 40%;
+    display: flex;
+    color: red;
+  }
+  t-pagelayout-50 {
+    width: 50%;
+    display: flex;
+    color: red;
+  }
+  t-pagelayout-60 {
+    width: 60%;
+    display: flex;
+    color: green;
+  }
+  t-pagelayout-70 {
+    width: 70%;
+    display: flex;
+  }
+  t-pagelayout-90 {
+    width: 60%;
+    display: flex;
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "tide",
+  "version": "2.3.2",
+  "description": "",
+  "main": "tide.min.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "publishConfig": {
+    "registry": "http://dockerhubtsf.trinityiot.in:8081/repository/Trinity_npm/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

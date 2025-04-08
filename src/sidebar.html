@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <t-sidebar theme="dark" class="tsidebar" theme="" lang='' slot="sidebar">
+        <div class="tmenu" slot="menu">
+            <ul>
+                <li>
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAABHNCSVQICAgIfAhkiAAABFhJREFUWEe9mEFrJVUQhU8FjAYXY3azM/EP+NwFXMyrJgvBhePWjYkrd5NB98YfIIm4FmfA/WRgNtm8yhB0pc4M/gAzOxHUIIKCSUrOpe7jpqdf3/a9iQ2BPOjb/d2qU1XntqBymdlNAF8BeAXAKQBV1cd9y8xsF8AncQ/v5RqurV5Su2MymRyJyBEA/m25+1rTNOMKkAN4lxtw912uV1VCVq+hQLuqesSdu/t4CJCqpmdHtBii4UBmtgbgnUhLexdbALYzEID3AdypbJUbKIFuADgAcF9VT/rWipkx/Pfc/QmBROT1+D/nfCQiN4sI7QDo1ZCI3CiB3J2bOuGzmUo+axYUgR4BuKuq+xFi7uRUVfkQhIbM3aklamh9SMrcncVwKiJM1UOmzMy4mVuqut4HRAGyChI1q8rdd/JLGUF3vyMir7r704hWrcp2QszX3P1hrDmNbFiOXhcUI9QGIsBuLQrVcum4YW4gaqqmk3mAomhG80RoX0SY7+d9jQDsAVillgDwN6uOGqN20ZsyM8vd9nmAPY2XWzTMJ9Fw11gAInJPVbdrQNTX3XjQ3FBspmn3IowCI8S+Nu1l7IPu/pgVOQRoWoHzEkW3Zoo4D2/nFlM+z8zYUrb+LyD2uFvRNn7vGra5Aq8ciDsPt8DUsz+xweZWM3UAEaGdKwVqwXAGbnOmtaHMjKlME+PKgAqYJODydwuKNoWzVJqmGWUgKj5PYSo+zat2Fx8q6jZMXjcDKg1zERnTxBGo7VMIlExYAJWwQ5gYfjbVHJkkaFoW9pkC6jatDCOTYVJraL8hhmmaZZz0QwiKe2hVrhUw9Fk/sao4t/MQj6m/V0YmP6MXyMyuq+rPx8fHq2dnZy9y0fn5+T+bm5u/dmwkV9OlpjeZTGhBHrn7GyLCUcHKop25FJkqkIi8BeCvpaWl1y4uLr4A8DYXufu3TdO82W5qUdo5TUyZq+rn4UYJy9T3wlRTxnKk0A4PD19eXl5+ISDOVPXPLqFGNSUvFOaM5j4ZvShtpo1RWp11Cqlp6Jt2akTkR1X9MF7yTJrMjJGgjnjiyNVKoTNN69RYr/2oiPqDDqBfVPVBUS2MAkWbLjMb0WGGP6eNZTvJmmHkONVnnnZqov6oAKJn+S5eyhfRxH1Ku5utQ8fmcmSSgCNd/Ra2L0Jm9mCqfpEvx+MxIRgFtnmWdIpMjILkZ4pIXYKhZgZZ2AoQX5qulZWV3zY2Nv6IqmFvuQ+A561noLKA26W9EFAu+wL4Y1X9LE9lzp0QMA+Yl6CYmq4+sxBQjI6XMpCq/h3pous7UdXkuVtQOU3T2dTqV9TR/BqaTCbfFxraU9WvzSwbrOnZrIA6mdWBA35hoPcKoB8AXHf3g6ZpGAlGJ38TYNXxPNcZmULoiwF1nDrYZflQ9hlC0BnwZMo0HtQ+JCysoVnTXkTY7OgECDHoQ9RCKeNRhQ2v3RIW/R3Tfv8/d+rwLou+f+b6PqB/ASTnxfzG57+EAAAAAElFTkSuQmCC"
+                        alt="MENU" />
+                    <div> Menu 1 </div>
+                </li>
+                <li class="submenu active">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAABHNCSVQICAgIfAhkiAAAA2RJREFUWEfNl/F1GjEMxqUJmk4QOkHTCYpugbBByQSlG5AJSiYoTBC6gJVO0GxQMkHZQH2fK+eZ4w77COTl/oFwF/sn6dMnH9Mbu/iN8dAgIFUdmdklMz+JyOYcwVQDqerUzBZE9EhEV8z8nYjuRGR7SrAqIFW9MrMHZh4BQFUviGhORF+IaCYiq1NB1QIpEa1EZJlv7KALZn5HRN9E5OGlYEUgL9W0aZpx32aqOkE5mfm3gx2tr4NAXhpsclMTvarOzWzKzD+O1VcJCDq5JiKpFa8HAfF/hs6G6qsXyFscQoYuAIXF72o1oqpjM5szsxHRbU2GsfYhIAh4IyJzh1sy82Vt+RK4axBgaAwI/6BNdAJ596ybphnhu4jAe8ijBtgfB6sSr5dxRkRfiWghIrd9me4DgnYgnHkIAWVD2hFdApt5OQaZIzINICL66Out22B9QFOYHpTsmYkuzcz3Ke2ZeKGvQebomcZ6f/NAD2oohPDopUFmNintZjZrmgZOHa+XmGMaR24TEP6WQwhoz3g1TfOr5cTwlVnN3MrMEeLF4r368tJhX+wHkacxNGdVNTPDjQs4rYjctKCQDdS9qjQlc8ztxMzGzDz2CkAW/4FEJGophLBNA7Qttqw0RV/xDCDqPXNM/oRRpKoQ9RozUlVj57aB0FG4kdKNgbqT+pavlEqTm2PsUmjRzDbwJTMTZr4iIszCCSC7gACw8Zk07XJYXxTwMMqDvtLVpZAHEcECsBc0hCR8QvBdQBgRD+4/8XtH+RA5DHKClvfSIAN7vpJ1472ZvWdmeNBzEKoKfcLzsA4NBvL2T520TicCM+PMJqKBZjAxAHf+3BwXZnab67YEhINXe/ag5tBWjAhdhfSLyDTzlbaBpgPeIoRwzczIygq6YWZU4TmzJSA8uBOtD9wo9DTzUuv6b9BHmlv4X7wYPOETmoPFOETn6bIE1KmhBAMmH7J72vHWR3m2aQa2tdj1dwkIQtzJELKBtw5v2UntOacGpihqb88dDfmBDeeknQN/7Yal50oZ6i1ZaeFj7x9yahxBqg73x25eq6Ho1P7w8lyvzH1B9JbslFEPWesZyB0XM+VD6SA+ZIOhz0YgIoJJwTN+JgceutCpngdQekUeZGCnAmivU3y3P9fGvaJ+7Q1L+/0DYim9hsT3YF8AAAAASUVORK5CYII="
+                        alt="MENU" />
+                    <div> Department Admin </div>
+                    <ul>
+                        <li class="active">Menu 2-1</li>
+                        <li>Menu 2-2</li>
+                    </ul>
+                </li>
+                <li>
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAABHNCSVQICAgIfAhkiAAAAx1JREFUWEftmI1R21AQhO8qCFRAqABTAZwaiOkAKghUAFQQqABSQUgDelBBTAWBCuIOLvNp7nkkISEbpBkmkzfj8Y8sad/e3u7ZKh9s6QfDI5MDSimdisgXEbk1s+9DBEwKKKV0ISLn7v6gqgcicmJmt6+BmgxQSumziCR3fy6K4rAsy4WqPpnZ/E2AuKC779RPVtVnM3saoj2lxE1vRGQLdgLQPefxemNAKaUZu+OCHScfmdld10VTStzsXER4/unusLQcA9Ctux+q6mFmJKUEOOq/Y2b7GVCUBtEei8jM3R9V9dTM7suyXLFSf70RQ7HLb8FOW4DsnAdi5RkGeLDoIDqpAsFaF1BU5IeI2ErUUXeA5Bv0bgRdcFBVFyJy31fCNqDotAszu6wxXMkjxD+rAKWUoPsm2hO6F7QsZcsibL8fEnYPQzNV/RRMnuR7u/uxqs7NbKmhgd9QbmYAq9YYgFJKiH/JdTNbqooM6MBOTwJQJeCiKBqlGgNQncV6+biniByY2W6baS3LcglqM8PiV2tiQPgUIt6mTHSwu++p6iMMuYhcmhmdMyqgKNmCa7cYokPxOcv2gOARdmboaiJAlTHCQg+gXXwudFx9F4YQ3l67nhOXrFO3lZWEEUJfo2xjAArxEqirkuHiIvJLRM7M7OqFqHOLRwahfoBB4+g+pKqENQJ+rPkbAqfjziqGar5z6u4XYVw50ckv3JhFjevv+ZzvPWCkXUbZ49TXRA+6CjJyx9HpJ415KAJ0DrCIhkaWReDSDUTHlqruBRCAocXr+niyQZZVSSEi+50DWgi9keqxmztGiqIoyJ/s6OyQTcxzLOSyrwuozm4foExjVyVeeFYN3HGUHa2gwaNR5qFWbRkrKAmDFyVpOHoX4jxLc2yUiTEANdy0z9G7AMX5DGvo6undE+MYgGp28pWZCZ31ec+ghkYEhE2gJeYgMm2w3L0/g2oOXgXgpiXrK+XQ5/8B/ZsMRZ79WadLhhgYOr6OhghOEnpbVWfr/JQeuulrx18DRLpfuTshilMzVXam+nsAtM+d7N+Pt4L8cID+AqMvs+GdLFc/AAAAAElFTkSuQmCC"
+                        alt="MENU" />
+                    <div>Menu 3</div>
+                </li>
+                <li class="submenu">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAABHNCSVQICAgIfAhkiAAAAZtJREFUWEftWNFRwlAQ3KtAOlArACuQowG1ArECsQKlArUC6UBogMUKhArEDqCCcy4TmBBj3uMnw+C7v0z2Zo/jbve9CMknAI8Ix52qjki2AHwCOAukLAFcqOqKZB/AW5gCQ5lOpzMRuQyBzeyj1+t1SXYBMITP36uqzvbhKBaUJZeJNgWUC9o8VxVWKKBc0FBV/R/ZiSJHKih1yIfjaGdoBMC1oxyuN/2KtXes51SF647nlbfMt/jXJufYjENIjgFcRejKq6oOSDrRVwTeIeequiT5AuA+ImfiBbnydiLAc1ddx5F0vOfVxUpV5zk+mkMiCmkUknXIzNohVhFZFDtkZid1OSKyLnYolqOpGfLhvw39aACTrXWY2QJANiOlaIlIu8LL1gCyGamIjoh4B3e2zMy+/9jkLUfysuRlPk9H62UHd2KslYnGztQkBwCeI0TrRlXHubLPReS0Lsc1R0Q6+a3jGsB7BMfD4XlZRNWNQv6tucYf0DYilsy1MJnp5lrwtnS3zybjaN3+YMw1VrS2n/TMbF9zjf6k9wNXm+OXLPaumgAAAABJRU5ErkJggg=="
+                        alt="MENU" />
+                    <div>Menu 4 </div>
+                    <ul>
+                        <li>Menu 4-1</li>
+                        <li>Menu 4-2</li>
+                    </ul>
+                </li>
+                <li>
+                    <div>Menu 5</div>
+                </li>
+            </ul>
+        </div>
+    </t-sidebar>
+    <script src="./src/side.js">
+  
+    </script>
+</body>
+</html>

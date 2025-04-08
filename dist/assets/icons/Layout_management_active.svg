@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="53" height="53" viewBox="0 0 53 53">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_4392" data-name="Rectangle 4392" width="53" height="53" transform="translate(17 473)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Layout_management_active" data-name="Layout management active" transform="translate(-17 -473)" clip-path="url(#clip-path)">
+    <g id="layout" transform="translate(17 473)">
+      <path id="Path_7917" data-name="Path 7917" d="M6.019,5.942h14.5V39.133H6.019Z" transform="translate(3.95 3.899)" fill="#fff"/>
+      <path id="Path_7918" data-name="Path 7918" d="M17.3,5.942H31.8V20.613H17.3Z" transform="translate(11.356 3.899)" fill="#fff"/>
+      <path id="Path_7919" data-name="Path 7919" d="M17.3,17.123H31.8V31.794H17.3Z" transform="translate(11.356 11.237)" fill="#fff"/>
+      <path id="Path_7920" data-name="Path 7920" d="M53,8.352V0H44.648V2.623H8.352V0H0V8.352H2.623v36.3H0V53H8.352V50.377h36.3V53H53V44.648H50.377V8.352Zm-5.729,36.3H44.648v2.623H8.352V44.648H5.729V8.352H8.352V5.729h36.3V8.352h2.623Z" transform="translate(0)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

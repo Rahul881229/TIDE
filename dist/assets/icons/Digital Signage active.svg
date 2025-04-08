@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="180" height="180" viewBox="0 0 180 180">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_4384" data-name="Rectangle 4384" width="180" height="180" transform="translate(-9461 6034)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Digital_Signage_active" data-name="Digital Signage active" transform="translate(9461 -6034)" clip-path="url(#clip-path)">
+    <g id="billboard" transform="translate(-9444.817 6050.591)">
+      <path id="Path_7876" data-name="Path 7876" d="M74.18,158.555h25.882V176.1H74.18Zm0,0" transform="translate(-13.501 -28.857)" fill="#fff"/>
+      <path id="Path_7877" data-name="Path 7877" d="M46.853,53.086A4.314,4.314,0,1,0,51.166,57.4,4.316,4.316,0,0,0,46.853,53.086Zm0,0" transform="translate(-7.742 -9.662)" fill="#fff"/>
+      <path id="Path_7878" data-name="Path 7878" d="M121.07,8.627H129.7V0H103.816V8.627h8.627v8.627H77.934V8.627h8.627V0H60.679V8.627h8.627v8.627H34.8V8.627h8.627V0H17.542V8.627H26.17v8.627H0V80.461L21.856,58.893,39.111,76.147,64.993,50.265l44.923,44.923H147.24V17.255H121.07ZM39.111,60.679A12.941,12.941,0,1,1,52.052,47.738,12.956,12.956,0,0,1,39.111,60.679Zm90.875,17.255H112.443V69.306h17.542Zm0-17.255h-34.8V52.052h34.8Zm0-25.882v8.627h-34.8V34.8Zm0,0" fill="#fff"/>
+      <path id="Path_7879" data-name="Path 7879" d="M64.993,76.363,39.111,102.245,21.856,84.991,0,106.559v2.528H97.716Zm0,0" transform="translate(0 -13.898)" fill="#fff"/>
+      <path id="Path_7880" data-name="Path 7880" d="M0,126.914H147.24v17.255H0Zm0,0" transform="translate(0 -23.099)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

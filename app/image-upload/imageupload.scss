@@ -1,0 +1,51 @@
+:host {
+    font-family: "trinity", "Open Sans";
+}
+
+article {
+    display: flex;
+    align-items: center;
+}
+
+.file-upload-content {
+    border: 1px solid #131313;
+    padding: 2px 6px 2px 6px;
+    border-radius: 2px;
+    margin-right: 5px;
+    text-align: -webkit-center;
+}
+
+.dark {
+    background-color: #404040;
+    color: #fff;
+}
+
+.light {
+    background-color: #fff;
+    color: #404040;
+}
+
+.disabled {
+    background-color: #8c8c8c;
+    cursor: not-allowed;
+}
+
+.sm {
+    height: 3vh;
+    font-size: 12px;
+}
+
+.lg {
+    height: 3.5vh;
+    font-size: 14px;
+}
+
+button {
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+.image-content {
+    color: #fff;
+}

@@ -1,0 +1,95 @@
+.dark {
+  .rating-label {
+    color: #ffffff !important;
+  }
+  .star-rating-wrap {
+    border-color: #ffffff !important;
+  }
+  .rating__icon--star {
+    background-color: #ffffff;
+  }
+}
+
+.light {
+  .rating-label {
+    color: #000000 !important;
+  }
+  .star-rating-wrap {
+    border-color: #000000 !important;
+  }
+  .rating__icon--star {
+    background-color: #000000;
+  }
+}
+
+.rating-group {
+  display: inline-flex;
+}
+
+.rating-label {
+  color: #ffffff;
+  margin: 5px;
+  font-family: "trinity", "Open Sans";
+}
+
+/* make hover effect work properly in IE */
+.rating__icon {
+  pointer-events: none;
+}
+
+/* hide radio inputs */
+.rating__input {
+  position: absolute !important;
+  left: -9999px !important;
+}
+
+/* hide 'none' input from screenreaders */
+.rating__input--none {
+  display: none;
+}
+
+/* set icon padding and size */
+.rating__label {
+  cursor: pointer;
+  padding: 3px 0;
+}
+
+.star-rating-wrap {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  transform: rotate(45deg);
+  border: 1px solid #ffffff;
+  position: relative;
+  margin: 0 8px;
+}
+
+/* set default star color */
+.rating__icon--star {
+  background-color: #ffffff;
+  height: 10px;
+  width: 10px;
+}
+
+.star {
+  position: absolute;
+  top: 2px;
+  left: -5px;
+  display: inline-block;
+  margin: 0 7px;
+}
+
+/* if any input is checked, make its following siblings grey */
+.rating__input:checked ~ .rating__label .rating__icon--star {
+  background-color: transparent;
+}
+
+/* make all stars orange on rating group hover */
+/* .rating-group:hover .rating__label .rating__icon--star {
+  background-color: #fff;
+} */
+
+/* make hovered input's following siblings grey on hover */
+/* .rating__input:hover ~ .rating__label .rating__icon--star {
+  background-color: transparent;
+} */

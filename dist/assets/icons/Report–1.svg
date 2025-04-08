@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <clipPath id="clip-Report_1">
+      <rect width="32" height="32"/>
+    </clipPath>
+  </defs>
+  <g id="Report_1" data-name="Report – 1" clip-path="url(#clip-Report_1)">
+    <rect width="32" height="32" fill="rgba(255,255,255,0)"/>
+    <g id="profit-report" transform="translate(7 4.588)">
+      <g id="Group_34437" data-name="Group 34437" transform="translate(13.185)">
+        <g id="Group_34436" data-name="Group 34436" transform="translate(0)">
+          <path id="Path_8238" data-name="Path 8238" d="M320,0V5.093h5.093Z" transform="translate(-320)" fill="#131313"/>
+        </g>
+      </g>
+      <g id="Group_34439" data-name="Group 34439" transform="translate(0)">
+        <g id="Group_34438" data-name="Group 34438" transform="translate(0)">
+          <path id="Path_8239" data-name="Path 8239" d="M76.185,7.616a1.526,1.526,0,0,1-1.523-1.523V0H65.523A1.526,1.526,0,0,0,64,1.523V22.847a1.525,1.525,0,0,0,1.523,1.523H80.754a1.524,1.524,0,0,0,1.523-1.523V7.616ZM70.092,21.324H67.046V16.754h3.046Zm4.569,0H71.616V13.708h3.046Zm4.569,0H76.185V10.662h3.046Z" transform="translate(-64)" fill="#131313"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

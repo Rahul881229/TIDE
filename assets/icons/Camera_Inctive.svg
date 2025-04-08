@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="180" height="180" viewBox="0 0 180 180">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_4451" data-name="Rectangle 4451" width="180" height="180" transform="translate(1957 3311)" fill="#bfbfbf" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Camera_Inctive" data-name="Camera Inctive" transform="translate(-1957 -3311)" clip-path="url(#clip-path)">
+    <g id="photo-camera-interface-symbol-for-button" transform="translate(1960 3312)">
+      <path id="Path_8410" data-name="Path 8410" d="M91.484,82.377A22.31,22.31,0,1,1,69.173,60.065,22.336,22.336,0,0,1,91.484,82.377ZM138.345,50.7v63.371a15.3,15.3,0,0,1-15.3,15.3H15.3A15.3,15.3,0,0,1,0,114.066V50.7A15.3,15.3,0,0,1,15.3,35.4H34.114V30.1A13.383,13.383,0,0,1,47.5,16.719H90.846A13.383,13.383,0,0,1,104.231,30.1v5.289h18.816A15.3,15.3,0,0,1,138.345,50.7ZM102.958,82.377a33.783,33.783,0,1,0-33.785,33.785A33.824,33.824,0,0,0,102.958,82.377Z" transform="translate(18 14)" fill="#bfbfbf"/>
+    </g>
+  </g>
+</svg>

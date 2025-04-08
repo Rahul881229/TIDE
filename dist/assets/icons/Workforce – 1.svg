@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <clipPath id="clip-Workforce_1">
+      <rect width="32" height="32"/>
+    </clipPath>
+  </defs>
+  <g id="Workforce_1" data-name="Workforce – 1" clip-path="url(#clip-Workforce_1)">
+    <rect width="32" height="32" fill="rgba(255,255,255,0)"/>
+    <g id="engineer" transform="translate(5 5.046)">
+      <path id="Path_8387" data-name="Path 8387" d="M241.675,0A.668.668,0,0,0,241,.675v.674h1.348V.675A.668.668,0,0,0,241.675,0Z" transform="translate(-230.175)" fill="#131313"/>
+      <path id="Path_8388" data-name="Path 8388" d="M127.063,34.046a.667.667,0,0,1-.674-.674V30h-.674a3.37,3.37,0,0,0-3.368,3.371v2.022h-.674a.674.674,0,0,0,0,1.348h10.776a.674.674,0,0,0,0-1.348h-.674V33.372A3.37,3.37,0,0,0,128.41,30h-.674v3.371A.667.667,0,0,1,127.063,34.046Z" transform="translate(-115.562 -28.652)" fill="#131313"/>
+      <path id="Path_8389" data-name="Path 8389" d="M160.439,210H151v.764a4.719,4.719,0,0,0,9.438,0Z" transform="translate(-144.22 -200.568)" fill="#131313"/>
+      <path id="Path_8390" data-name="Path 8390" d="M172.216,332l3.289,3.289a.674.674,0,0,0,.953,0L179.744,332a5.934,5.934,0,0,1-7.528,0Z" transform="translate(-164.481 -317.087)" fill="#131313"/>
+      <path id="Path_8391" data-name="Path 8391" d="M120,340.091h12.213V332h-.44l-4.239,4.242a2.018,2.018,0,0,1-2.857,0L120.441,332H120Z" transform="translate(-114.607 -317.09)" fill="#131313"/>
+      <path id="Path_8392" data-name="Path 8392" d="M425.913,341.4a.672.672,0,0,0,.1-.6l-1.464-4.828A3.341,3.341,0,0,0,422,333.657v8.016h3.371A.675.675,0,0,0,425.913,341.4Z" transform="translate(-403.046 -318.672)" fill="#131313"/>
+      <path id="Path_8393" data-name="Path 8393" d="M4.045,341.672v-8.016a3.341,3.341,0,0,0-2.552,2.317L.029,340.8a.675.675,0,0,0,.645.87Z" transform="translate(0 -318.671)" fill="#131313"/>
+    </g>
+  </g>
+</svg>

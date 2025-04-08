@@ -1,0 +1,287 @@
+@import "../../assets/variable";
+// @import "../app/style.css";
+
+
+/* Styles for top position */
+.menu.menu-top {
+  top: auto;
+  bottom: 100%;
+  left: auto;
+}
+
+/* Styles for bottom position */
+.menu.menu-bottom {
+  bottom: auto;
+  left: auto;
+}
+
+
+
+/* Additional styles for top and bottom positions */
+.menu.menu-top,
+.menu.menu-bottom {
+  transform: translateX(0%);
+  transition: 0.2s;
+}
+
+.menu.menu-open.menu-top,
+.menu.menu-open.menu-bottom {
+  transform: translateY(0%);
+}
+
+.menu-top .caret,
+.menu-bottom .caret {
+  /* Adjust caret position for top and bottom */
+  border-top: none;
+  border-bottom: 5px solid #fff;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: 0.3s;
+}
+
+/* Adjust caret rotation for top position */
+.menu-top .caret-rotate {
+  transform: translateX(-50%) rotate(180deg);
+}
+
+/* Adjust caret rotation for bottom position */
+.menu-bottom .caret-rotate {
+  transform: translateX(-50%) rotate(0deg);
+}
+
+/* Rest of your existing styles... */
+
+
+.dropdown {
+  min-width: 15em;
+  position: relative;
+  // margin: 2em;
+  font-size: 12px;
+}
+
+.dropdown * {
+  box-sizing: border-box;
+}
+
+.dropdown.sm {
+  font-size: 11px;
+}
+
+.dropdown.lg {
+  font-size: 13px;
+}
+
+.select {
+  background: #404040;
+  color: #a0a0a0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #131313;
+  border-radius: 0;
+  // padding: 1em;
+  // padding: 7px 10px;
+  padding: 0 1em;
+  height: 28px;
+  cursor: pointer;
+  transition: bacground 0.3s;
+}
+
+.select.disabled {
+  color: #bfbfbf !important;
+  background-color: #8e8c8c !important;
+}
+
+.light .select {
+  background: #e7e8e5;
+  color: #000;
+  border: 1px solid #000;
+}
+
+.dropdown.sm .select {
+  height: 25px;
+}
+
+.dropdown.lg .select {
+  height: 32px;
+}
+
+.select-clicked {
+  // border: 2px #26489a solid;
+  // box-shadow: 0 0 0.8em #26489a;
+}
+
+// .selected:hover {
+//   background: #323741;
+// }
+
+.caret {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #fff;
+  transition: 0.3s;
+}
+
+.caret-rotate {
+  transform: rotate(-180deg);
+}
+
+.menu {
+  opacity: 0;
+  display: none;
+  padding: 0 0 0.2em 0;
+  background: #262626;
+  color: #fff;
+  border: 1px solid #131313;
+  border-radius: 0;
+  position: absolute;
+  // top: 3em;
+  // top: 32px;
+  // left: 50%;
+  width: 100%;
+  transform: translateX(0%);
+  transition: 0.2s;
+  z-index: 5;
+}
+
+.light .menu {
+  background: #e7e8e5;
+  color: #000;
+  border: 1px solid #131313;
+}
+
+/* Add this CSS to your dropdown.scss file */
+.menu li.focused {
+  background-color: #404040
+    /* Change to your desired focused background color */
+}
+
+
+// .dropdown.sm .menu {
+//   top: 28px;
+// }
+
+// .dropdown.lg .menu {
+//   top: 38px;
+// }
+
+.menu input {
+  width: 100%;
+  padding: 0.4em 0.5em;
+  background: transparent;
+  color: #fff;
+  border-radius: 0;
+  border: none;
+  border: 1px solid #404040;
+  outline: none;
+}
+
+.light .menu input {
+  color: #000;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.5em 0;
+  max-height: 15vh;
+  overflow-y: auto;
+  // box-shadow: 0 0.5em  1em rgba(0, 0, 0, 0.2em);
+}
+
+
+
+.menu ul li {
+  padding: 0.4em 0.5em;
+  margin: 0.3em 0;
+  border-radius: 0;
+  cursor: pointer;
+  display: block;
+}
+
+.menu ul li:hover {
+  background: #484848;
+}
+
+.light .menu ul li:hover {
+  background: #919191;
+}
+
+
+
+.active {
+  // background: #404040;
+  font-family:"trinity-bold";
+}
+
+.light .active {
+  background: #919191;
+}
+
+.menu-open {
+  display: block;
+  opacity: 1;
+}
+
+.noData {
+  padding: 0 1em;
+}
+
+.menu ul::-webkit-scrollbar {
+  width: 4px;
+  background: #fff;
+}
+
+.menu ul::-webkit-scrollbar-thumb {
+  background: #404040;
+}
+
+
+// .menu-bottom.search-icon,
+// .search-icon {
+//   position: absolute;
+//   left: 7px;
+//   top: 8%;
+//   height: 12px;
+//   color: #555;
+// }
+
+
+// .menu-top.search-icon,
+// .search-icon {
+//   position: absolute;
+//   left: 7px;
+//   color: #555;
+//   height: 13px;
+//   top: 76px;
+// }
+
+// .dropdown.menu-top .search-icon,
+.search-icon-top {
+  position: absolute;
+  left: 7px;
+  color: #555;
+  height: 13px;
+  bottom: 10px;
+}
+
+/* Style for search icon when position is bottom */
+// .dropdown.menu-bottom .search-icon,
+.search-icon-bottom {
+  position: absolute;
+  left: 7px;
+  top: 7px;
+  height: 13px;
+  color: #555;
+}
+
+
+
+.dropdown .menu li.active
+{
+  // border-left: 3px solid green;
+border-left: 3px solid #009688 ;
+}

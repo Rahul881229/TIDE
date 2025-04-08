@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <clipPath id="clip-Route_Management_2">
+      <rect width="32" height="32"/>
+    </clipPath>
+  </defs>
+  <g id="Route_Management_2" data-name="Route Management – 2" clip-path="url(#clip-Route_Management_2)">
+    <rect width="32" height="32" fill="rgba(255,255,255,0)"/>
+    <g id="distance" transform="translate(4.121 5.954)">
+      <path id="Path_8235" data-name="Path 8235" d="M4.123,246.868A4.048,4.048,0,0,0,0,250.827a6.815,6.815,0,0,0,1.868,3.962,18.457,18.457,0,0,0,1.8,1.91l.458.411.458-.411a18.457,18.457,0,0,0,1.8-1.91,6.815,6.815,0,0,0,1.868-3.962A4.048,4.048,0,0,0,4.123,246.868Zm0,5.24a1.282,1.282,0,1,1,0-2.562,1.282,1.282,0,1,1,0,2.562Z" transform="translate(0 -235.842)" fill="#131313"/>
+      <path id="Path_8236" data-name="Path 8236" d="M332.05,26.854a4.26,4.26,0,0,0-4.249,4.262,7.489,7.489,0,0,0,1.925,4.265,19.516,19.516,0,0,0,1.852,2.056l.472.442.472-.442a19.509,19.509,0,0,0,1.852-2.056,7.489,7.489,0,0,0,1.925-4.265A4.26,4.26,0,0,0,332.05,26.854Zm0,5.641a1.379,1.379,0,1,1,1.375-1.379A1.378,1.378,0,0,1,332.05,32.495Z" transform="translate(-312.539 -26.854)" fill="#131313"/>
+      <g id="Group_34435" data-name="Group 34435" transform="translate(8.245 11.026)">
+        <path id="Path_8237" data-name="Path 8237" d="M160.664,239.7h-8.529v-1.2h8.529a1.6,1.6,0,0,0,0-3.207H157.3a2.806,2.806,0,1,1,0-5.612h3.162v1.2H157.3a1.6,1.6,0,1,0,0,3.207h3.363a2.806,2.806,0,0,1,0,5.612Z" transform="translate(-152.135 -229.676)" fill="#131313"/>
+      </g>
+    </g>
+  </g>
+</svg>

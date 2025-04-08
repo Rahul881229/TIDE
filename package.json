@@ -1,0 +1,58 @@
+{
+  "name": "tide",
+  "version": "2.3.2",
+  "description": "Trinity Interface Design Standards",
+  "main": "src/index.js",
+  "unpkg": "dist/tide.min.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "build:production": "cross-env NODE_ENV=production webpack",
+    "start": "webpack serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "Trinity Mobility Pvt Ltd.",
+  "license": "MIT",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "devDependencies": {
+    "@babel/core": "^7.5.0",
+    "@babel/plugin-proposal-class-properties": "^7.16.0",
+    "@babel/preset-env": "^7.5.0",
+    "@babel/preset-react": "^7.16.0",
+    "@fortawesome/fontawesome-free": "^5.15.1",
+    "autoprefixer": "^9.6.0",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.6.0",
+    "cssnano": "^4.1.10",
+    "extract-loader": "^5.1.0",
+    "file-loader": "^6.2.0",
+    "html-loader": "^1.3.2",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.11.2",
+    "postcss-loader": "^3.0.0",
+    "sass": "^1.44.0",
+    "sass-loader": "^7.3.1",
+    "style-loader": "^0.23.1",
+    "uglifyjs-webpack-plugin": "^1.1.2",
+    "url-loader": "^4.1.1",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^3.11.3"
+  },
+  "dependencies": {
+    "@angular/core": "^16.2.0",
+    "@angular/router": "^16.2.0",
+    "@simonwep/pickr": "^1.7.4",
+    "tslib": "^2.6.1",
+    "wavesurfer.js": "^7.7.11"
+  }
+}

@@ -1,0 +1,18 @@
+@import './../abstracts/variable';
+
+/* .header {
+
+
+  @include themify($themes) {
+    color: themed('textColor');
+    background-color: themed('backgroundColor');
+  }
+}
+ */
+.header{
+  @include themify($themes) {
+    color: themed('textColor');
+    background-color: themed('backgroundColor');
+  }
+
+}

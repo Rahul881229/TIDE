@@ -1,0 +1,172 @@
+.dark {
+  .messageBox {
+    color: #ffffff !important;
+    background-color: #262626 !important;
+  }
+}
+
+.light {
+  .messageBox {
+    color: #262626 !important;
+    background-color: #ffffff !important;
+  }
+}
+
+.tAlertContainer {
+  position: fixed;
+  z-index: 10000;
+  width: auto;
+  background-color: transparent;
+}
+
+.tAlertContainer.top-right {
+  right: 0;
+  top: 21px;
+  left: auto;
+  bottom: auto;
+}
+
+.tAlertContainer.top-left {
+  left: 0;
+  top: 21px;
+  right: auto;
+  bottom: auto;
+}
+
+.tAlertContainer.bottom-right {
+  right: 0;
+  bottom: 18px;
+  top: auto;
+  left: auto;
+}
+
+.tAlertContainer.bottom-left {
+  left: 41px;
+  bottom: 18px;
+  top: auto;
+  right: auto;
+}
+
+.tAlertContainer .messageBox {
+  color: #fff;
+  background-color: #262626;
+  width: 320px;
+  margin: 0.5em;
+  border-radius: 0;
+  border: 1px solid #545454;
+  padding: 12px;
+}
+
+.tAlertContainer .messageBox .messageBoxHeader {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 30px;
+  border-bottom: 1px solid #545454;
+  padding: 0 0 10px 0;
+}
+
+.tAlertContainer .messageBox .messageBoxHeader .messageBoxTitle {
+  width: 80%;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  font-size: 16px;
+}
+
+.tAlertContainer .messageBox .messageBoxHeader .messageBoxTitle img {
+  width: 25px;
+  height: 25px;
+  margin: 0 5px;
+}
+
+.tAlertContainer .messageBox .messageBoxHeader .messageBoxTitle label {}
+
+.tAlertContainer .messageBox .messageBoxHeader .messageBoxButton {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.tAlertContainer .messageBox .messageBoxHeader .messageBoxButton button {
+  width: 26px;
+  height: 26px;
+  font-weight: 400;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-size: 10px;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #404040;
+  border: 1px solid #131313;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tAlertContainer .messageBox .messageBoxContent {
+  font-size: 14px;
+  padding: 12px 0;
+  width: 100%;
+}
+
+.tAlertContainer .messageBox .messageBoxContent.onlycontent {
+  display: flex;
+  align-items: center;
+}
+
+.tAlertContainer .messageBox .onlycontent .messageDesc {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+.tAlertContainer .messageBox .onlycontent .messageClose {
+  width: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.tAlertContainer .messageBox .onlycontent .messageClose button {
+  width: 22px;
+  height: 22px;
+  font-weight: 400;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-size: 10px;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #404040;
+  border: 1px solid #131313;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tAlertContainer .messageBox.success {
+  border-left: 2px solid #009688;
+}
+
+.tAlertContainer .messageBox.error {
+  border-left: 2px solid #c00000;
+}
+
+.tAlertContainer .messageBox.warning {
+  border-left: 2px solid #e68619;
+}
+
+.tAlertContainer .messageBox.info {
+  border-left: 2px solid #2f96b4;
+}

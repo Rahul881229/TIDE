@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="180" height="180" viewBox="0 0 180 180">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_4382" data-name="Rectangle 4382" width="180" height="180" transform="translate(-10358 6157)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Parking_sensor_active" data-name="Parking sensor active" transform="translate(10358 -6157)" clip-path="url(#clip-path)">
+    <g id="parking_1_" data-name="parking (1)" transform="translate(-10358 6157)">
+      <path id="Path_7862" data-name="Path 7862" d="M153.413,28.009c-13.247-9.379-29.246-9.264-42.331,0a5.274,5.274,0,0,0,6.094,8.608c9.482-6.712,20.6-6.754,30.143,0a5.274,5.274,0,1,0,6.094-8.608Z" fill="#fff"/>
+      <path id="Path_7863" data-name="Path 7863" d="M166.144,11.042c-20.873-14.777-47.1-14.651-67.793,0a5.274,5.274,0,1,0,6.094,8.608c17.329-12.268,38.644-12.007,55.605,0a5.274,5.274,0,0,0,6.094-8.608Z" fill="#fff"/>
+      <path id="Path_7864" data-name="Path 7864" d="M131.186,42.173a5.279,5.279,0,1,0,6.37,5.114,5.309,5.309,0,0,0-6.37-5.114Z" fill="#fff"/>
+      <path id="Path_7865" data-name="Path 7865" d="M43.495,24.543H37.262c.026,8.953,0,5.544.035,12.832,2.285-.014,4.76-.025,6.2-.025a6.608,6.608,0,0,0,6.634-6.4,6.609,6.609,0,0,0-6.634-6.405Z" fill="#fff"/>
+      <path id="Path_7866" data-name="Path 7866" d="M70.47,0H16.9a5.274,5.274,0,0,0-5.273,5.273v63.9A5.274,5.274,0,0,0,16.9,74.447H70.47a5.274,5.274,0,0,0,5.273-5.273V5.273A5.274,5.274,0,0,0,70.47,0ZM43.495,47.9c-1.445,0-3.948.011-6.247.025v7.26a5.273,5.273,0,1,1-10.547,0V19.269A5.285,5.285,0,0,1,31.974,14H43.495a16.952,16.952,0,1,1,0,33.9Z" fill="#fff"/>
+      <path id="Path_7867" data-name="Path 7867" d="M35.817,84.994H51.56v68.713H35.817Z" fill="#fff"/>
+      <path id="Path_7868" data-name="Path 7868" d="M70.1,164.254H17.272A5.289,5.289,0,0,0,12,169.527v5.2A5.289,5.289,0,0,0,17.272,180H70.1a5.289,5.289,0,0,0,5.273-5.273v-5.2A5.289,5.289,0,0,0,70.1,164.254Z" fill="#fff"/>
+    </g>
+  </g>
+</svg>

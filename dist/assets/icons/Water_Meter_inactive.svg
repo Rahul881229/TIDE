@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="180" height="180" viewBox="0 0 180 180">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_4399" data-name="Rectangle 4399" width="180" height="180" transform="translate(-9549 5078)" fill="#bfbfbf" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Water_Meter_inactive" data-name="Water Meter inactive" transform="translate(9549 -5078)" clip-path="url(#clip-path)">
+    <g id="meter" transform="translate(-9535.512 5102.365)">
+      <path id="Path_7927" data-name="Path 7927" d="M13,49h94.631V73.9H13Z" transform="translate(16.393 47.631)" fill="#bfbfbf"/>
+      <path id="Path_7928" data-name="Path 7928" d="M2,46H26.9V85.845H2Z" transform="translate(0 43.16)" fill="#bfbfbf"/>
+      <path id="Path_7929" data-name="Path 7929" d="M52,46H76.9V85.845H52Z" transform="translate(74.515 43.16)" fill="#bfbfbf"/>
+      <path id="Path_7930" data-name="Path 7930" d="M55.845,81.69A39.845,39.845,0,1,0,16,41.845,39.845,39.845,0,0,0,55.845,81.69Zm0-67.238A27.393,27.393,0,1,1,28.451,41.845,27.393,27.393,0,0,1,55.845,14.451Z" transform="translate(20.864 0)" fill="#bfbfbf"/>
+      <path id="Path_7931" data-name="Path 7931" d="M27,45.882H51.9V34.247a122.035,122.035,0,0,1-24.9,0Z" transform="translate(37.257 48.058)" fill="#bfbfbf"/>
+      <path id="Path_7932" data-name="Path 7932" d="M35.727,41.916a6.226,6.226,0,0,0,6.226-6.226,6.161,6.161,0,0,0-.847-3.082L48.95,17.266a3.113,3.113,0,1,0-5.543-2.834L35.722,29.465a6.226,6.226,0,0,0,.006,12.451Z" transform="translate(40.982 15.999)" fill="#bfbfbf"/>
+    </g>
+  </g>
+</svg>

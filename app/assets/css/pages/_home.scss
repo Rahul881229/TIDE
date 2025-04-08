@@ -1,0 +1,15 @@
+@import './../abstracts/mixins';
+
+.header {
+  @include themify($themes) {
+    color: themed('textColor');
+    background-color: themed('backgroundColor');
+  }
+
+  .title {
+    font-family: sans-serif;
+    font-weight: lighter;
+  }
+
+
+}

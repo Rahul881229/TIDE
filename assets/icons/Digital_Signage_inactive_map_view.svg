@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="217.552" height="217.552" viewBox="0 0 217.552 217.552">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_4465" data-name="Rectangle 4465" width="107" height="107" transform="translate(-9461 6034)" fill="#bfbfbf" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Digital_Signage_inactive_map_view" data-name="Digital Signage inactive map view" transform="translate(-1518.712 -291.894)">
+    <circle id="Ellipse_331" data-name="Ellipse 331" cx="102.072" cy="102.072" r="102.072" transform="translate(1525.416 298.598)" fill="#bfbfbf"/>
+    <path id="Path_8404" data-name="Path 8404" d="M83.277,0A83.277,83.277,0,1,1,0,83.277,83.277,83.277,0,0,1,83.277,0Z" transform="translate(1544.212 317.393)" fill="#404040"/>
+    <g id="Digital_Signage_active" data-name="Digital Signage active" transform="translate(11034.988 -5686.33)" clip-path="url(#clip-path)">
+      <g id="billboard" transform="translate(-9451.353 6043.891)">
+        <path id="Path_8496" data-name="Path 8496" d="M74.18,158.555H89.61v10.458H74.18Zm0,0" transform="translate(-38.005 -81.234)" fill="#bfbfbf"/>
+        <path id="Path_8497" data-name="Path 8497" d="M45.111,53.086a2.572,2.572,0,1,0,2.572,2.572A2.573,2.573,0,0,0,45.111,53.086Zm0,0" transform="translate(-21.794 -27.198)" fill="#bfbfbf"/>
+        <path id="Path_8498" data-name="Path 8498" d="M72.177,5.143h5.143V0H61.891V5.143h5.143v5.143H46.461V5.143H51.6V0H36.174V5.143h5.143v5.143H20.745V5.143h5.143V0H10.458V5.143H15.6v5.143H0V47.968L13.03,35.11,23.316,45.4l15.43-15.43L65.527,56.748H87.779V10.287h-15.6ZM23.316,36.174a7.715,7.715,0,1,1,7.715-7.715A7.724,7.724,0,0,1,23.316,36.174ZM77.492,46.461H67.034V41.318H77.492Zm0-10.287H56.748V31.031H77.492Zm0-15.43v5.143H56.748V20.745Zm0,0" fill="#bfbfbf"/>
+        <path id="Path_8499" data-name="Path 8499" d="M38.746,76.363l-15.43,15.43L13.03,81.507,0,94.365v1.507H58.254Zm0,0" transform="translate(0 -39.124)" fill="#bfbfbf"/>
+        <path id="Path_8500" data-name="Path 8500" d="M0,126.914H87.779V137.2H0Zm0,0" transform="translate(0 -65.023)" fill="#bfbfbf"/>
+      </g>
+    </g>
+  </g>
+</svg>

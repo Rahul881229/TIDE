@@ -1,0 +1,233 @@
+@import "../../assets/variable";
+
+.multidropdown {
+    min-width: 15em;
+    position: relative;
+    font-size: 12px;
+
+}
+
+.multidropdown.sm {
+    font-size: 11px;
+}
+
+.multidropdown.lg {
+    font-size: 13px;
+}
+
+.select-btn {
+    display: flex;
+    height: 28px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1em;
+    border-radius: 0;
+    cursor: pointer;
+    background-color: #404040;
+    border: 1px solid #131313;
+    // box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.multidropdown.sm .select-btn {
+    height: 25px;
+}
+
+.multidropdown.lg .select-btn {
+    height: 32px;
+}
+
+.select-btn.disabled {
+    color: #bfbfbf !important;
+    background-color: #8e8c8c !important;
+}
+
+.light .select-btn {
+    background-color: #e7e8e5;
+}
+
+.select-btn .btn-text {
+    color: #a0a0a0;
+}
+
+.light .select-btn .btn-text {
+    color: #000;
+}
+
+/* .select-btn .arrow-dwn {
+    display: flex;
+    height: 21px;
+    width: 21px;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 50%;
+    background: #6e93f7;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+.select-btn.open .arrow-dwn {
+    transform: rotate(-180deg);
+} */
+.select-btn .arrow-dwn {
+    transition: 0.3s;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #fff;
+}
+
+.light .select-btn .arrow-dwn {
+    border-top: 5px solid #000;
+}
+
+.select-btn.open .arrow-dwn {
+    transform: rotate(-180deg);
+}
+
+.list-items {
+    position: absolute;
+    width: 100%;
+    border-radius: 0;
+    padding: 0 0 0.2em 0;
+    background-color: #262626;
+    color: #fff;
+    border: 1px solid #131313;
+    display: none;
+    transition: 0.2s;
+    z-index: 5;
+    margin: 0;
+    opacity: 0;
+    box-sizing: border-box;
+}
+
+.light .list-items {
+    background-color: #e7e8e5;
+    color: #000;
+}
+
+.select-btn.open~.list-items {
+    display: block;
+    opacity: 1;
+}
+
+.list-items input {
+    width: 100%;
+    padding: 0.4em 0.5em;
+    background: transparent;
+    color: #fff;
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid #404040;
+    outline: none;
+    box-sizing: border-box;
+
+}
+
+.light .list-items input {
+    color: #000;
+}
+
+.list-items .items-selectall {
+    list-style: none;
+    padding: 0;
+    margin: 0.5em 0 0 0;
+}
+
+.list-items .items {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0.5em 0;
+    max-height: 15vh;
+    overflow-y: auto;
+}
+
+.list-items .item {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 0;
+    padding: 0.4em 0.5em;
+    margin: 0.3em 0;
+}
+
+.list-items .item.displayNone {
+    display: none;
+}
+
+.list-items .item:hover {
+    background-color: #404040;
+}
+
+.light .list-items .item:hover {
+    background-color: #919191;
+}
+
+// .item .item-text {
+//     color: #fff;
+// }
+.item .checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 8px;
+    width: 8px;
+    border-radius: 0;
+    margin: 0 6px;
+    border: 1px solid #fff;
+    background-color: transparent;
+    padding: 2px;
+}
+
+.light .item .checkbox {
+    border: 1px solid #000;
+}
+
+.checkbox .check-icon {
+    color: #fff;
+    /* transition: all 0.2s ease-in-out; */
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    transition: all 0.1s ease-in-out;
+}
+
+.item.checked .check-icon {
+    background-color: #fff;
+}
+
+.light .item.checked .check-icon {
+    background-color: #000;
+}
+
+.noData {
+    padding: 0 1em;
+}
+
+.list-items ul::-webkit-scrollbar {
+    width: 4px;
+    background: #fff;
+}
+
+.list-items ul::-webkit-scrollbar-thumb {
+    background: #404040;
+}
+
+// .search-icon {
+//     position: absolute;
+//     left: 10px;
+//     top: 4%;
+//     height: 12px;
+//     color: #555;
+// }
+
+.search-icon {
+    position: absolute;
+    left: 8px;
+    top: 6px;
+    height: 13px;
+    color: #555;
+}
+

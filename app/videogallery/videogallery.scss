@@ -1,0 +1,244 @@
+// * {
+//     z-index: 3;
+// }
+
+.wrapper {
+    font-family: "trinity", "Open Sans";
+    opacity: 0;
+    transition: visibility 0s, opacity 0.25s ease-in;
+}
+
+.wrapper:not(.open) {
+    visibility: hidden;
+    display: none;
+}
+
+.wrapper.open {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 1;
+    visibility: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #40404090;
+    z-index: 1;
+}
+
+.video-dialog {
+    border: 1px solid #404040;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .3607843137);
+    padding: 20px !important;
+    overflow: hidden;
+}
+
+.dark {
+    background: #262626;
+    color: #ffffff;
+}
+
+.light {
+    background: #ffffff;
+    color: #262626;
+}
+
+.overlay {
+    background: transparent;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.header {
+    bottom: 4px;
+position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // padding: 0 10px;
+}
+
+.title {
+    // font-size: 15px;
+    // font-weight: bold;
+    font-family: trinity-bold;
+}
+
+.closed {
+    display: flex;
+    align-items: center;
+    z-index: 1;
+}
+
+
+
+.current-video-name {
+    // left: 150px;
+    font-family: 'trinity-bold';
+    // position: absolute;
+    position: relative;
+    left: -25px;
+    text-align: left;         /* Ensure text is always aligned to the left */
+    white-space: nowrap;      /* Prevent the text from wrapping to the next line */
+    overflow: hidden;         /* Hide overflowing text */
+    text-overflow: ellipsis;  /* Display ellipsis (...) when the text overflows */
+    max-width: 200px;         /* Set a maximum width for the container */
+    display: inline-block;    /* Ensure the element behaves like an inline-block for proper text flow */
+    vertical-align: top;      /* Align the text vertically at the top */
+}
+
+
+
+.closed{
+    background: #404040 0% 0% no-repeat padding-box;
+    border: 1px solid #131313;
+    opacity: 1;
+    height: 24px;
+    width: 25px;
+}
+
+.close-btn {
+    cursor: pointer;
+    // width: 2vh;
+    // position: relative;
+    // left: 6px;
+    // position: relative;
+    // left: 5.8px;
+    // // top: 1px;
+    // top: 0px;
+    // width: 15px;
+    position: relative;
+    left: 7.5px;
+    top: 0px;
+    height: 11px;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #ccc;
+}
+
+.forward-btn {
+       width: 26px;;
+}
+
+.backward-btn {
+       width: 26px;;
+}
+
+.stop-btn {
+       width: 26px;
+    //    padding: 3px;
+}
+
+.replay-btn {
+       width: 26px;;
+}
+
+.play-pause-btn {
+       width: 26px;;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+}
+
+// .controls {
+//     display: flex;
+//     justify-content: space-around;
+//     align-items: center;
+// }
+
+
+.controls{
+    position: relative;
+    top: 6.3px;
+    display: flex;
+    // gap: 20px;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.controls>div {
+    border: 1px solid #131313;
+    background-color: #404040;
+    padding: 6px;
+    cursor: pointer;
+}
+
+
+.prev-btn,
+.next-btn {
+    //    width: 26px;;
+    // width: 20px;
+    width: 26px;;
+    // padding: 3px;
+}
+
+
+.prev-btn,.next-btn,.stop-btn,.forward-btn,.backward-btn,.replay-btn
+{
+    top: 2.7px;
+    position: relative;
+    height: 21px;
+}
+
+.forward,
+.backward,
+.replay,
+.stop,
+.play-pause,
+.closed,
+.previous,
+.next {
+    z-index: 1;
+}
+
+
+
+
+// .progress-detail {
+//     display: flex;
+//     justify-content: space-around;
+//     align-items: center;
+// }
+
+// .progress-detail>div {
+//     padding: 6px;
+//     cursor: pointer;
+// }
+
+// progress {
+//     height: 9px;
+//     background: #ffffff;
+//     border-radius: 10px; 
+//     overflow: hidden;
+// }
+
+// progress {
+//     color: lightblue;
+// }
+
+// progress::-moz-progress-bar {
+//     background: #ffffff;
+//     border-radius: 10px; 
+// }
+
+// progress::-webkit-progress-value {
+//     background: #009688;
+//     border-radius: 10px; 
+// }
+
+// progress::-webkit-progress-bar {
+//     background: #ffffff;
+//     border-radius: 10px; 
+// }

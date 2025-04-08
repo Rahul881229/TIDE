@@ -1,0 +1,68 @@
+@import "../../assets/variable";
+
+.t-header.dark {
+  background-color: $dark-header-bg-color !important;
+}
+.dark {
+  .application-holder .application-title,
+  .application-action p {
+    color: $dark-text-color !important;
+  }
+}
+
+.t-header.light{
+  background-color: $light-header-bg-color !important;
+}
+
+.light {
+  .application-holder .application-title,
+  .application-action p {
+    color: $light-text-color !important;
+  }
+}
+
+.t-header {
+  width: 100%;
+  height: 6vh;
+  /* background: #404040; */
+  background-color: $dark-header-bg-color;
+  /*  padding: 0.5vh 0.5vw; */
+  display: flex;
+  font-family: "trinity", "Open Sans";
+  align-items: center;
+  white-space: nowrap;
+  flex-direction: row;
+  border-bottom: 1px solid hsla(0,0%,54.9%,.4);
+}
+.t-header .application-holder {
+  width: 50%;
+  display: flex;
+  padding-left: 10px;
+  align-items: center;
+}
+img {
+  height: 5vh;
+}
+
+.t-header .application-holder .application-title {
+  font-size: 3.5vh;
+  color: white;
+  font-weight: bolder;
+  padding: 0 0 0 10px;
+  cursor: none;
+}
+
+.t-header .application-action {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 10px;
+}
+.t-header .application-action p {
+  margin: 0;
+  padding: 0 5px;
+  color: #ffffff;
+  font-size: 2vh;
+  font-weight: bold;
+}

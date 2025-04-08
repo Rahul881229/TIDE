@@ -1,0 +1,412 @@
+canvas {
+    top: 50%;
+    opacity: 0.4;
+}
+  
+.volume-bar {
+    width: 21px;
+    min-width: 21px;
+    height: 27px;
+    left: 1px;
+    position: relative; 
+}
+
+// .volume-field {
+//     display: none;
+//     position: absolute;
+//     appearance: none;
+//     height: 10px;
+//     right: 100%;
+//     top: 50%;
+//     transform: translateY(-50%) rotate(180deg);
+//     z-index: 5;
+//     margin: 0;
+//     border-radius: 2px;
+//     background: #ffffff;
+// }
+
+
+
+
+
+.volume-field {
+    display: none;
+    position: absolute;
+    appearance: none;
+    height: 6px;
+    width: 99px;
+    right: 51%;
+    bottom: 108px;
+    transform: translateX(50%) rotate(270deg);
+    z-index: 5;
+    margin: 0;
+    border-radius: 2px;
+    background: #ffffff;
+    transition: display 1s ease-in-out;
+
+}
+
+
+.volume-field::-webkit-slider-thumb {
+    appearance: none;
+    height:10px;
+    width: 10px;
+    background: #009688;
+    border-radius: 5px;
+
+}
+
+.volume-field::-moz-range-thumb {
+    appearance: none;
+    height: 10px;
+    width: 10px;
+    background: #6d78ff
+}
+
+.volume-field::-ms-thumb  {
+    appearance: none;
+    height: 10px;
+    width: 10px;
+    background: #6d78ff
+}
+
+
+.volume-bar:hover .volume-field {
+    display: block;
+    // animation: hideSlider 10s ease-out 1s forwards; /* Show for 2 seconds */
+    z-index: 100;
+}
+
+.volume-bar
+{
+width: 26px;
+}
+
+
+/* Base styles for .box (hidden by default) */
+.box {
+    display: none; /* Initially hidden */
+}
+
+
+/* Show the box when hovering over the volume bar */
+.volume-bar:hover ~ .box {
+    display: flex; /* Use flexbox for layout if necessary */
+}
+
+
+
+@keyframes hideSlider {
+    0% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
+
+.progress-container {
+    display: flex;
+    justify-content: flex-end;
+    // justify-content: space-between;
+    position: relative;
+    flex: 1;
+    font-size: 12px;
+    align-items: center;
+    height: 20px;
+}
+
+.progress-bar {
+    flex: 1;
+    position: absolute;
+    top: 86%;
+    left: 0;
+    z-index: 2;
+    transform: translateY(-50%);
+    width: 100%;
+    appearance: none;
+    margin: 0 10px;
+    overflow: hidden;
+    background: none;
+}
+
+.progress-bar::-webkit-slider-thumb {
+    appearance: none;
+    height: 20px;
+    width: 0;
+    box-shadow: -300px 0 0 300px #ffffff38;
+}
+
+.progress-bar::-moz-range-thumb {
+    appearance: none;
+    height: 20px;
+    width: 0;
+    box-shadow: -300px 0 0 300px #ffffff21;
+}
+
+.progress-bar::-ms-thumb {
+    appearance: none;
+    height: 20px;
+    width: 0;
+    box-shadow: -300px 0 0 300px #ffffff21;
+}
+
+.duration,
+.current-time {
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 0 2px #111;
+    font-size: 1rem;
+}
+
+.duration {
+    margin-left: 2px;
+    margin-right: 5px;
+}
+
+.duration::before {
+    content: '/';
+    display: inline-block;
+    margin-right: 2px;
+}
+
+.wrapper {
+    font-family: "trinity", "Open Sans";
+    opacity: 0;
+    transition: visibility 0s, opacity 0.25s ease-in;
+}
+
+.wrapper:not(.open) {
+    visibility: hidden;
+    display: none;
+}
+
+.wrapper.open {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 1;
+    visibility: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #40404090;
+    z-index: 1;
+}
+
+.audio-dialog {
+    border: 1px solid #404040;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .3607843137);
+    padding: 20px !important;
+    overflow: hidden;
+}
+
+.dark {
+    background: #262626;
+    color: #ffffff;
+}
+
+.light {
+    background: #ffffff;
+    color: #262626;
+}
+
+.overlay {
+    background: transparent;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+// .header {
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     // padding: 0 10px;
+// }
+
+
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0px;
+    position: relative;
+    bottom: 4px;
+    }
+.title,.current-audio-name {
+    font-family: 'trinity-bold';
+}
+
+.closed {
+    display: flex;
+    align-items: center;
+    z-index: 1;
+}
+
+
+.closed{
+    background: #404040 0% 0% no-repeat padding-box;
+    border: 1px solid #131313;
+    opacity: 1;
+    height: 24px;
+    width: 25px;
+}
+
+
+.close-btn {
+    cursor: pointer;
+    // width: 2vh;
+}
+
+.close-btn
+{
+    // position: relative;
+    // // left: 7.5px;
+    // left:5.5px;
+    // top: 1px;
+    // cursor: pointer;
+    // /* width: 2vh; */
+    // width: 15px;
+    // position: relative;
+    // left: 5.2px;
+    // top: 0px
+    position: relative;
+    left: 6.5px;
+    top: 0px;
+    height: 11px;
+}
+
+
+.prev-btn,.next-btn,.stop-btn,.forward-btn,.backward-btn,.replay-btn,.play-pause-btn
+{
+    top: 2.9px;
+    position: relative;
+    width: 26px;
+    height: 21px
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #ccc;
+}
+
+// .forward-btn {
+//        width: 26px;
+// }
+
+// .backward-btn {
+//        width: 26px;
+// }
+
+// .stop-btn {
+//        width: 26px;
+// }
+
+// .play-pause-btn {
+//        width: 26px;
+// }
+
+// .replay-btn {
+//        width: 26px;
+// }
+
+// .prev-btn,
+// .next-btn {
+//        width: 26px;
+// }
+
+// .controls {
+//     display: flex;
+//     justify-content: space-around;
+//     align-items: center;
+// }
+
+.controls{
+    position: relative;
+    // top: 1.5px;
+    top: 3.9px;
+    display: flex;
+    // gap: 20px;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.controls>div {
+    // border: 1px solid #404040;
+    border: 1px solid #131313;
+    background-color: #404040;
+    padding: 6px;
+    cursor: pointer;
+}
+
+
+.replay,
+.forward,
+.backward,
+.play-pause,
+.stop,
+.closed,
+.previous,
+.next {
+    z-index: 1;
+}
+
+
+
+.current-audio-name {
+    // left: 150px;
+    font-family: 'trinity-bold';
+    // position: absolute;
+    position: relative;
+    left: -15px;
+    text-align: left;         /* Ensure text is always aligned to the left */
+    white-space: nowrap;      /* Prevent the text from wrapping to the next line */
+    overflow: hidden;         /* Hide overflowing text */
+    text-overflow: ellipsis;  /* Display ellipsis (...) when the text overflows */
+    max-width: 200px;         /* Set a maximum width for the container */
+    display: inline-block;    /* Ensure the element behaves like an inline-block for proper text flow */
+    vertical-align: top;      /* Align the text vertically at the top */
+}
+
+
+
+
+
+.box {
+    position: absolute;
+    width: 18px;
+    bottom: 39px;
+    right: 3.7px;
+    height: 132px;
+    background-color: #404040;
+    border: 1px #111;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 80;
+    padding: 6px;
+}
+
+
+
+
+.img-btn
+{
+  width: 10px;
+}

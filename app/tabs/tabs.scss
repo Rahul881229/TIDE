@@ -1,0 +1,109 @@
+@import "../../assets/variable";
+
+.tcontent {
+    // display: none;
+}
+
+.ttabs {
+    display: inline-flex;
+    width: 100%;
+    // overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.tbutton {
+    height: 30px;
+    margin: 0;
+    text-align: center;
+    min-width: 100px;
+    // width: fit-content;
+    // max-width: 475px;
+    text-overflow: ellipsis;
+    // width: auto;
+    white-space: nowrap;
+    overflow: hidden;
+    cursor: pointer;
+    background: #404040;
+    color: #bfbfbf;
+    border: 0.12rem solid #000;
+    padding: 0 10px;
+    font-size: 12px;
+    outline: none;
+    z-index: 1;
+    margin-right: -1px;
+}
+
+
+.light .tbutton {
+    background: #e7e8e5;
+    color: #000;
+    border: 0.12rem solid #bfbfbf;
+}
+
+.tcontent {
+    // display: none;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    padding: 5px;
+    height: auto;
+    // overflow: auto;
+    top: -1px;
+    position: relative;
+    border: 1px solid #000;
+    color: #fff;
+    font-family: "trinity", "Open Sans";
+    font-size: 13px;
+    background-color: #404040;
+}
+
+.light .tcontent {
+    background: #e7e8e5;
+    color: #000;
+    border: 0.12rem solid #bfbfbf;
+}
+
+.active {
+    border-bottom-color: transparent;
+    color: #ffffff;
+    // background-color: #009688;
+    // font-weight: bold;
+}
+
+.light .tbutton.active {
+    border-bottom-color: 0.12rem solid #bfbfbf;
+    color: #fefefe;
+    // background: #009688;
+}
+
+.tbutton.sm {
+    height: $form-sm-height;
+    // font-size: $form-sm-font-size;
+}
+
+.tbutton.lg {
+    height: $form-lg-height;
+    font-size: $form-lg-font-size;
+}
+
+/* For Firefox */
+* {
+    scrollbar-width: thin;
+    /* "thin" for a thinner scrollbar, "auto" for system default */
+}
+
+/* For Webkit-based browsers (e.g., Chrome, Safari) */
+*::-webkit-scrollbar {
+    width: 1px;
+    height: 8px;
+}
+
+
+*::-webkit-scrollbar-thumb {
+    background-color: #888;
+    /* Customize the thumb color */
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+    /* Customize the thumb color on hover */
+}

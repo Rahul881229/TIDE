@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="52" height="52" viewBox="0 0 52 52">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_2449" data-name="Rectangle 2449" width="52" height="52" transform="translate(235 99)" fill="#bfbfbf"/>
+    </clipPath>
+  </defs>
+  <g id="Alarm_Managemnet_inactive" data-name="Alarm Managemnet inactive" transform="translate(-235 -99)" clip-path="url(#clip-path)">
+    <g id="bell" transform="translate(238.79 100.739)">
+      <path id="Path_3775" data-name="Path 3775" d="M374.109,44a1.571,1.571,0,0,1-1.57-1.57,22.363,22.363,0,0,0-6.59-15.916A1.571,1.571,0,0,1,368.17,24.3a25.488,25.488,0,0,1,7.509,18.137A1.571,1.571,0,0,1,374.109,44Zm0,0" transform="translate(-330.764 -21.497)" fill="#bfbfbf"/>
+      <path id="Path_3776" data-name="Path 3776" d="M1.57,44.021A1.571,1.571,0,0,1,0,42.45,25.475,25.475,0,0,1,7.512,24.315a1.571,1.571,0,1,1,2.222,2.222A22.348,22.348,0,0,0,3.14,42.45,1.571,1.571,0,0,1,1.57,44.021Zm0,0" transform="translate(0 -21.514)" fill="#bfbfbf"/>
+      <path id="Path_3777" data-name="Path 3777" d="M162.519,425.421a7.859,7.859,0,0,1-7.851-7.851,1.57,1.57,0,0,1,3.14,0,4.711,4.711,0,1,0,9.421,0,1.57,1.57,0,0,1,3.14,0A7.859,7.859,0,0,1,162.519,425.421Zm0,0" transform="translate(-140.061 -376.16)" fill="#bfbfbf"/>
+      <path id="Path_3778" data-name="Path 3778" d="M58.5,100.7H24.9a3.57,3.57,0,0,1-2.317-6.28,13.671,13.671,0,0,0,4.863-10.463V78.272a14.255,14.255,0,1,1,28.51,0v5.685a13.668,13.668,0,0,0,4.843,10.449,3.568,3.568,0,0,1-2.3,6.294Z" transform="translate(-19.239 -57.719)" fill="#bfbfbf"/>
+      <path id="Path_3779" data-name="Path 3779" d="M220.238,9.421a1.571,1.571,0,0,1-1.57-1.57V1.57a1.57,1.57,0,1,1,3.14,0V7.851A1.571,1.571,0,0,1,220.238,9.421Zm0,0" transform="translate(-197.78)" fill="#bfbfbf"/>
+    </g>
+  </g>
+</svg>
