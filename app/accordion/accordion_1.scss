@@ -1,0 +1,173 @@
+// Dark Theme
+
+.accordion-content {
+    font-size: 12px;
+    max-height: 0;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+}
+
+.accordion-label {
+    display: flex;
+    font-family: "trinity", "Open Sans";
+    width: 100%;
+    position: relative;
+    background-color: hsla(0, 0%, 54.9%, 0.25098039215686274);
+    border: none;
+    outline: none;
+    text-align: left;
+    padding: 1px 1px;
+    font-size: 12px;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.2s linear;
+    margin: 0 0 5px 0;
+    height: 40px;
+}
+
+
+.accordion-label::after {
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    padding: 12px 12px;
+}
+
+.dark .accordion-label::after {
+    content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAQAAADlauupAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAAAGAAAABgAPBrQs8AAAAHdElNRQfmDAcKCwXK5y8VAAAAp0lEQVQ4y2NgGPKAcR+fkxPDBhUVcjQz2d6+zcJkvnz5f0YxMXIM+L/3xQum/7uCgxl2fP5MstObv31jdI6KYmRgYGDY/9/GhqFi2zYGD15eYjUz7PTxcWDdv58RJkisIciaGRgYGBiRJQkZgq4ZwwB8hmDTjBPs/29js7/806f9+///37////8DTl+/Hvjt6EhSKMMMIUszDBzs09Q82KepSZbmoQMATtFaGcEj1HoAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjItMTItMDdUMTA6MTE6MDUrMDA6MDAvnRCfAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIyLTEyLTA3VDEwOjExOjA1KzAwOjAwXsCoIwAAACh0RVh0ZGF0ZTp0aW1lc3RhbXAAMjAyMi0xMi0wN1QxMDoxMTowNSswMDowMAnVifwAAAAASUVORK5CYII=") !important;
+}
+
+
+// Light Theme
+.light .accordion-label {
+    color: #000 !important;
+}
+
+.light .accordion-content {
+    color: #000 !important;
+}
+
+.light .accordion-label::after {
+    content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAAAGAAAABgAPBrQs8AAAAHdElNRQfmDAcKDDjdzvXDAAAATUlEQVQoz2NgoDlgZHBiUMEjf5uB4SXDfzzwOQODDcMnnNJfGRwZGHArgUrjUoIkjU0JmjS6EizSyEpwSMOU4JFmYGBg0GTQpH3soAEAMW9L6QgvE88AAAAldEVYdGRhdGU6Y3JlYXRlADIwMjItMTItMDdUMTA6MTI6NTYrMDA6MDC9or9lAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIyLTEyLTA3VDEwOjEyOjU2KzAwOjAwzP8H2QAAACh0RVh0ZGF0ZTp0aW1lc3RhbXAAMjAyMi0xMi0wN1QxMDoxMjo1NiswMDowMJvqJgYAAAAASUVORK5CYII=") !important;
+}
+
+// Common for light theme
+.rotatecontent t-accordion-title img {
+    padding-right: 0px !important;
+    border-right: 0px !important;
+    padding-left: 10px !important;
+    border-left: 1px solid #707070 !important;
+}
+
+/* Dark theme styles */
+.accordion-wrapper.dark {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Light theme styles */
+.accordion-wrapper.light {
+    background-color: #fff;
+    color: #333;
+}
+
+
+.rotatecontent .accordion-label {
+    text-align: right;
+}
+
+.accordion-wrapper .checkinput {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+}
+
+.accordion-wrapper {
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.accordion {
+    width: 100%;
+    color: white;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.accordion:last-child {
+    margin-bottom: 0;
+}
+
+
+
+.accordion-label::after,
+.accordion-label::before {
+    box-sizing: initial;
+}
+
+input:checked+.accordion-label::after {
+    -webkit-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+}
+
+input:checked~.accordion-content {
+    max-height: 73vh;
+    overflow-y: auto;
+}
+
+t-accordion-title {
+    padding: 0 15px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+t-accordion-title img {
+    border-right: 1px solid #707070;
+    height: 60%;
+    margin-right: 7px;
+    padding-right: 5px;
+}
+
+.lg-t-accordion-title img {
+    height: 60%;
+}
+
+.accordion-title {
+    padding: 15px 20px;
+    width: 100%;
+    display: flex;
+}
+
+.lg-accordion-label {
+    height: 66px;
+}
+
+.lg-accordion-label::after {
+    padding: 25px;
+}
+
+.lg-t-accordion-title {
+    padding: 0 15px;
+}
+
+.sm-accordion-label {
+    height: 32px;
+}
+
+.sm-accordion-label::after {
+    padding: 5px;
+}
+
+.sm-t-accordion-title {
+    padding: 0 15px;
+}
+
+.sm-t-accordion-title img {
+    height: 50%;
+    margin-right: 7px;
+    margin-top: -5px;
+}

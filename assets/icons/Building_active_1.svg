@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60">
+  <g id="Building_active" data-name="Building active" transform="translate(-6216 -2307)">
+    <g id="Ellipse_74" data-name="Ellipse 74" transform="translate(6216 2307)" fill="none" stroke="#059488" stroke-width="2">
+      <circle cx="30" cy="30" r="30" stroke="none"/>
+      <circle cx="30" cy="30" r="29" fill="none"/>
+    </g>
+    <g id="building" transform="translate(6209.883 2319.95)">
+      <path id="Path_7973" data-name="Path 7973" d="M50,32.911V7.788H46.747V32.911H44.7V0L27.361,4.861v6.963h7.406V32.911H32.718V13.873H24.113V32.911h-4.2V34.96h32.24V32.911ZM38.663,21.23V17.109h2.049V21.23Zm2.049,3.406v4.121H38.663V24.636ZM38.663,13.7V9.582h2.049V13.7ZM27.391,17.109H29.44V21.23H27.391Zm0,7.527H29.44v4.121H27.391Z" fill="#059488"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="217.552" height="217.552" viewBox="0 0 217.552 217.552">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_4470" data-name="Rectangle 4470" width="107.736" height="107.736" transform="translate(1957 3891)" fill="#bfbfbf" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <rect id="Rectangle_4382" data-name="Rectangle 4382" width="84.978" height="84.978" fill="#bfbfbf" stroke="#707070" stroke-width="4.962"/>
+    </clipPath>
+  </defs>
+  <g id="Parking_inactive_map_view" data-name="Parking inactive map view" transform="translate(-1518.712 -291.894)">
+    <circle id="Ellipse_331" data-name="Ellipse 331" cx="102.072" cy="102.072" r="102.072" transform="translate(1525.416 298.598)" fill="#bfbfbf"/>
+    <path id="Path_8404" data-name="Path 8404" d="M83.277,0A83.277,83.277,0,1,1,0,83.277,83.277,83.277,0,0,1,83.277,0Z" transform="translate(1544.212 317.393)" fill="#404040"/>
+    <g id="Mask_Group_6192" data-name="Mask Group 6192" transform="translate(-383.38 -3544.198)" clip-path="url(#clip-path)">
+      <g id="Group_23215" data-name="Group 23215" transform="translate(1961.146 3902.379)">
+        <g id="Mask_Group_6149" data-name="Mask Group 6149" transform="translate(0 0)" clip-path="url(#clip-path-2)">
+          <g id="parking_1_" data-name="parking (1)" transform="translate(5.457)">
+            <path id="Path_7865" data-name="Path 7865" d="M187.81,121.776h-2.922c0,4.2,0,2.6.016,6.014h2.906a3.015,3.015,0,1,0,0-6Z" transform="translate(-172.878 -110.271)" fill="#bfbfbf"/>
+            <path id="Path_7866" data-name="Path 7866" d="M85.288,0H60.178a2.467,2.467,0,0,0-2.467,2.467V32.426a2.467,2.467,0,0,0,2.467,2.467h25.11a2.467,2.467,0,0,0,2.467-2.467V2.467A2.467,2.467,0,0,0,85.288,0ZM72.642,22.451H69.715v3.416a2.467,2.467,0,1,1-4.934,0V9.046a2.467,2.467,0,0,1,2.467-2.467h5.4a7.95,7.95,0,0,1,0,15.9Z" transform="translate(-57.711)" fill="#bfbfbf"/>
+            <path id="Path_7867" data-name="Path 7867" d="M177.718,421.725H185.1v32.209h-7.379Z" transform="translate(-166.385 -381.884)" fill="#bfbfbf"/>
+            <path id="Path_7868" data-name="Path 7868" d="M86.776,814.994H62.009a2.467,2.467,0,0,0-2.467,2.467V819.9a2.467,2.467,0,0,0,2.467,2.467H86.773A2.467,2.467,0,0,0,89.24,819.9v-2.437A2.467,2.467,0,0,0,86.776,814.994Z" transform="translate(-59.369 -738.002)" fill="#bfbfbf"/>
+          </g>
+        </g>
+        <path id="car" d="M62.81,44.009h2.034a2.034,2.034,0,0,0,0-4.068H59.893l-3.734-6.22a8.136,8.136,0,0,0-6.976-3.95H27.618a8.136,8.136,0,0,0-6.976,3.95l-3.734,6.22H11.958a2.034,2.034,0,0,0,0,4.068h2.034l-2.44,3.257a8.136,8.136,0,0,0-1.628,4.882v8.136a4.068,4.068,0,0,0,4.068,4.068v2.034a4.068,4.068,0,0,0,4.068,4.068h4.068A4.068,4.068,0,0,0,26.2,66.385V64.351h24.4v2.034a4.068,4.068,0,0,0,4.068,4.068h4.068A4.068,4.068,0,0,0,62.8,66.385V64.351a4.068,4.068,0,0,0,4.068-4.068V52.147a8.141,8.141,0,0,0-1.628-4.882ZM19.077,58.247A3.051,3.051,0,1,1,22.128,55.2,3.051,3.051,0,0,1,19.077,58.247ZM54.584,42.3a10.17,10.17,0,0,1-5.641,1.708H27.857A10.172,10.172,0,0,1,22.215,42.3L20.8,41.358l3.328-5.543a4.068,4.068,0,0,1,3.49-1.976H49.186a4.068,4.068,0,0,1,3.49,1.977L56,41.361l-1.414.943Zm3.139,15.946A3.051,3.051,0,1,1,60.773,55.2a3.051,3.051,0,0,1-3.051,3.051Z" transform="translate(32.566 12.717)" fill="#bfbfbf"/>
+      </g>
+    </g>
+  </g>
+</svg>

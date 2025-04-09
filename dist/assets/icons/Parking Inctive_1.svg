@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="180" height="180" viewBox="0 0 180 180">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_4453" data-name="Rectangle 4453" width="180" height="180" transform="translate(1957 3891)" fill="#bfbfbf" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <rect id="Rectangle_4382" data-name="Rectangle 4382" width="141.976" height="141.976" fill="#bfbfbf" stroke="#707070" stroke-width="4.962"/>
+    </clipPath>
+  </defs>
+  <g id="Parking_Inctive" data-name="Parking Inctive" transform="translate(-1957 -3891)" clip-path="url(#clip-path)">
+    <g id="Group_23215" data-name="Group 23215" transform="translate(-192.236 2893.705)">
+      <g id="Mask_Group_6149" data-name="Mask Group 6149" transform="translate(2156.164 1016.307)" clip-path="url(#clip-path-2)">
+        <g id="parking_1_" data-name="parking (1)" transform="translate(9.117)">
+          <path id="Path_7865" data-name="Path 7865" d="M189.77,121.778h-4.882c0,7.012,0,4.342.027,10.048h4.855a5.038,5.038,0,1,0,0-10.03Z" transform="translate(-164.823 -102.556)" fill="#bfbfbf"/>
+          <path id="Path_7866" data-name="Path 7866" d="M103.784,0H61.833a4.122,4.122,0,0,0-4.122,4.122V54.175A4.122,4.122,0,0,0,61.833,58.3h41.952a4.122,4.122,0,0,0,4.122-4.122V4.122A4.122,4.122,0,0,0,103.784,0ZM82.658,37.509H77.766v5.707a4.122,4.122,0,0,1-8.244,0v-28.1a4.122,4.122,0,0,1,4.122-4.122h9.022a13.282,13.282,0,0,1,0,26.563Z" transform="translate(-57.711)" fill="#bfbfbf"/>
+          <path id="Path_7867" data-name="Path 7867" d="M177.718,421.725h12.329v53.814H177.718Z" transform="translate(-158.784 -355.161)" fill="#bfbfbf"/>
+          <path id="Path_7868" data-name="Path 7868" d="M105.043,814.994H63.664a4.122,4.122,0,0,0-4.122,4.122v4.072a4.122,4.122,0,0,0,4.122,4.122h41.375a4.122,4.122,0,0,0,4.122-4.122v-4.072A4.122,4.122,0,0,0,105.043,814.994Z" transform="translate(-59.253 -686.359)" fill="#bfbfbf"/>
+        </g>
+      </g>
+      <path id="car" d="M98.283,53.559h3.4a3.4,3.4,0,0,0,0-6.8H93.41L87.172,36.371a13.593,13.593,0,0,0-11.656-6.6H39.487a13.593,13.593,0,0,0-11.656,6.6L21.593,46.762H13.322a3.4,3.4,0,0,0,0,6.8h3.4L12.644,59a13.593,13.593,0,0,0-2.72,8.157V80.75a6.8,6.8,0,0,0,6.8,6.8v3.4a6.8,6.8,0,0,0,6.8,6.8h6.8a6.8,6.8,0,0,0,6.8-6.8v-3.4H77.871v3.4a6.8,6.8,0,0,0,6.8,6.8h6.8a6.8,6.8,0,0,0,6.8-6.8v-3.4a6.8,6.8,0,0,0,6.8-6.8V67.156A13.6,13.6,0,0,0,102.336,59ZM25.216,77.347a5.1,5.1,0,1,1,5.1-5.1A5.1,5.1,0,0,1,25.216,77.347ZM84.539,50.706a16.991,16.991,0,0,1-9.425,2.853H39.885a17,17,0,0,1-9.425-2.853L28.1,49.13l5.56-9.261a6.8,6.8,0,0,1,5.83-3.3H75.521a6.8,6.8,0,0,1,5.831,3.3l5.56,9.264L84.548,50.71Zm5.244,26.641a5.1,5.1,0,1,1,5.1-5.1,5.1,5.1,0,0,1-5.1,5.1Z" transform="translate(2217.229 1057.522)" fill="#bfbfbf"/>
+    </g>
+  </g>
+</svg>

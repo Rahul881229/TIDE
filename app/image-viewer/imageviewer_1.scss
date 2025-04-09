@@ -1,0 +1,235 @@
+// * {
+//     z-index: 3;
+// }
+.wrapper {
+    font-family: "trinity", "Open Sans";
+    opacity: 0;
+    transition: visibility 0s, opacity 0.25s ease-in;
+}
+
+.wrapper:not(.open) {
+    visibility: hidden;
+    display: none;
+}
+
+.wrapper.open {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 1;
+    visibility: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #40404090;
+    z-index: 1;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.image-dialog {
+    border: 1px solid #404040;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .3607843137);
+    padding: 20px !important;
+    overflow: hidden;
+}
+
+.dark {
+    background: #262626;
+    color: #ffffff;
+}
+
+.light {
+    background: #ffffff;
+    color: #262626;
+}
+
+.overlay {
+    background: transparent;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+// .header {
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     padding: 0 10px;
+// }
+
+
+.close-btn
+{
+    // position: relative;
+    // // left: 6.5px;
+    // // left: 5px;
+    // left: 5.8px;
+    // top: 0.5px;
+    position: relative;
+    left: 7.5px;
+    top: 0px;
+    height: 11px;
+}
+
+
+.header{
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 0 0px;
+position: relative;
+bottom: 4px;
+}
+
+.closed{
+    background: #404040 0% 0% no-repeat padding-box;
+    border: 1px solid #131313;
+    opacity: 1;
+    height: 24px;
+    width: 25px;
+}
+
+.title,.current-img-name {
+    // font-size: 15px;
+    // font-weight: bold;
+    font-family: trinity-bold;
+    font-size: 14px;
+}
+
+.closed {
+    display: flex;
+    align-items: center;
+    z-index: 1;
+}
+
+.close-btn {
+    cursor: pointer;
+    // width: 2vh;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #ccc;
+}
+
+.img-zoom-out {
+       width: 26px;
+       height: 21px;
+
+}
+
+.img-zoom-in {
+       width: 26px;
+       height: 21px;
+
+}
+
+// .anti-clock-rotation {
+//     width: 26px;
+//     height: 21px;
+
+// }
+
+.anti-clock-rotation-btn,.clock-rotate-btn {
+    width: 26px;
+    height: 21px;
+
+}
+
+// .clock-rotation {
+//     width: 26px;
+//     height: 21px;
+// }
+
+// .controls {
+//     display: flex;
+//     justify-content: space-around;
+//     align-items: center;
+// 
+// }
+
+.controls{
+    position: relative;
+    top: 6.3px;
+    display: flex;
+    // gap: 20px;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.controls>div {
+    // border: 1px solid #404040;
+    border: 1px solid #131313;
+    background-color: #404040;
+    padding: 6px;
+    cursor: pointer;
+}
+
+.prev-btn,
+.next-btn {
+    // width: 3vh;
+       width: 26px;
+       height: 21px;
+
+}
+
+.anti-clock-rotation,
+.clock-rotation,
+.image-zoom-in,
+.image-zoom-out,
+.closed,
+.previous,
+.next {
+    z-index: 1;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container {
+    max-width: 100%;             /* Ensure the image doesn't exceed the container's width */
+    max-height: 100%;            /* Ensure the image doesn't exceed the container's height */
+}
+
+img{
+    position: relative;
+    top: 3px;
+}
+
+
+.anti-clock-rotation{
+    padding-bottom: 11px;
+}
+
+.current-img-name {
+    // left: 150px;
+    font-family: 'trinity-bold';
+    // position: absolute;
+    position: relative;
+    // left: 0;
+    left: -25px;
+    text-align: left;         /* Ensure text is always aligned to the left */
+    white-space: nowrap;      /* Prevent the text from wrapping to the next line */
+    overflow: hidden;         /* Hide overflowing text */
+    text-overflow: ellipsis;  /* Display ellipsis (...) when the text overflows */
+    max-width: 200px;         /* Set a maximum width for the container */
+    display: inline-block;    /* Ensure the element behaves like an inline-block for proper text flow */
+    vertical-align: top;      /* Align the text vertically at the top */
+}

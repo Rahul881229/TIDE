@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="107.259" height="107.259" viewBox="0 0 107.259 107.259">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_4471" data-name="Rectangle 4471" width="107.259" height="107.259" transform="translate(1957 2693)" fill="#bfbfbf" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Smart_Lighting_Active" data-name="Smart Lighting Active" transform="translate(-1957 -2693)" clip-path="url(#clip-path)">
+    <g id="Group_34142" data-name="Group 34142" transform="translate(1979.499 2700.332)">
+      <g id="street-light" transform="translate(0 0)">
+        <path id="Path_7990" data-name="Path 7990" d="M54.138,159H31.79A4.8,4.8,0,0,0,27,163.79v6.387a1.6,1.6,0,0,0,1.6,1.6H57.331a1.6,1.6,0,0,0,1.6-1.6V163.79A4.8,4.8,0,0,0,54.138,159Z" transform="translate(-27 -79.178)" fill="#bfbfbf"/>
+        <path id="Path_7991" data-name="Path 7991" d="M57.967,77.646a8,8,0,0,0-6.387-7.821V32.947A20.777,20.777,0,0,1,72.331,12.193H96.278V10.6a1.6,1.6,0,0,0-1.6-1.6H72.331A23.973,23.973,0,0,0,48.384,32.947v36.88A8,8,0,0,0,42,77.646v7.983H57.967Z" transform="translate(-34.017 -9)" fill="#bfbfbf"/>
+        <path id="Path_7992" data-name="Path 7992" d="M123,52.6V55.79a1.6,1.6,0,1,0,3.193,0V52.6a1.6,1.6,0,1,0-3.193,0Z" transform="translate(-71.915 -28.649)" fill="#bfbfbf"/>
+        <path id="Path_7993" data-name="Path 7993" d="M135.882,48.167a1.6,1.6,0,0,0-.715,2.141l1.6,3.193a1.6,1.6,0,1,0,2.856-1.429l-1.6-3.193A1.6,1.6,0,0,0,135.882,48.167Z" transform="translate(-77.528 -27.246)" fill="#bfbfbf"/>
+        <path id="Path_7994" data-name="Path 7994" d="M109.764,48.882l-1.6,3.193a1.6,1.6,0,0,0,2.856,1.429l1.6-3.193a1.6,1.6,0,0,0-2.856-1.429Z" transform="translate(-64.895 -27.246)" fill="#bfbfbf"/>
+        <path id="Path_7996" data-name="Path 7996" d="M127.157,21H108v3.193a9.579,9.579,0,1,0,19.157,0Z" transform="translate(-64.896 -14.613)" fill="#bfbfbf"/>
+      </g>
+    </g>
+  </g>
+</svg>

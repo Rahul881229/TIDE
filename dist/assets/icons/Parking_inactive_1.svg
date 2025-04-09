@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60" height="60" viewBox="0 0 60 60">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_16828" data-name="Rectangle 16828" width="28" height="28" transform="translate(617 1196) rotate(90)" fill="#bfbfbf" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Parking_inactive" data-name="Parking inactive" transform="translate(-992 -218)">
+    <g id="Group_34133" data-name="Group 34133" transform="translate(-5224 -2089)">
+      <g id="Ellipse_74" data-name="Ellipse 74" transform="translate(6216 2307)" fill="none" stroke="#fff" stroke-width="2">
+        <circle cx="30" cy="30" r="30" stroke="none"/>
+        <circle cx="30" cy="30" r="29" fill="none"/>
+      </g>
+    </g>
+    <g id="Group_34419" data-name="Group 34419" transform="translate(-5224 -2089)">
+      <g id="Ellipse_74-2" data-name="Ellipse 74" transform="translate(6216 2307)" fill="none" stroke="#bfbfbf" stroke-width="2">
+        <circle cx="30" cy="30" r="30" stroke="none"/>
+        <circle cx="30" cy="30" r="29" fill="none"/>
+      </g>
+    </g>
+    <g id="Mask_Group_6180" data-name="Mask Group 6180" transform="translate(419 -962)" clip-path="url(#clip-path)">
+      <g id="parking" transform="translate(589 1196)">
+        <g id="Group_34412" data-name="Group 34412" transform="translate(5.455 5.455)">
+          <g id="Group_34411" data-name="Group 34411">
+            <path id="Path_8071" data-name="Path 8071" d="M20.474,19.565h-.909v1.818h.909a.909.909,0,1,0,0-1.818Z" transform="translate(-19.565 -19.565)" fill="#bfbfbf"/>
+          </g>
+        </g>
+        <g id="Group_34414" data-name="Group 34414">
+          <g id="Group_34413" data-name="Group 34413">
+            <path id="Path_8072" data-name="Path 8072" d="M26.061,24.075a2.723,2.723,0,0,0,1.818-2.56V19.7a2.724,2.724,0,0,0-2.039-2.629L24.61,13.38a2.723,2.723,0,0,0-2.587-1.865H14.947A2.723,2.723,0,0,0,12.36,13.38l-1.23,3.689A2.724,2.724,0,0,0,9.091,19.7v1.818a2.723,2.723,0,0,0,1.818,2.56v1.077a2.7,2.7,0,0,0,.167.909h-3.8V14.473a6.368,6.368,0,0,0,5.455-6.291V6.364A6.364,6.364,0,1,0,0,6.364V8.182a6.368,6.368,0,0,0,5.455,6.291V26.061H.909a.909.909,0,1,0,0,1.818H26.97a.909.909,0,0,0,0-1.818H25.894a2.7,2.7,0,0,0,.167-.909V24.075ZM5.455,9.091V10a.909.909,0,0,1-1.818,0V4.546a.909.909,0,0,1,.909-.909H6.364a2.727,2.727,0,1,1,0,5.455H5.455Zm8.63,4.864a.908.908,0,0,1,.862-.621h7.076a.908.908,0,0,1,.862.622l1,3.015H13.08Zm-2.266,8.47a.91.91,0,0,1-.909-.909V19.7a.91.91,0,0,1,.909-.909h1.163l1.212,3.636H11.818ZM16.2,26.061a2.7,2.7,0,0,0,.167-.909v-.909h4.242v.909a2.7,2.7,0,0,0,.167.909Zm8.956-3.636H22.777l1.212-3.636h1.163a.91.91,0,0,1,.909.909v1.818A.91.91,0,0,1,25.152,22.425Z" fill="#bfbfbf"/>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g id="Mask_Group_6181" data-name="Mask Group 6181" transform="translate(419 -962)" clip-path="url(#clip-path)">
+      <g id="parking-2" data-name="parking" transform="translate(589 1196)">
+        <g id="Group_34416" data-name="Group 34416" transform="translate(5.455 5.455)">
+          <g id="Group_34415" data-name="Group 34415">
+            <path id="Path_8073" data-name="Path 8073" d="M20.474,19.565h-.909v1.818h.909a.909.909,0,1,0,0-1.818Z" transform="translate(-19.565 -19.565)" fill="#bfbfbf"/>
+          </g>
+        </g>
+        <g id="Group_34418" data-name="Group 34418">
+          <g id="Group_34417" data-name="Group 34417">
+            <path id="Path_8074" data-name="Path 8074" d="M26.061,24.075a2.723,2.723,0,0,0,1.818-2.56V19.7a2.724,2.724,0,0,0-2.039-2.629L24.61,13.38a2.723,2.723,0,0,0-2.587-1.865H14.947A2.723,2.723,0,0,0,12.36,13.38l-1.23,3.689A2.724,2.724,0,0,0,9.091,19.7v1.818a2.723,2.723,0,0,0,1.818,2.56v1.077a2.7,2.7,0,0,0,.167.909h-3.8V14.473a6.368,6.368,0,0,0,5.455-6.291V6.364A6.364,6.364,0,1,0,0,6.364V8.182a6.368,6.368,0,0,0,5.455,6.291V26.061H.909a.909.909,0,1,0,0,1.818H26.97a.909.909,0,0,0,0-1.818H25.894a2.7,2.7,0,0,0,.167-.909V24.075ZM5.455,9.091V10a.909.909,0,0,1-1.818,0V4.546a.909.909,0,0,1,.909-.909H6.364a2.727,2.727,0,1,1,0,5.455H5.455Zm8.63,4.864a.908.908,0,0,1,.862-.621h7.076a.908.908,0,0,1,.862.622l1,3.015H13.08Zm-2.266,8.47a.91.91,0,0,1-.909-.909V19.7a.91.91,0,0,1,.909-.909h1.163l1.212,3.636H11.818ZM16.2,26.061a2.7,2.7,0,0,0,.167-.909v-.909h4.242v.909a2.7,2.7,0,0,0,.167.909Zm8.956-3.636H22.777l1.212-3.636h1.163a.91.91,0,0,1,.909.909v1.818A.91.91,0,0,1,25.152,22.425Z" fill="#bfbfbf"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

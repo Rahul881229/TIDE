@@ -1,0 +1,106 @@
+@import "../../assets/variable.scss";
+
+.dark {
+  .tree-root {
+    color: $dark-text-color !important;
+  }
+  .inner {
+    background-color: $dark-text-color !important;
+  }
+  .outer {
+    border-color: $dark-text-color !important;
+  }
+}
+
+.light {
+  .tree-root {
+    color: $light-text-color !important;
+  }
+  .inner {
+    background-color: $light-text-color !important;
+  }
+  .outer {
+    border-color: $light-text-color !important;
+  }
+}
+
+.tree-grid {
+  height: 300px;
+  font-family: "trinity", "Open Sans";
+  font-size: 15px;
+}
+
+// .tree-root .caret {
+//   position: relative;
+//   font-size: 1em;
+//   cursor: pointer;
+//   padding-left: 5px;
+//   padding: 0 18px;
+// }
+
+.tree-root {
+  color: $dark-text-color;
+}
+
+// .caret-child {
+//   position: relative;
+//   left    : -7px;
+// }
+
+.tree-root ul {
+  margin: 0;
+  padding: 0 5px;
+}
+
+ul li {
+  list-style: none;
+  padding: 4px 0;
+  font-family: "trinity", "Open Sans";
+  font-size: 12px;
+}
+
+ul.nested.active {
+  padding-left: 0px;
+}
+
+.outer {
+  display: inline-block;
+  height: 12px;
+  width: 12px;
+  position: absolute;
+  left: 0;
+  top: 9px;
+  cursor: pointer;
+  border: 1px solid $dark-text-color;
+}
+
+.rtl {
+  left: auto;
+  right: 0;
+}
+
+.inner {
+  display: none;
+  height: 8px;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 8px;
+  background-color: $dark-text-color;
+}
+
+.tree-root ul li {
+  position: relative;
+  text-transform: capitalize;
+  padding-left: 22px;
+  padding-top: 7px;
+  padding-right: 22px;
+}
+
+.nested {
+  display: none;
+}
+
+.active {
+  display: block;
+}

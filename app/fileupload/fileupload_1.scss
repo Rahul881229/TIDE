@@ -1,0 +1,66 @@
+:host {
+    font-family: "trinity", "Open Sans";
+}
+
+article {
+    display: flex;
+    align-items: center;
+}
+
+p{
+    font-family: "trinity";
+    margin: 0;
+    padding: 0;
+    font-size:16px;
+    color: #FFFFFF;
+    margin: 5px;
+}
+
+.file-upload-content {
+    border: 1px solid #131313;
+    padding: 4px 12px;
+    // border-radius: 2px;
+    margin-right: 5px;
+    text-align: -webkit-center;
+}
+
+.dark {
+    background-color: #404040;
+    color: #fff;
+}
+
+.light {
+    background-color: #fff;
+    color: #404040;
+}
+
+.disabled {
+    background-color: #8c8c8c;
+    cursor: not-allowed;
+}
+
+.sm {
+    height: 3vh;
+    font-size: 12px;
+}
+
+.lg {
+    height: 3.5vh;
+    font-size: 14px;
+}
+
+button {
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+.image-content {
+    color: #fff;
+}
+
+
+#selectedImages {
+    display: flex;
+        /* Space between images */
+}

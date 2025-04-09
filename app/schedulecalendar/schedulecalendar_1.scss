@@ -1,0 +1,214 @@
+#prevMonth {
+  transform: rotate(90deg); /* Rotates the previous arrow to face left */
+}
+#nextMonth {
+  transform: rotate(90deg); /* Keeps the next arrow facing right */
+}
+
+
+// .month-name, .date
+// {
+//   margin: 11px;
+// }
+
+.day.selected,
+.year.selected,
+.month.selected {
+  color: #FFFFFF;
+  border: 2px solid #009688;
+  // box-sizing: border-box;
+}
+
+
+
+
+
+.show-more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 7px solid #BFBFBF;  /* Triangle shape */
+  cursor: pointer;
+  top: calc(100% - 8px);  /* Adjusts to 20px from the bottom of the .day element */
+  left: calc(50% - 6px);  /* Centers the triangle horizontally */
+  transition: all 0.3s ease;  /* Smooth transition for positioning */
+}
+
+
+
+:host {
+  display: block;
+  font-family: Arial, sans-serif;
+  color: #BFBFBF;
+  border: 1px solid #404040;
+  background-color: #262626; 
+  padding:  7px 16px 0px 16px;
+  font-size: 14px;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+}
+.header {
+  display: flex;
+  justify-content: end;
+}
+
+.header .controls {
+  display: flex;
+  gap: 8px;
+}
+.header .controls button {
+  background: #2A2A2A;
+  border: none;
+  color: #FFFFFF;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+.header .controls button:hover {
+  background: #3A3A3A;
+}
+hr {
+  border: none;
+  border-top: 1px solid #444;
+  margin: 8px 0;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 9px;
+  height: calc(100% - 75px); /* Account for header and HR space */
+}
+.day {
+  position: relative;
+  background: #40404066;
+  border: 1px solid #BFBFBF66;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  overflow: hidden;
+}
+.day .date {
+  // font-size: 1rem;
+  // color: #AAA;
+  // margin-bottom: 4px;
+}
+.day .events {
+  flex-grow: 1;
+  overflow:hidden;
+}
+.day .events .event {
+  font-size: 10px;
+    background: #404040 0 0 no-repeat padding-box;
+    margin-top: 4px;
+    padding: 0px 5px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    opacity: 1;
+}
+
+.day.highlight {
+  border-left: 5px solid #009688;
+}
+
+
+
+.weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  color: #fff;
+  text-align: center;
+}
+
+.weekday {
+  font-weight: bold;
+  font-size: 12px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.dialog-content
+{
+  display: flex;
+      gap: 12px;
+}
+
+.year-dialog {
+  position: absolute;
+  background: #262626;
+  border: 1px solid #ccc;
+  border:1px solid #808080;
+  z-index: 2000;
+  padding: 16px
+}
+
+
+.years-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 9px;
+  height: calc(99% - 35px); /* Account for header and HR space */
+}
+
+
+
+.months-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 9px;
+  height: calc(99% - 35px); /* Account for header and HR space */
+}
+
+.year,.month {
+  position: relative;
+  background: #404040;
+  border: 1px solid #BFBFBF66;
+  display: flex;
+  flex-direction: column;
+  padding: 3px;
+  overflow: hidden;
+  align-items: center;
+    justify-content: center;
+    width:50px;
+    height: 50px;
+}
+
+// .month:hover,
+// .year:hover 
+.day:hover
+{
+  background-color:  #404040;
+
+}
+
+
+
+// .month
+// {
+//   position: relative;
+//   background: #404040;
+//   border: 1px solid #BFBFBF66;
+//   display: flex;
+//   flex-direction: column;
+//   padding: 3px;
+//   overflow: hidden;
+//   align-items: center;
+//     justify-content: center
+// }
+
+
+.year:hover {
+  background: #4E4E4E;
+}
+

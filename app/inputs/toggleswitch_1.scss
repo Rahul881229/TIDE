@@ -1,0 +1,264 @@
+// .toggle-title {
+//     position: absolute;
+//     top: 100%;
+//     /* Position it below the toggle switch */
+//     left: 50%;
+//     /* Center it horizontally */
+//     transform: translateX(-50%);
+//     padding: 5px 10px;
+//     /* Add padding for better readability */
+//     background-color: #000;
+//     // background-color: white;
+//     /* Background color for the tooltip */
+//     color: #fff;
+//     /* Text color for the tooltip */
+//     font-size: 12px;
+//     /* Adjust the font size as needed */
+//     border-radius: 5px;
+//     /* Rounded corners for the tooltip */
+//     white-space: nowrap;
+//     /* Prevent text from wrapping */
+//     z-index: 100;
+//     /* Ensure the tooltip appears above other content */
+//     pointer-events: none;
+//     /* Prevent the title from affecting clicks */
+// }
+
+// // .dark {
+// //     .slider,
+// //     .slider:before {
+// //         border-color: #404040 !important;
+// //     }
+// // }
+
+// // .light {
+// //     .slider,
+// //     .slider:before {
+// //         border-color: #404040 !important;
+// //         background-color: #404040 !important;
+// //     }
+// // }
+
+// .tswitch {
+//     position: relative;
+//     display: inline-block;
+//     width: 30px;
+//     height: 15px;
+// }
+
+// .tswitch.sm {
+//     width: 25px;
+//     height: 13px;
+// }
+
+// .tswitch.lg {
+//     width: 35px;
+//     height: 19px;
+// }
+
+// .tswitch input {
+//     opacity: 0;
+//     width: 0;
+//     height: 0;
+// }
+
+// .tswitch .slider {
+//     position: absolute;
+//     cursor: pointer;
+//     opacity: 1;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     bottom: 0;
+//     background-color: #bf0000;
+//     border: 1px solid #404040;
+//     -webkit-transition: 0.4s;
+//     transition: 0.4s;
+// }
+
+// .tswitch .slider:before {
+//     position: absolute;
+//     content: "";
+//     height: 11px;
+//     width: 11px;
+//     top: 0px;
+//     left: 0px;
+//     bottom: 0px;
+//     background-color: #bfbfbf;
+//     border: 1px solid #fff;
+//     transition: 0.4s;
+//     -webkit-transition: 0.4s;
+// }
+
+// .tswitch.sm .slider:before {
+//     height: 9px;
+//     width: 9px;
+// }
+
+// .tswitch.lg .slider:before {
+//     height: 15px;
+//     width: 15px;
+// }
+
+// .tswitch.ar .slider:before {
+//     right: 0px !important;
+//     left: auto;
+// }
+
+// .tswitch input:checked+.slider {
+//     background-color: #009688 !important;
+// }
+
+// .tswitch input:focus+.slider {
+//     box-shadow: 0 0 1px #009688 !important;
+// }
+
+// .tswitch input:checked+.slider:before {
+//     -webkit-transform: translateX(15px);
+//     -ms-transform: translateX(15px);
+//     transform: translateX(15px);
+// }
+
+// // .tswitch.ar input:checked + .slider:before {
+// //     -webkit-transform: translateX(-15px) !important;
+// //     -ms-transform: translateX(-15px) !important;
+// //     transform: translateX(-15px) !important;
+// // }
+// .tswitch.sm input:checked+.slider:before {
+//     -webkit-transform: translateX(12px);
+//     -ms-transform: translateX(12px);
+//     transform: translateX(12px);
+// }
+
+// .tswitch.lg input:checked+.slider:before {
+//     -webkit-transform: translateX(16px);
+//     -ms-transform: translateX(16px);
+//     transform: translateX(16px);
+// }
+
+// /* Rounded sliders */
+// .tswitch .slider.round {
+//     border-radius: 34px;
+// }
+
+// .tswitch .slider.round:before {
+//     border-radius: 50%;
+// }
+
+// .tswitch input[type="checkbox"]:disabled+span {
+//     opacity: 0.7;
+// }
+
+
+
+
+
+.toggle-title {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px 10px;
+    background-color: #000;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 5px;
+    white-space: nowrap;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.tswitch {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 15px;
+}
+
+.tswitch.sm {
+    width: 25px;
+    height: 13px;
+}
+
+.tswitch.lg {
+    width: 35px;
+    height: 19px;
+}
+
+.tswitch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.tswitch .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #bf0000;
+    border: 1px solid #BFBFBF;
+    transition: background-color 0.4s ease, transform 0.4s ease;
+}
+
+.tswitch .slider:before {
+    position: absolute;
+    content: "";
+    height: 7px;
+    width: 7px;
+    top: 2px; /* Use px instead of vh for better cross-browser support */
+    left: 2px;
+    background-color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    border-radius: 5px;
+    transition: transform 0.4s ease;
+}
+
+.tswitch.sm .slider:before {
+    height: 5px;
+    width: 5px;
+    top: 2px; /* px for better support */
+    left: 2px;
+}
+
+.tswitch.lg .slider:before {
+    height: 9px;
+    width: 9px;
+    top: 3px;
+    left: 2px;
+}
+
+.tswitch input:checked + .slider {
+    background-color: #009688;
+}
+
+.tswitch input:checked + .slider:before {
+    transform: translateX(15px);
+}
+
+.tswitch.sm input:checked + .slider:before {
+    transform: translateX(12px);
+}
+
+.tswitch.lg input:checked + .slider:before {
+    transform: translateX(16px);
+}
+
+.tswitch .slider.round {
+    border-radius: 34px;
+}
+
+.tswitch .slider.round:before {
+    border-radius: 50%;
+}
+
+.tswitch input:focus + .slider {
+    box-shadow: 0 0 1px #009688;
+}
+
+.tswitch input[type="checkbox"]:disabled + span {
+    opacity: 0.7;
+    cursor: not-allowed;
+}

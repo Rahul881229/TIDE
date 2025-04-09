@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="217.552" height="217.552" viewBox="0 0 217.552 217.552">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_4466" data-name="Rectangle 4466" width="94" height="94" transform="translate(-10358 6157)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Parking_sensor_active_map_view" data-name="Parking sensor active map view" transform="translate(-1518.712 -291.894)">
+    <circle id="Ellipse_331" data-name="Ellipse 331" cx="102.072" cy="102.072" r="102.072" transform="translate(1525.416 298.598)" fill="#009688"/>
+    <path id="Path_8404" data-name="Path 8404" d="M83.277,0A83.277,83.277,0,1,1,0,83.277,83.277,83.277,0,0,1,83.277,0Z" transform="translate(1544.212 317.393)" fill="#404040"/>
+    <g id="Parking_sensor_active" data-name="Parking sensor active" transform="translate(11938.988 -5803.105)" clip-path="url(#clip-path)">
+      <g id="parking_1_" data-name="parking (1)" transform="translate(-10351.903 6157)">
+        <path id="Path_8501" data-name="Path 8501" d="M132.217,24.683a18.631,18.631,0,0,0-22.195,0,2.765,2.765,0,0,0,3.2,4.513,13.116,13.116,0,0,1,15.8,0,2.765,2.765,0,1,0,3.2-4.513Z" transform="translate(-57.878 -9.998)" fill="#fff"/>
+        <path id="Path_8502" data-name="Path 8502" d="M132.836,5.792a30.187,30.187,0,0,0-35.545,0,2.765,2.765,0,0,0,3.2,4.513,24.647,24.647,0,0,1,29.155,0,2.765,2.765,0,1,0,3.2-4.513Z" transform="translate(-51.822 -0.003)" fill="#fff"/>
+        <path id="Path_8503" data-name="Path 8503" d="M129.165,42.121a2.768,2.768,0,1,0,3.34,2.681,2.784,2.784,0,0,0-3.34-2.681Z" transform="translate(-66.48 -20.009)" fill="#fff"/>
+        <path id="Path_8504" data-name="Path 8504" d="M40.53,24.543H37.262c.013,4.694,0,2.907.018,6.728,1.2-.007,2.5-.013,3.25-.013a3.36,3.36,0,1,0,0-6.715Z" transform="translate(-23.822 -11.675)" fill="#fff"/>
+        <path id="Path_8505" data-name="Path 8505" d="M42.48,0H14.394a2.765,2.765,0,0,0-2.765,2.765v33.5a2.765,2.765,0,0,0,2.765,2.765H42.48a2.765,2.765,0,0,0,2.765-2.765V2.765A2.765,2.765,0,0,0,42.48,0ZM28.337,25.113c-.758,0-2.07.006-3.276.013v3.806a2.765,2.765,0,1,1-5.53,0V10.1A2.771,2.771,0,0,1,22.3,7.338h6.04a8.888,8.888,0,1,1,0,17.775Z" transform="translate(-11.629)" fill="#fff"/>
+        <path id="Path_8506" data-name="Path 8506" d="M35.817,84.994h8.254v36.027H35.817Z" transform="translate(-23.135 -40.43)" fill="#fff"/>
+        <path id="Path_8507" data-name="Path 8507" d="M42.464,164.254h-27.7A2.773,2.773,0,0,0,12,167.018v2.726a2.773,2.773,0,0,0,2.765,2.765h27.7a2.773,2.773,0,0,0,2.765-2.765v-2.726A2.773,2.773,0,0,0,42.464,164.254Z" transform="translate(-11.805 -78.133)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

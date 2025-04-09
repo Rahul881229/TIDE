@@ -1,0 +1,125 @@
+.t-inputtext {
+    width: 100%;
+    padding: 10px 15px;
+    margin: 0;
+    display: inline-block;
+    border: 0px solid #131313;
+    box-sizing: border-box;
+    background-color: #404040;
+    color: #fff;
+    font-size: 1.7vh;
+    outline: none;
+    font-family: "trinity", "Open Sans";
+}
+
+
+
+.t-inputtext ::placeholder {
+    color: #bfbfbf;
+    opacity: 1; /* Firefox */
+}
+
+.t-inputtext:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #bfbfbf;
+}
+
+.t-inputtext::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #bfbfbf;
+}
+
+// .t-inputtext:disabled {
+//     color: rgba(64, 64, 64, 1) !important;
+//     background-color: rgba(140, 140, 140, 1) !important;
+// }
+
+.t-inputtext.sm {
+    font-size: 1.7vh;
+    height: 22px;
+    min-height: 22px;
+    padding: 5px 10px;
+}
+
+.t-inputtext-container img {
+    position: absolute;
+    height: 14px;
+    padding: 10px 8px;
+}
+
+.t-inputtext-container.sm img {
+    height: 10px;
+    padding: 8px 8px;
+}
+
+.t-inputtext-container .t-inputtext {
+    font-size: 1.8vh;
+    padding: 10px 15px 10px 30px;
+}
+.t-inputtext-container .t-inputtext.ticon {
+    padding: 10px 40px 10px 40px;
+}
+
+.t-inputtext-container.sm .t-inputtext {
+    font-size: 1.7vh;
+    height: 22px;
+    min-height: 22px;
+    padding: 5px 30px;
+}
+
+/* textarea */
+.t-inputtextarea {
+    width: 100%;
+    padding: 5px 10px;
+    margin: 0;
+    display: inline-block;
+    border: 1px solid #131313;
+    box-sizing: border-box;
+    background-color: #404040;
+    color: #FFFFFF;
+    // font-size: 1rem;
+    font-size: 1.7vh;
+    outline: none;
+    font-family: "trinity", "Open Sans";
+}
+.t-inputtextarea::placeholder {
+    color: #9E9E9E;
+        opacity: 1; /* Firefox */
+}
+
+.t-inputtextarea:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #9E9E9E;
+    opacity: 1; 
+
+}
+
+.t-inputtextarea::-ms-input-placeholder {
+    color: #9E9E9E;
+    opacity: 1; /* Firefox */
+}
+
+.t-inputtextarea:disabled::placeholder
+{
+    background-color: #8C8C8C;
+    color: #303030;
+}
+
+.t-inputtextarea:disabled {
+    // color: #bfbfbf !important;
+    // background-color: #404040!important;
+    background: #8C8C8C 0% 0% no-repeat padding-box;
+border: 1px solid #131313;
+opacity: 1;
+}
+
+.t-inputtextarea.light{
+    border: 1px solid #e7e8e5;
+    background-color: #e7e8e5;
+    color: #131313;
+}
+
+.validation {
+    font-size: 11px;
+    color: #c00000;
+}

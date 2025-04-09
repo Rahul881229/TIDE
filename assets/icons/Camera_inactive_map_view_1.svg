@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="217.552" height="217.552" viewBox="0 0 217.552 217.552">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_4449" data-name="Rectangle 4449" width="107.395" height="107.395" fill="#bfbfbf" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Camera_inactive_map_view" data-name="Camera inactive map view" transform="translate(-1518.712 -291.894)">
+    <circle id="Ellipse_331" data-name="Ellipse 331" cx="102.072" cy="102.072" r="102.072" transform="translate(1525.416 298.598)" fill="#bfbfbf"/>
+    <path id="Path_8404" data-name="Path 8404" d="M83.277,0A83.277,83.277,0,1,1,0,83.277,83.277,83.277,0,0,1,83.277,0Z" transform="translate(1544.212 317.393)" fill="#404040"/>
+    <g id="Mask_Group_6185" data-name="Mask Group 6185" transform="translate(1573.791 346.973)" clip-path="url(#clip-path)">
+      <g id="photo-camera-interface-symbol-for-button" transform="translate(12.959 17.263)">
+        <path id="Path_8405" data-name="Path 8405" d="M54.968,56.17A13.4,13.4,0,1,1,41.562,42.764,13.421,13.421,0,0,1,54.968,56.17ZM83.125,37.134V75.21A9.192,9.192,0,0,1,73.933,84.4H9.192A9.192,9.192,0,0,1,0,75.21V37.134a9.192,9.192,0,0,1,9.192-9.192H20.5v-3.18a8.041,8.041,0,0,1,8.043-8.043H54.585a8.041,8.041,0,0,1,8.043,8.043V27.94H73.933A9.2,9.2,0,0,1,83.125,37.134ZM61.862,56.17a20.3,20.3,0,1,0-20.3,20.3A20.323,20.323,0,0,0,61.862,56.17Z" transform="translate(0 -16.719)" fill="#bfbfbf"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,39 @@
+.pill {
+    display: inline-block;
+    padding: 0.3em 0.9em;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    white-space: nowrap;
+    background-color: gray;
+    color: white;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  
+    &--green {
+      background-color: #28a745;
+    }
+  
+    &--red {
+      background-color: #dc3545;
+    }
+  
+    &--blue {
+      background-color: #007bff;
+    }
+  
+    &--yellow {
+      background-color: #ffc107;
+      color: black;
+    }
+  
+    &--small {
+      font-size: 0.7rem;
+      padding: 0.2em 0.6em;
+    }
+  
+    &--large {
+      font-size: 1rem;
+      padding: 0.5em 1em;
+    }
+  }
+  

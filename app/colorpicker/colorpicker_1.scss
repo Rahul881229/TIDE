@@ -1,0 +1,22 @@
+.tcolorpicker input[type="color"] {
+  visibility: hidden;
+  width: 0;
+}
+
+.tcolorpicker {
+  border: 1px solid #131313;
+  margin: 0;
+  background-color: #404040;
+  font-size: 12px;
+  padding: 3px 10px;
+}
+
+div.button {
+  display:inline-block;
+  -webkit-appearance:button;
+  padding:3px 8px 3px 8px;
+  font-size:13px;
+  position:relative;
+  cursor:context-menu;
+  background-color:red;
+}

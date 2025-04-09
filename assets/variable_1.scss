@@ -1,0 +1,97 @@
+// color variables.
+$default-text-color: rgba(255, 255, 255, 1);
+$default-bg-color: rgba(64, 64, 64, 1);
+$default-bg-hover-color: rgba(64, 64, 64, 0.749);
+$default-border-color: rgba(19, 19, 19, 1);
+
+$primary-bg-color: rgba(0, 150, 136, 1);
+$primary-bg-hover-color: rgba(0, 150, 136, 0.749);
+
+$warning-bg-color: rgba(230, 134, 25, 1);
+$warning-bg-hover-color: rgba(230, 134, 25, 0.749);
+
+$danger-bg-color: rgba(192, 0, 0, 1);
+$danger-bg-hover-color: rgba(192, 0, 0, 0.749);
+$light-bg-color:rgba(0, 0, 0, 1);
+
+$disabled-text-color: rgba(64, 64, 64, 1);
+$disabled-bg-color: rgba(140, 140, 140, 1);
+$disabled-border-color: rgba(19, 19, 19, 1);
+
+$border-color: #c7c7c7;
+
+// light Theme
+$light-theme-bg: #fff;
+$light-theme-color: #000;
+
+// Dark theme
+$dark-theme-bg: #262626;
+$dark-theme-color: #fff;
+// CTA button.
+$btn-cta-color: #009688;
+$btn-cta-hover-color: #01b364;
+
+// Secondary button
+$btn-secondary-color: #404040;
+$btn-secondary-hover-color: #939491;
+
+//  select dropdown color..
+$drpdon-select-color: #828380;
+
+//  aleart button
+$btn-alert-color: #c00000;
+$btn-alert-hover-color: #fd4d41;
+
+//  text color.
+$text-primary-color: #fff;
+
+// dark
+$dark-text-color: #ffffff;
+$dark-bg-color: #404040;
+$dark-border-color: #404040;
+
+$dark-header-bg-color: #404040;
+
+$dark-accordion-btn-bg-color: #8c8c8c40;
+$dark-arrow-border-color: #fff;
+
+$dark-alert-bg-color: #262626;
+$dark-panel-bg-color: #262626;
+
+//light
+$light-text-color: #000000;
+$light-bg-color: #ffffff;
+$light-border-color: #404040;
+
+$light-header-bg-color: #fff;
+
+$light-accordion-btn-bg-color: #8c8c8c40;
+$light-arrow-border-color: #000;
+
+$light-alert-bg-color: #ffffff;
+$light-panel-bg-color: #ffffff;
+
+//common
+$common-hover-bg-color: #6f6f6f;
+$common-text-dim-color: #939491;
+$primary-bg-color: #009688;
+
+//map
+$dark-widget-bg-color: #262626;
+$dark-map-btn-bg-color: #404040;
+$dark-map-panel-bg-color: #262626;
+$dark-map-panel-border-color: #383838;
+
+$light-widget-bg-color: #b8b6b8;
+$light-map-btn-bg-color: #b8b6b8;
+$light-map-panel-bg-color: #ffffff;
+$light-map-panel-border-color: #383838;
+
+//Different Heights for(Button , Input, Drop down, Multi Dropdown, Input Field, tabs)
+$form-sm-height: 25px;
+$form-default-height: 28px;
+$form-lg-height: 32px;
+
+$form-sm-font-size: 1.5vh;
+$form-default-font-size: 1.7vh;
+$form-lg-font-size: 1.8vh;

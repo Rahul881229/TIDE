@@ -1,0 +1,69 @@
+@import "../../assets/variable";
+
+.stepper-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+
+    .stepper-btnDiv {
+        margin: 0 5px;
+        width: 65px;
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .icon {
+            border-radius: 50%;
+            border: 1px solid #bfbfbf;
+            width: 40px;
+            height: 40px;
+            padding: 5px;
+            opacity: 1;
+            background-color: transparent;
+            cursor: pointer; // Added cursor pointer for all icons
+
+            img {
+                width: 75%;
+                height: 75%;
+            }
+
+            // Apply disabled styles
+            &.disabled {
+                opacity: 0.5;
+                // pointer-events: none; // Disable pointer events on disabled icons
+                // cursor: not-allowed; // Show not-allowed cursor on disabled icons
+                border-color: #bfbfbf; // Set border color for disabled icons
+
+                // Make icons less visible on hover
+                img {
+                    opacity: 0.3;
+                }
+            }
+
+            &.selected {
+                border-color: #009688; // Selected icon border color
+            }
+
+            &:hover {
+
+
+                &.disabled {
+                    border-color: #bfbfbf;
+                }
+            }
+        }
+
+        label {
+            font-size: 12px;
+            margin: 5px 0;
+            color: #bfbfbf;
+            width: 100%;
+            text-align: center;
+
+            &.selected {
+                font-weight: bold;
+                color: #fff;
+            }
+        }
+    }
+}

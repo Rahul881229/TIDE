@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="180" height="180" viewBox="0 0 180 180">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_4387" data-name="Rectangle 4387" width="180" height="180" transform="translate(-9403 5509)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Electric_Meter_Active" data-name="Electric Meter Active" transform="translate(9403 -5509)" clip-path="url(#clip-path)">
+    <g id="power-meter" transform="translate(-9383.338 5521.939)">
+      <path id="Path_7552" data-name="Path 7552" d="M63.619,71.816A69.587,69.587,0,0,1,10,46.59L10,71.816a5.361,5.361,0,0,0,5.362,5.361h96.507a5.361,5.361,0,0,0,5.361-5.361V46.6A69.581,69.581,0,0,1,63.619,71.816Z" transform="translate(6.719 74.945)" fill="#fff"/>
+      <path id="Path_7553" data-name="Path 7553" d="M28,18H38.723V28.723H28Z" transform="translate(36.977 26.892)" fill="#fff"/>
+      <path id="Path_7554" data-name="Path 7554" d="M16,18H26.723V28.723H16Z" transform="translate(16.808 26.892)" fill="#fff"/>
+      <path id="Path_7555" data-name="Path 7555" d="M34,18H44.723V28.723H34Z" transform="translate(47.061 26.892)" fill="#fff"/>
+      <path id="Path_7556" data-name="Path 7556" d="M40,18H50.726V28.723H40Z" transform="translate(57.146 26.892)" fill="#fff"/>
+      <path id="Path_7557" data-name="Path 7557" d="M22,18H32.723V28.723H22Z" transform="translate(26.892 26.892)" fill="#fff"/>
+      <path id="Path_7558" data-name="Path 7558" d="M11.765,31.914a2.49,2.49,0,0,0-.646,1.946,50.934,50.934,0,0,0,101.273,0,2.488,2.488,0,0,0-.646-1.944,2.737,2.737,0,0,0-2.04-.917h-95.9A2.737,2.737,0,0,0,11.765,31.914ZM51.483,53.628,62.206,37.544a2.681,2.681,0,1,1,4.461,2.976L58.722,52.446H69.8a2.681,2.681,0,0,1,2.23,4.169L61.306,72.7a2.681,2.681,0,1,1-4.461-2.976l7.946-11.916H53.714a2.681,2.681,0,0,1-2.23-4.169Z" transform="translate(8.582 48.742)" fill="#fff"/>
+      <path id="Path_7559" data-name="Path 7559" d="M70.338,6a64.338,64.338,0,1,0,64.338,64.338A64.338,64.338,0,0,0,70.338,6ZM27.446,38.169a5.362,5.362,0,0,1,5.362-5.361h75.061a5.362,5.362,0,0,1,5.362,5.361V48.892a5.362,5.362,0,0,1-5.362,5.361H32.808a5.361,5.361,0,0,1-5.362-5.361ZM124.32,70.351a7.892,7.892,0,0,1,1.984,6.1,56.3,56.3,0,0,1-111.932,0,7.9,7.9,0,0,1,1.984-6.107,8.12,8.12,0,0,1,6.032-2.681h95.9a8.12,8.12,0,0,1,6.032,2.684Z" transform="translate(0 6.723)" fill="#fff"/>
+      <path id="Path_7560" data-name="Path 7560" d="M10,7.362V32.579a69.6,69.6,0,0,1,107.23,0V7.362A5.361,5.361,0,0,0,111.869,2H15.362A5.362,5.362,0,0,0,10,7.362Z" transform="translate(6.723 0)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

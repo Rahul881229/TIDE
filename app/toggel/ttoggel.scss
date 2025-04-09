@@ -1,0 +1,39 @@
+@import "../../assets/variable"; // Adjust based on your folder structure
+
+
+.t-toggle-wrapper {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  padding: 5px;
+}
+
+.t-toggle {
+  position: relative;
+  width: 40px;
+  height: 20px;
+  background-color: #ccc;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.t-toggle::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.t-toggle.active {
+  background-color: #4caf50;
+}
+
+.t-toggle.active::before {
+  transform: translateX(20px);
+}

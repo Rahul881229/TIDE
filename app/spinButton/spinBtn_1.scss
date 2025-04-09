@@ -1,0 +1,131 @@
+@import "../../assets/variable";
+
+.dark {
+  input {
+    color: $dark-text-color !important;
+  }
+
+  .prev {
+    border-right-color: $dark-text-color !important;
+  }
+
+  .next {
+    border-left-color: $dark-text-color !important;
+  }
+}
+
+.light {
+  input {
+    color: $light-text-color !important;
+  }
+
+  .prev {
+    border-right-color: $light-text-color !important;
+  }
+
+  .next {
+    border-left-color: $light-text-color !important;
+  }
+}
+
+.spin-btn {
+  background: $btn-secondary-color;
+  width: 120px;
+  position: relative;
+  height: 34px;
+  padding: 0 0 0 10px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-family: "trinity", "Open Sans";
+
+  &:focus {
+    outline: none;
+    border: none;
+  }
+}
+
+.btn-icon-wrap img {
+  width: 10px;
+  height: 10px;
+  object-fit: cover;
+}
+
+.btn-icon-wrap {
+  background-color: $btn-secondary-hover-color;
+  display: flex;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 30px;
+  flex-direction: column;
+}
+
+.up {
+  height: 16px;
+  border-bottom: 1px solid #fff;
+}
+
+.down {
+  height: 16px;
+}
+
+.up:hover {
+  background-color: $primary-bg-hover-color;
+}
+
+.down:hover {
+  background-color: $primary-bg-hover-color;
+}
+
+.spin {
+  background: transparent;
+}
+
+.spin input {
+  width: 50px;
+  text-align: center;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font-size: 12px;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.spin input::-webkit-inner-spin-button,
+.spin input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  height: auto;
+}
+
+.spin span {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+}
+
+.spin input:focus {
+  border: none;
+  outline: none;
+}
+
+.spin .prev {
+  border-right: 4px solid #fff;
+}
+
+.spin .next {
+  border-left: 4px solid #fff;
+}

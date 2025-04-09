@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="217.552" height="217.552" viewBox="0 0 217.552 217.552">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_4461" data-name="Rectangle 4461" width="107.174" height="107.174" transform="translate(0.074 -0.357)" fill="#bfbfbf" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Water_meter_inactive_map_view" data-name="Water meter inactive map view" transform="translate(-1518.712 -291.894)">
+    <circle id="Ellipse_331" data-name="Ellipse 331" cx="102.072" cy="102.072" r="102.072" transform="translate(1525.416 298.598)" fill="#bfbfbf"/>
+    <path id="Path_8404" data-name="Path 8404" d="M83.277,0A83.277,83.277,0,1,1,0,83.277,83.277,83.277,0,0,1,83.277,0Z" transform="translate(1544.212 317.393)" fill="#404040"/>
+    <g id="Water_Meter_inactive" data-name="Water Meter inactive" transform="translate(1573.827 347.44)" clip-path="url(#clip-path)">
+      <g id="meter" transform="translate(9.171 15.684)">
+        <path id="Path_8471" data-name="Path 8471" d="M13,49H69.1V63.763H13Z" transform="translate(3.239 7.098)" fill="#bfbfbf"/>
+        <path id="Path_8472" data-name="Path 8472" d="M2,46H16.763V69.62H2Z" transform="translate(-2 5.67)" fill="#bfbfbf"/>
+        <path id="Path_8473" data-name="Path 8473" d="M52,46H66.763V69.62H52Z" transform="translate(21.814 5.67)" fill="#bfbfbf"/>
+        <path id="Path_8474" data-name="Path 8474" d="M39.62,49.241A23.62,23.62,0,1,0,16,25.62a23.62,23.62,0,0,0,23.62,23.62Zm0-39.859A16.239,16.239,0,1,1,23.381,25.62,16.239,16.239,0,0,1,39.62,9.381Z" transform="translate(4.668 -2)" fill="#bfbfbf"/>
+        <path id="Path_8475" data-name="Path 8475" d="M27,41.145H41.763v-6.9a72.343,72.343,0,0,1-14.763,0Z" transform="translate(9.907 13.359)" fill="#bfbfbf"/>
+        <path id="Path_8476" data-name="Path 8476" d="M33.191,30.034a3.691,3.691,0,0,0,3.691-3.691,3.653,3.653,0,0,0-.5-1.827l4.65-9.095a1.845,1.845,0,1,0-3.286-1.68l-4.556,8.912a3.691,3.691,0,1,0,0,7.381Z" transform="translate(11.097 3.113)" fill="#bfbfbf"/>
+      </g>
+    </g>
+  </g>
+</svg>

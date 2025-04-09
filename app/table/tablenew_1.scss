@@ -1,0 +1,109 @@
+// slot[name=table]::slotted(.ttable) {
+//     color: #fff !important;
+//     font-family: "trinity", "Open Sans";
+//     width: 100%;
+//     font-size: 12px;
+//     border-collapse: separate !important;
+//     border-spacing: 0 0.4em;
+// }
+
+// .dark {
+//     slot[name=table]::slotted(.ttable) {
+//         color: #ffffff !important;
+//     }
+// }
+
+// .light {
+//     slot[name=table]::slotted(.ttable) {
+//         color: #000000 !important;
+//     }
+// }
+
+
+// :host(.theader) {
+//     text-align: left;
+//     padding: 3px 10px;
+// }
+
+// :host([apply]) {
+//     text-align: left;
+//     padding: 3px 10px;
+// }
+
+// ::slotted(theader) {
+//     text-align: left;
+//     padding: 3px 10px;
+// }
+
+// .pagination button {
+//     background-color: #8c8c8c66;
+//     color: #fff;
+// }
+
+// .hidden {
+//     display: none;
+// }
+
+slot[name=table]::slotted(.ttable) {
+    color: #fff !important;
+    font-family: "trinity", "Open Sans";
+    width: 100%;
+    font-size: 12px;
+    // background-color: #262626;
+    font-style: bold;
+    border-collapse: separate !important;
+    border-spacing: 0 0.4em;
+}
+
+// slot[name=table]::slotted(.inner-table) {
+//     color: #fff !important;
+//     font-family: "trinity", "Open Sans";
+//     width: 100%;
+//     font-size: 12px;
+//     font-style: Bold;
+//     border-collapse: separate !important;
+//     border-spacing: 0 0.4em;
+//     background-color: #262626;
+// }
+
+.dark {
+    slot[name=table]::slotted(.ttable) {
+        color: #ffffff !important;
+    }
+}
+
+.light {
+    slot[name=table]::slotted(.ttable) {
+        color: #000000 !important;
+    }
+}
+
+
+:host(.theader) {
+    text-align: left;
+    padding: 3px 10px;
+}
+
+:host([apply]) {
+    text-align: left;
+    padding: 3px 10px;
+}
+
+::slotted(theader) {
+    text-align: left;
+    padding: 3px 10px;
+}
+
+.pagination button {
+    background-color: #8c8c8c66;
+    color: #fff;
+}
+
+// .hidden {
+//     display: none;
+// }
+
+.hidden {
+    display: none !important;
+    /* You can use !important if needed */
+}

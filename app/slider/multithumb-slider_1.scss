@@ -1,0 +1,121 @@
+.middle {
+  position: relative;
+  width: 100%;
+  
+}
+
+.middle .slider-val-wrap {
+  color: #bfbfbf;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  top: 20px;
+  width: 100%;
+}
+
+.middle .multislider {
+  position: relative;
+  z-index: 1;
+  height: 8px;
+  margin: 0 55px;
+}
+
+.middle .multislider>.track {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  height: 2px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #bfbfbf;
+}
+
+.middle .multislider>.range {
+  position: absolute;
+  cursor: pointer;
+  z-index: 2;
+  height: 2px;
+  left: 25%;
+  right: 25%;
+  top: 0;
+  bottom: 0;
+  border-radius: 5px;
+  background-color: #009688;
+}
+
+.middle .multislider>.thumb {
+  position: absolute;
+  z-index: 3;
+  width: 12px;
+  height: 12px;
+  background-color: #009688;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.middle .multislider>.thumb.left {
+  left: 25%;
+  transform: translate(-5px, -5px);
+}
+
+.middle .multislider>.thumb.right {
+  right: 25%;
+  transform: translate(10px, -5px);
+}
+
+
+
+.middle input#input-left[type="range"],
+.middle input#input-right[type="range"] {
+  position: absolute;
+  pointer-events: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+  z-index: 3;
+  height: 0px;
+  opacity: 0;
+  top: 44px;
+  width:calc(100% - 100px);
+  left: 52px; /* Centering the slider based on the margin */
+}
+
+.middle input[type="range"]::-webkit-slider-thumb {
+  pointer-events: all;
+  width: 22px;
+  height: 12px;
+  background-color: red;
+  -webkit-appearance: none;
+  margin-top: -6px; /* Center the thumb vertically */
+}
+
+
+
+
+
+.middle .min-val,
+.middle .max-val {
+  font-family: "trinity", "Open Sans";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 65px;
+  height: 40px;
+  background: #404040 0% 0% no-repeat padding-box;
+  border: 1px solid #131313;
+  opacity: 1;
+  font-size: 16px; /* Font size 16px */
+  color: #fff; /* White text */
+  font-weight: 400; /* Regular weight */
+}
+
+.middle .min-val
+{
+margin-left: -35px;
+}
+
+
+.middle .max-val
+{
+margin-right: -35px;
+}

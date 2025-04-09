@@ -1,0 +1,2429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIDE</title>
+    <!-- <link href="http://192.168.1.165:8989/trinityAPI/v3.0/trinity.css" rel="stylesheet" />
+    <link href="http://192.168.1.165:8989/trinityAPI/v3.0/ol3gm.css" rel="stylesheet" /> -->
+    <!-- <link href="assets/mapPopupStyle.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDXQOWvQ81olZpv9ojGmvD1v2TxYl0EDw&libraries=places"></script> -->
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFZ1LP70GprG_bAT4y8MU6zt1ere8KlGo&libraries=places"></script> -->
+
+    <!-- <script src="http://192.168.1.165:8989/trinityAPI/v3.0/trinity.ol_ICCC.js"></script>
+    <script src="http://192.168.1.165:8989/trinityAPI/v3.0/ol3gm.js"></script>
+    <script src="http://192.168.1.165:8989/trinityAPI/v3.0/appconfig.js"></script>
+    <script src="http://192.168.1.165:8989/trinityAPI/v3.0/trinityapi.js"></script>
+    <script src="http://192.168.1.165:8989/trinityAPI/v3.0/ol3-contextmenu.js"></script>
+    <script src="http://192.168.1.165:8989/trinityAPI/v3.0/appconfig.js"></script> -->
+
+    <!-- <script src="http://192.168.1.165:8989/trinityAPI/v3.1_tide/appconfig.js"></script> -->
+
+    <!-- <script src="http://192.168.1.190:9080/tide/customevent.js"></script> -->
+
+    <style>
+        /* progress-bar {
+            --fill-color: red;
+        } */
+    </style>
+
+</head>
+
+<!-- <style>
+    .headerPanel {
+        width: 100%;
+        height: 6vh;
+    }
+
+    .bodyPanel {
+        width: 100%;
+        height: 91vh;
+        display: flex;
+    }
+
+    .bodyPanelLeft {
+        width: 3vw;
+        border-right: 1px solid #707070;
+    }
+
+    .bodyPanelRight {
+        width: 97vw;
+        padding: 5px;
+    }
+
+    .row {
+        width: 100%;
+        text-align: right;
+        padding: 10px 0;
+    }
+
+    .footerPanel {
+        width: 100%;
+        height: 3vh;
+    }
+</style> -->
+<style>
+    .language,
+    .theme,
+    .disableArea {
+        position: fixed;
+        top: 10px;
+        right: 72vh;
+        padding: 0 5px;
+        border-radius: 5px;
+        font-size: 12px;
+        font-family: system-ui;
+        color: grey;
+        z-index: 1000;
+        cursor: pointer;
+    }
+
+    .language {
+        right: 60vh;
+    }
+
+    .disableArea {
+        right: 45vh !important;
+    }
+
+    .dark {
+        background-color: #262626;
+    }
+
+    .light {
+        background-color: #FFFFFD;
+    }
+</style>
+
+<body class="dark" style="margin: 0;">
+
+    <div class="theme">
+        <label><input type="checkbox" value="dark" onclick="onThemeChange(event)" checked>Dark Theme</label>
+    </div>
+
+    <div class="language">
+        <label><input type="checkbox" value="ar" onclick="onLanguageChange(event)">Arabic</label>
+    </div>
+
+    <div class="disableArea">
+        <label><input type="checkbox" value="true" onclick="isDisabled(event)">Disabled</label>
+    </div>
+
+    <t-applayout callback="getapplayoutcallback">
+        <t-header slot="header" theme="" title="TIDE" callback="getheadercallback"
+            logo="https://www.mobility.com/tMobilityPortal/themes/black/images/logo/logo.png">
+
+            <t-button transparent slot="actions" onclick="notification()" count="0"
+                icon="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAQAAAAAYLlVAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAAHdElNRQflAgoMBAT1O2vsAAADL0lEQVRo3u1ZS0hUURj+zh11fEw+ZrRASKhFkptAemhSEYEtWtQiNB9gyZjQY+FMYhLUIEpFeiVBCoIgSIoIIsIWQauwhdQ2qCCyrIU2NaU5w4xzT9uZ8d4z55x77kDgt7vn8X/f/c7rnv8SSIKSsXbSi3oAb+nt4ENC5eIQuW6PXF/ukxMpBVObu1qSMpE0OQHzl9LogY75wRw6oBfRBXgyCv8sbQrFcuXA7jX0QGnpLplQUgKMKrNSujFnAjTzXnKxZDqpxLoAl2gH3dvcgyDMpmFds+vgx5eCS1FoH9C9dAh+uBlNYrgTvzL4yxEBo35cIz6Ohj8wELyrWMCEO36LnBIwa2rJz7cvcgkYL08+J40C9AAwkzhy8Xf2ZhyrIFRgPBamB5ryn064szfjEOC5h0PC9ABwIMExE7IK0LsyDl4RtI91ZmuSZQ6MVpJ3pmueEzRM6/oXbDhAhu3QA8SnXbbhgO6lX1FsRwCAFXfNubCkA8Zp2/RAcbybVc0eglbb9ABoC6uWMQS6ly4qOS2TWmVfRMIBY7+iw9pF91lXMihIrRJ6AJQRiSGA2lqAaWBEYjmgTACVE4AiZQ6UyAnICdYFrAtgLUPJ5IVYJNZGVKbsNTdICUCFMgcYkVgCvMocYESyHJ1JTywifnO0QNIo6/8r6EC0Xhk94NJ2WFVZCtCkMj5WoHuEBdBjKgWQo5Y15sU3a1Y/yyYxzd+HbrkwJ+BAolMpPUDQJuDAjRLtE6SSbgwsFm49u8zpADmvnB6oip7hdED3Gh+4MiGCoGFtW+AnhwPGiBP0APHRYQ4HxuuNWYVbUMa7kcbALNOBkGZMOkYPaHQylMGY8ejpRoNj9ACwszQj1ZU2BFcrCt7bywdkBw0X1qZe19McKBhxmh4gvtiQhQOOTr9UpE3FFAeSPTmhBzR6MuUhxYxpcCQWFSBiTOeE5z+B4KF7vTqvid1idWbgu0jEPDEB5ZHlUdQwGszlbxeLKHg1610hnUhYVse1jkDUUQFA4BVphfmfgCg53jcjGk/ichp4ojXizZriWaMh8Ew8muSXHyXjh2kb9qIaIN+M13gQfCH3A/8fY8a6s0IsMy8AAAAldEVYdGRhdGU6Y3JlYXRlADIwMjEtMDItMTBUMTI6MDQ6MDQrMDA6MDDoUR/UAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIxLTAyLTEwVDEyOjA0OjA0KzAwOjAwmQynaAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAAASUVORK5CYII=">
+            </t-button>
+
+            <!-- <t-dropdown sm transparent theme="" name="Welcome(Administrator)" slot="actions"
+                callback="getdropdowncallback" icon="" option-keys='{"value":"value","label":"name"}' selected="1"
+                option-data='[{ "id": "1", "name": "Profile", "value": "1", "icon": "https://www.freeiconspng.com/thumbs/information-icon/information-icon-5.png"}, { "id": "2", "name": "Logout", "value": "2","icon": "https://www.freeiconspng.com/thumbs/information-icon/information-icon-5.png" } ]'>
+            </t-dropdown> -->
+
+            <t-navbar1 id="navbar" theme="" lang="en" slot="actions" callback="" text="Available"
+                icon="https://www.linkpicture.com/q/worldwide.png"
+                data='[{ "label": "Available", "value": "available", "icon": "assets/icons/Tenant_Details.svg"}, { "label": "Meal Time (15 min)", "value": "meal", "icon": "assets/icons/Alert_Management.svg" }, { "label": "Tea Time (10 min)", "value": "tea", "icon": "assets/icons/Designation.svg" }, { "label": "Training Time (30 min)", "value": "training", "icon": "assets/icons/User_detail.svg" } ]'>
+            </t-navbar1>
+
+            <t-navbar id="navbar" theme="" lang="en" slot="actions" callback="getnavbarcallback1" text="Welcome"
+                icon="https://www.linkpicture.com/q/worldwide.png"
+                data='[{ "label": "Chat", "value": "chat", "icon": "assets/icons/Tenant_Details.svg","submenu": [{ "label": "chat-1", "value": "chat-1", "icon": "assets/icons/Designation.svg" }, { "label": "chat-2", "value": "chat-2", "icon": "assets/icons/User_detail.svg"}]}, { "label": "Profile", "value": "Profile", "icon": "assets/icons/Alert_Management.svg", "submenu": [{ "label": "Profile-1", "value": "Profile-1", "icon": "assets/icons/Designation.svg" }, { "label": "Profile-2", "value": "Profile-2", "icon": "assets/icons/User_detail.svg", "submenu": [{ "label": "Profile-2-1", "value": "Profile-2-1", "icon": "assets/icons/Layer.svg" }, { "label": "Profile-2-2", "value": "Profile-2-2", "icon": "assets/icons/Device_Configuration.svg" } ] } ] }, { "label": "Logout", "value": "Logout", "icon": "assets/icons/Workforce.svg" } ]'>
+            </t-navbar>
+        </t-header>
+
+        <!-- <div class="sidebar"></div> -->
+        <t-container theme="light" slot="container" lang=''>
+            <t-sidebar theme="dark" class="tsidebar" theme="" lang='' slot="sidebar">
+                <div class="tmenu" slot="menu">
+                    <ul>
+                        <li>
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAABHNCSVQICAgIfAhkiAAABFhJREFUWEe9mEFrJVUQhU8FjAYXY3azM/EP+NwFXMyrJgvBhePWjYkrd5NB98YfIIm4FmfA/WRgNtm8yhB0pc4M/gAzOxHUIIKCSUrOpe7jpqdf3/a9iQ2BPOjb/d2qU1XntqBymdlNAF8BeAXAKQBV1cd9y8xsF8AncQ/v5RqurV5Su2MymRyJyBEA/m25+1rTNOMKkAN4lxtw912uV1VCVq+hQLuqesSdu/t4CJCqpmdHtBii4UBmtgbgnUhLexdbALYzEID3AdypbJUbKIFuADgAcF9VT/rWipkx/Pfc/QmBROT1+D/nfCQiN4sI7QDo1ZCI3CiB3J2bOuGzmUo+axYUgR4BuKuq+xFi7uRUVfkQhIbM3aklamh9SMrcncVwKiJM1UOmzMy4mVuqut4HRAGyChI1q8rdd/JLGUF3vyMir7r704hWrcp2QszX3P1hrDmNbFiOXhcUI9QGIsBuLQrVcum4YW4gaqqmk3mAomhG80RoX0SY7+d9jQDsAVillgDwN6uOGqN20ZsyM8vd9nmAPY2XWzTMJ9Fw11gAInJPVbdrQNTX3XjQ3FBspmn3IowCI8S+Nu1l7IPu/pgVOQRoWoHzEkW3Zoo4D2/nFlM+z8zYUrb+LyD2uFvRNn7vGra5Aq8ciDsPt8DUsz+xweZWM3UAEaGdKwVqwXAGbnOmtaHMjKlME+PKgAqYJODydwuKNoWzVJqmGWUgKj5PYSo+zat2Fx8q6jZMXjcDKg1zERnTxBGo7VMIlExYAJWwQ5gYfjbVHJkkaFoW9pkC6jatDCOTYVJraL8hhmmaZZz0QwiKe2hVrhUw9Fk/sao4t/MQj6m/V0YmP6MXyMyuq+rPx8fHq2dnZy9y0fn5+T+bm5u/dmwkV9OlpjeZTGhBHrn7GyLCUcHKop25FJkqkIi8BeCvpaWl1y4uLr4A8DYXufu3TdO82W5qUdo5TUyZq+rn4UYJy9T3wlRTxnKk0A4PD19eXl5+ISDOVPXPLqFGNSUvFOaM5j4ZvShtpo1RWp11Cqlp6Jt2akTkR1X9MF7yTJrMjJGgjnjiyNVKoTNN69RYr/2oiPqDDqBfVPVBUS2MAkWbLjMb0WGGP6eNZTvJmmHkONVnnnZqov6oAKJn+S5eyhfRxH1Ku5utQ8fmcmSSgCNd/Ra2L0Jm9mCqfpEvx+MxIRgFtnmWdIpMjILkZ4pIXYKhZgZZ2AoQX5qulZWV3zY2Nv6IqmFvuQ+A561noLKA26W9EFAu+wL4Y1X9LE9lzp0QMA+Yl6CYmq4+sxBQjI6XMpCq/h3pous7UdXkuVtQOU3T2dTqV9TR/BqaTCbfFxraU9WvzSwbrOnZrIA6mdWBA35hoPcKoB8AXHf3g6ZpGAlGJ38TYNXxPNcZmULoiwF1nDrYZflQ9hlC0BnwZMo0HtQ+JCysoVnTXkTY7OgECDHoQ9RCKeNRhQ2v3RIW/R3Tfv8/d+rwLou+f+b6PqB/ASTnxfzG57+EAAAAAElFTkSuQmCC"
+                                alt="MENU" />
+                            <div> Menu 1 </div>
+                        </li>
+                        <li class="submenu active">
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAABHNCSVQICAgIfAhkiAAAA2RJREFUWEfNl/F1GjEMxqUJmk4QOkHTCYpugbBByQSlG5AJSiYoTBC6gJVO0GxQMkHZQH2fK+eZ4w77COTl/oFwF/sn6dMnH9Mbu/iN8dAgIFUdmdklMz+JyOYcwVQDqerUzBZE9EhEV8z8nYjuRGR7SrAqIFW9MrMHZh4BQFUviGhORF+IaCYiq1NB1QIpEa1EZJlv7KALZn5HRN9E5OGlYEUgL9W0aZpx32aqOkE5mfm3gx2tr4NAXhpsclMTvarOzWzKzD+O1VcJCDq5JiKpFa8HAfF/hs6G6qsXyFscQoYuAIXF72o1oqpjM5szsxHRbU2GsfYhIAh4IyJzh1sy82Vt+RK4axBgaAwI/6BNdAJ596ybphnhu4jAe8ijBtgfB6sSr5dxRkRfiWghIrd9me4DgnYgnHkIAWVD2hFdApt5OQaZIzINICL66Out22B9QFOYHpTsmYkuzcz3Ke2ZeKGvQebomcZ6f/NAD2oohPDopUFmNintZjZrmgZOHa+XmGMaR24TEP6WQwhoz3g1TfOr5cTwlVnN3MrMEeLF4r368tJhX+wHkacxNGdVNTPDjQs4rYjctKCQDdS9qjQlc8ztxMzGzDz2CkAW/4FEJGophLBNA7Qttqw0RV/xDCDqPXNM/oRRpKoQ9RozUlVj57aB0FG4kdKNgbqT+pavlEqTm2PsUmjRzDbwJTMTZr4iIszCCSC7gACw8Zk07XJYXxTwMMqDvtLVpZAHEcECsBc0hCR8QvBdQBgRD+4/8XtH+RA5DHKClvfSIAN7vpJ1472ZvWdmeNBzEKoKfcLzsA4NBvL2T520TicCM+PMJqKBZjAxAHf+3BwXZnab67YEhINXe/ag5tBWjAhdhfSLyDTzlbaBpgPeIoRwzczIygq6YWZU4TmzJSA8uBOtD9wo9DTzUuv6b9BHmlv4X7wYPOETmoPFOETn6bIE1KmhBAMmH7J72vHWR3m2aQa2tdj1dwkIQtzJELKBtw5v2UntOacGpihqb88dDfmBDeeknQN/7Yal50oZ6i1ZaeFj7x9yahxBqg73x25eq6Ho1P7w8lyvzH1B9JbslFEPWesZyB0XM+VD6SA+ZIOhz0YgIoJJwTN+JgceutCpngdQekUeZGCnAmivU3y3P9fGvaJ+7Q1L+/0DYim9hsT3YF8AAAAASUVORK5CYII="
+                                alt="MENU" />
+                            <div> Department Admin </div>
+                            <ul>
+                                <li class="active">Menu 2-1</li>
+                                <li>Menu 2-2</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAABHNCSVQICAgIfAhkiAAAAx1JREFUWEftmI1R21AQhO8qCFRAqABTAZwaiOkAKghUAFQQqABSQUgDelBBTAWBCuIOLvNp7nkkISEbpBkmkzfj8Y8sad/e3u7ZKh9s6QfDI5MDSimdisgXEbk1s+9DBEwKKKV0ISLn7v6gqgcicmJmt6+BmgxQSumziCR3fy6K4rAsy4WqPpnZ/E2AuKC779RPVtVnM3saoj2lxE1vRGQLdgLQPefxemNAKaUZu+OCHScfmdld10VTStzsXER4/unusLQcA9Ctux+q6mFmJKUEOOq/Y2b7GVCUBtEei8jM3R9V9dTM7suyXLFSf70RQ7HLb8FOW4DsnAdi5RkGeLDoIDqpAsFaF1BU5IeI2ErUUXeA5Bv0bgRdcFBVFyJy31fCNqDotAszu6wxXMkjxD+rAKWUoPsm2hO6F7QsZcsibL8fEnYPQzNV/RRMnuR7u/uxqs7NbKmhgd9QbmYAq9YYgFJKiH/JdTNbqooM6MBOTwJQJeCiKBqlGgNQncV6+biniByY2W6baS3LcglqM8PiV2tiQPgUIt6mTHSwu++p6iMMuYhcmhmdMyqgKNmCa7cYokPxOcv2gOARdmboaiJAlTHCQg+gXXwudFx9F4YQ3l67nhOXrFO3lZWEEUJfo2xjAArxEqirkuHiIvJLRM7M7OqFqHOLRwahfoBB4+g+pKqENQJ+rPkbAqfjziqGar5z6u4XYVw50ckv3JhFjevv+ZzvPWCkXUbZ49TXRA+6CjJyx9HpJ415KAJ0DrCIhkaWReDSDUTHlqruBRCAocXr+niyQZZVSSEi+50DWgi9keqxmztGiqIoyJ/s6OyQTcxzLOSyrwuozm4foExjVyVeeFYN3HGUHa2gwaNR5qFWbRkrKAmDFyVpOHoX4jxLc2yUiTEANdy0z9G7AMX5DGvo6undE+MYgGp28pWZCZ31ec+ghkYEhE2gJeYgMm2w3L0/g2oOXgXgpiXrK+XQ5/8B/ZsMRZ79WadLhhgYOr6OhghOEnpbVWfr/JQeuulrx18DRLpfuTshilMzVXam+nsAtM+d7N+Pt4L8cID+AqMvs+GdLFc/AAAAAElFTkSuQmCC"
+                                alt="MENU" />
+                            <div>Menu 3</div>
+                        </li>
+                        <li class="submenu">
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAABHNCSVQICAgIfAhkiAAAAZtJREFUWEftWNFRwlAQ3KtAOlArACuQowG1ArECsQKlArUC6UBogMUKhArEDqCCcy4TmBBj3uMnw+C7v0z2Zo/jbve9CMknAI8Ix52qjki2AHwCOAukLAFcqOqKZB/AW5gCQ5lOpzMRuQyBzeyj1+t1SXYBMITP36uqzvbhKBaUJZeJNgWUC9o8VxVWKKBc0FBV/R/ZiSJHKih1yIfjaGdoBMC1oxyuN/2KtXes51SF647nlbfMt/jXJufYjENIjgFcRejKq6oOSDrRVwTeIeequiT5AuA+ImfiBbnydiLAc1ddx5F0vOfVxUpV5zk+mkMiCmkUknXIzNohVhFZFDtkZid1OSKyLnYolqOpGfLhvw39aACTrXWY2QJANiOlaIlIu8LL1gCyGamIjoh4B3e2zMy+/9jkLUfysuRlPk9H62UHd2KslYnGztQkBwCeI0TrRlXHubLPReS0Lsc1R0Q6+a3jGsB7BMfD4XlZRNWNQv6tucYf0DYilsy1MJnp5lrwtnS3zybjaN3+YMw1VrS2n/TMbF9zjf6k9wNXm+OXLPaumgAAAABJRU5ErkJggg=="
+                                alt="MENU" />
+                            <div>Menu 4 </div>
+                            <ul>
+                                <li>Menu 4-1</li>
+                                <li>Menu 4-2</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div>Menu 5</div>
+                        </li>
+                    </ul>
+                </div>
+            </t-sidebar>
+
+            <!-- components -->
+            <t-pagelayout-1 slot="layout">
+                <div slot="slot1">
+
+                    <t-button buttonType="transparent-danger">hello</t-button>
+                    <t-button transparent-danger>hello</t-button>
+
+                    <t-navbar theme="" lang="en" callback="getnavbarcallback" text="Welcome"
+                        icon="https://www.linkpicture.com/q/profileImage_1.png"
+                        data='[{ "label": "Chat", "value": "chat", "icon": "https://www.linkpicture.com/q/chat-1_1.png" }, { "label": "Profile", "value": "Profile", "icon": "https://www.linkpicture.com/q/profileImage_1.png", "submenu": [{ "label": "Profile-1", "value": "Profile-1", "icon": "https://www.linkpicture.com/q/profileImage_1.png" }, { "label": "Profile-2", "value": "Profile-2", "icon": "https://www.linkpicture.com/q/profileImage_1.png", "submenu": [{ "label": "Profile-2-1", "value": "Profile-2-1", "icon": "https://www.linkpicture.com/q/profileImage_1.png" }, { "label": "Profile-2-2", "value": "Profile-2-2", "icon": "https://www.linkpicture.com/q/profileImage_1.png" } ] } ] }, { "label": "Logout", "value": "Logout", "icon": "https://www.linkpicture.com/q/power-off-1.png" } ]'>
+                    </t-navbar>
+                    <br>
+                    <button class="t-btn t-btn-default t-btn-sm">Submit</button>
+                    <button class="t-btn t-btn-default">Submit</button>
+                    <button class="t-btn t-btn-default t-btn-lg">Submit</button>
+                    <br>
+                    <button class="t-btn">Submit</button>
+                    <button class="t-btn t-btn-default">Submit</button>
+                    <button class="t-btn t-btn-primary">Submit</button>
+                    <button class="t-btn t-btn-warning">Submit</button>
+                    <button class="t-btn t-btn-danger">Submit</button>
+                    <button class="t-btn t-btn-light">Submit</button>
+                    <button class="t-btn"><i class="fa fa-user"></i></button>
+                    <button class="t-btn t-btn-default t-btn-sm"><i class="fa fa-user"></i></button>
+                    <button class="t-btn t-btn-default"><i class="fa fa-user"></i></button>
+                    <button class="t-btn t-btn-default t-btn-lg"><i class="fa fa-user"></i></button>
+                    <button class="t-btn t-btn-primary"><i class="fa fa-user"></i></button>
+                    <button class="t-btn t-btn-warning"><i class="fa fa-user"></i></button>
+                    <button class="t-btn t-btn-danger"><i class="fa fa-user"></i></button>
+                    <br>
+                    <button class="t-btn t-btn-default">
+                        <span class="t-spinner-border"></span>
+                        Submit
+                    </button>
+                    <br>
+
+                    <div class="t-custom-control t-custom-switch">
+                        <input type="checkbox" class="t-custom-control-input" id="switch1" checked>
+                        <label class="t-custom-control-label" for="switch1"> </label>
+                    </div>
+                    <div class="tide-form tide-form-sm">
+                        <!-- <span class="tide-form-icon"><i class="fa fa-user"></i></span> -->
+                        <img class="tide-form-img"
+                            src="https://iconsplace.com/wp-content/uploads/_icons/ffffff/256/png/save-icon-18-256.png" />
+                        <input type="text" class="tide-form-control" placeholder="Text">
+                    </div>
+                    <div class="tide-form">
+                        <span class="tide-form-icon"><i class="fa fa-user"></i></span>
+                        <!-- <img class="tide-form-img"
+                            src="https://iconsplace.com/wp-content/uploads/_icons/ffffff/256/png/save-icon-18-256.png" /> -->
+                        <input type="text" class="tide-form-control" placeholder="Text">
+                    </div>
+                    <div class="tide-form tide-form-lg">
+                        <!-- <span class="tide-form-icon"><i class="fa fa-user"></i></span> -->
+                        <img class="tide-form-img"
+                            src="https://iconsplace.com/wp-content/uploads/_icons/ffffff/256/png/save-icon-18-256.png" />
+                        <input type="text" class="tide-form-control" placeholder="Text">
+                    </div>
+                    <div class="tide-form">
+                        <textarea class="tide-form-control" rows="5" placeholder="Text"></textarea>
+                    </div>
+                    <div class="t-file-upload">
+                        <input type="file" id="tfile-btn" hidden />
+                        <label class="t-file" for="tfile-btn">Browse</label>
+                        <span class="t-file-chose" id="file-chosen">No file chosen</span>
+                    </div>
+                    <div>
+                        <input class="tideCheckbox" type="checkbox" text="Checbox1" checked>
+                        <input class="tideCheckbox" type="checkbox" text="Checbox2">
+                        <input class="tideCheckbox" type="checkbox" text="Checbox3">
+                    </div>
+                    <div>
+                        <input class="tideRadioBtn" type="checkbox" name="radioBtn" text="Radio 1" checked>
+                        <input class="tideRadioBtn" type="checkbox" name="radioBtn" text="Radio 2">
+                        <input class="tideRadioBtn" type="checkbox" name="radioBtn" text="Radio 3">
+                    </div>
+                    <div>
+                        <label class="tide-form-check tide-form-check-inline"> One
+                            <input class="tide-form-check-input" type="checkbox" checked="checked">
+                            <span class="tide-form-checkmark"></span>
+                        </label>
+                        <label class="tide-form-check tide-form-check-inline"> Two
+                            <input class="tide-form-check-input" type="checkbox" checked="checked">
+                            <span class="tide-form-checkmark"></span>
+                        </label>
+                    </div>
+                    <div>
+                        <label class="tide-form-radio tide-form-radio-inline"> Radio 1
+                            <input class="tide-form-radio-input" type="radio" name="radio" checked="checked">
+                            <span class="tide-form-checkmark"></span>
+                        </label>
+                        <label class="tide-form-radio tide-form-radio-inline"> Radio 2
+                            <input class="tide-form-radio-input" type="radio" name="radio">
+                            <span class="tide-form-checkmark"></span>
+                        </label>
+                        <label class="tide-form-radio tide-form-radio-inline"> Radio 3
+                            <input class="tide-form-radio-input" type="radio" name="radio">
+                            <span class="tide-form-checkmark"></span>
+                        </label>
+                    </div>
+                    <table class="tideTable" style="width: 100%;">
+                        <tr>
+                            <th>Alarm Name</th>
+                            <th>Type Code</th>
+                            <th>SOP Name</th>
+                            <th>Action</th>
+                        </tr>
+                        <tr>
+                            <td>Camera Tamper</td>
+                            <td>2488</td>
+                            <td>Camera tampering protocol violation</td>
+                            <td>
+                                <t-button transparent onclick="buttonClick(event)"
+                                    icon="https://pngimage.net/wp-content/uploads/2018/05/about-us-icon-png-white-1.png">
+                                </t-button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Face recognition</td>
+                            <td>2153</td>
+                            <td>Face recognition protocol</td>
+                            <td>
+                                <t-button transparent onclick="buttonClick(event)"
+                                    icon="https://pngimage.net/wp-content/uploads/2018/05/about-us-icon-png-white-1.png">
+                                </t-button>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="t-card">
+                        <div class="t-card-header">
+                            Header
+                        </div>
+                        <div class="t-card-body">
+                            Content Here
+                        </div>
+                        <div class="t-card-footer">
+                            Footer
+                        </div>
+                    </div>
+                    <div class="t-datetime">
+                        <input class="t-datetimeInput t-datetime-sm" type="datetime-local">
+                    </div>
+                    <div class="t-datetime">
+                        <input class="t-datetimeInput" type="datetime-local">
+                    </div>
+                    <div class="t-datetime">
+                        <input class="t-datetimeInput t-datetime-lg" type="datetime-local">
+                    </div>
+                    <div class="t-datetime">
+                        <input class="t-datetimeInput" type="date" id="dateInput" min="2010-06-10">
+                    </div>
+                    <div class="t-datetime">
+                        <input class="t-datetimeInput" type="time">
+                    </div>
+                    <input type="range" class="t-slider" min="0" max="100" />
+                    <br>
+                    <h3 style="color: #bfbfbf; text-align: center;">Old Designs</h3>
+                    <label style="color:grey;font-size: 14px;">Button(Modified)</label>
+                    <hr>
+                    <br>
+                    <t-button sm width=300px onclick="buttonClick(event)">
+                        Small
+                    </t-button>
+                    <t-button onclick="buttonClick(event)">
+                        Medium
+                    </t-button>
+                    <t-button lg onclick="buttonClick(event)" disabled=true>
+                        Large
+                    </t-button>
+                    <br>
+                    <t-button dotted sm onclick="buttonClick(event)"
+                        icon="https://iconsplace.com/wp-content/uploads/_icons/ffffff/256/png/save-icon-18-256.png">
+                    </t-button>
+                    <t-button sm width=300px onclick="buttonClick(event)">
+                        Small
+                    </t-button>
+                    <br>
+                    <br>
+                    <t-input theme="dark" sm id="testinput"
+                        icon="data:image/png;base64,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"
+                        placeholder='Small' value='' size='5' callback='gettinputtextcallback'>
+                    </t-input>
+                    <br>
+                    <t-input theme="dark"
+                        icon="data:image/png;base64,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"
+                        placeholder='Normal' value='' size='5' callback='gettinputtextcallback'>
+                    </t-input>
+                    <br>
+                    <t-input theme="dark" lg
+                        icon="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABAEAQAAABQ8GUWAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAAAGAAAABgAPBrQs8AAAAHdElNRQflAxQQISi3ioTgAAAGiUlEQVR42u1bTUiUXRh97viDmjpZQZpJZanhSJSipIKp1S7hQ2mVC0FQMhcq1KasVgoF4aJdkpDbEHcRaRb9qJBJpKaiFQj+oePPaJo693yLS1nz3nfeeaeZufbxneUj773nnPsz997nkZGPATBGsNmI5eUR2WyElBRihw4RxcQQ7dpFFBpKtLRE5HAQzcwQjYwQDQ8T9fQQvX3L2Nqarzn5HYDFAhQUAC0twMwMvMb6OnhnJ1BeDh4drVqXB8IjIoCaGuDrV+9F6+HbN6C5GfzYMdU6tcJ5cDBQWwvMzvpeuCu2toDWViA+XrVuIR45OcCHD/4X7orlZaCuDggK8qUe5rlwi4Xo+nWiW7eIPCFhtxO9ekUYGiI2MkI0M0NYXSXa2CCKiiK2Zw9RYiJRSgrh9Glix497xqSri+jSJcampnw7tO7Ec6sVePrUeJQmJ8Hv3gUyMoRhJvrAgQNAVRV4d7dxP9PTQG5ugMTv3w/+/r1bPnxsDKioAA8O9k2fJ04Ajx6J9a+H9XWgpMS/4hEbC4yO6pNYWACuXPH1utw2IisLePdOv//NTb+ZAG61gvf36496ZycQF+fXESAiICgIqK/Xnw3r60B+vo87tVjcrnne0OCvUdfnVFAA2O1yQouL4ElJPuysvl7ekdMJXl0dSOG/87LZgIkJ+aD09wNhYT7oJCdHd7opFP+TH09O1j+ANTX9YePBwbqHHN7QoFr8Ns/MTHFUdsXWFpCR4X3DqK3V3/ACu+aNuVZUyGdBby/APD7g/dJgRIR8ai0sBGK3986Etja5Cf/840VjNTXyxqqqVAvV5cwPHgQcDi3nvj5Ts0D87MmutIODO23qa7nfvClftnl5JhopLJQ3UlqqWqAhd261imXqyv3BAxMGtLRo1U9O+ups738T7t3T8l9cBMLDPRDPmLhduTp4545qYR4bgFOn5DP43DkP3EtLk29+f/B7qsSE4WGthsZGo+8s4vXWFXY7UX+/alHm0NGhjRlvhBai1FRt+PVrxjhXLckU8PKlNmizGRsA2VPUwIBqPabBBge1QasViI11bwAdPqwNj46q1mMaGBsjcjq1fzhyxMAAq1Ubnp1VrccsmGVjQ2ScXI1xn2CxEIuM1H7kcKgW5B2Wl7WxqCj3BpDksMO2tlRL8Q6bm1otISEGBqysaKKQzIq/ApLpbjCbLSJL64rdu1VLMQtx+5PsZ8zQgOlp7Uc7MCFp6EB8PJHkTRDuM0gWkZ93RUqKaj2mwWScNzeJvnwxMGB4WBvOzlatxzxycjQhjI8zi2Rj/M0A9PZqwykpOyYd7SlQWKiJse5u4+8QFgasrWlvUpcvq9bksXbs3Qt8/+71gw54R4f2Yw/c2yEAr67WDqDT6fFjLlBeLn8TSE9XLc6Yu8UCfPyoHcDOThMORkcDq6taAx4/Vi3Q2IDiYvnglZWZbKi5WTqNeFaWapG6nHlIiHi5dsXcHLjJ0yxw9KjIt7uir2+nPo0D167J3wJv3PCywdZW+XSqr1ctVsOVp6XJl+38PLjsiu+RAfHxohrLFVtbQEGBatHb4iMjgaEh+ehXVv5Z46irk88Cux0wfmPzv/iQEP3ijd5es8VZEgOCgoDnz+UdTEyAJyerEx8aCv7smZybwwF4WmpnaEJcnDRZAgCYnQXPzAy8+MhI92U7Pk7jAbm58k0GEMUJFRWBE5+WprvmAYhjsOQy9OcdFxXJfxp/oK0NPCHBf8JDQsCvXpVXg7hiedk/JqCkRJSi6cHhEClq370iieNtcbH8kKPEhPx8kW11h6UlkaU9edLrfvi+feJiMzBgLFZy+wMAvrICnDnjexN4UpLbwsnfMDwM3L8PfvEikJoKHhoqbzMhATh7FqivB+/qAjY2jNt2OMBLS4HsbGBpKbAmICwMaGpyX8Mrw+YmYLeDj4+Dj48DU1P6G6w79Pb++lOnxATRcUaGIBMozM+DV1bKDjnGJvi4jHa7Y8bAi4rAe3r8J3xuDrh9G4iJcc9FkQk/CfC8PHGdNtooPYHTKU6iZWVmrrTKTRAkwsPBz58HGhuBN288M2RjA/zTJ+DhQ7G5eV+T6I0J5isqTZOKjSVKTBTpth/X1LU1YisrhMlJos+fmcV3uUhxDnjyRJ4mW10lduECYy9e+Fu3UoiCb8XLQTX+N4F+XOhkDzyAiO/8V2//mvAX5T78ZIKsouQ/CrkJ7e2qeQXYhPR08Y+Zy8tAezsQG/svz1e4tY7ioqQAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjEtMDMtMjBUMTY6MzM6NDArMDA6MDCnq/kPAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIxLTAzLTIwVDE2OjMzOjQwKzAwOjAw1vZBswAAAABJRU5ErkJggg=="
+                        placeholder='Large' value='' size='5' callback='gettinputtextcallback'>
+                    </t-input>
+                    <br>
+                    <t-input theme="dark" #mobileNo md theme='dark' type='text' value='9446951688'
+                        pattern="^[\u0660-\u0669 0-9]*$" maxLength="12" message="الرجاء إدخال رقم هاتف محمول صحيح"
+                        callback="mobileNUmber" minlength="10" placeholder="أدخل رقم الجوال"
+                        [attr.disabled]="isEditable">
+                    </t-input>
+                    <br>
+                    <t-input theme="dark" pattern="[A-Za-z]{4}" message="Hai" sm placeholder='small'
+                        tname='inputtextname' tclass="test" tid='inputtextid' value='' size='5'
+                        callback='gettinputtextcallback'>
+                    </t-input>
+                    <br>
+                    <br>
+                    <t-input theme="dark" placeholder='Normal' tname='inputtextname' tclass="test" tid='inputtextid'
+                        value='' size='5' callback='gettinputtextcallback'>
+                    </t-input>
+                    <br>
+                    <br>
+                    <label style="color:grey;font-size: 14px;">Text area</label>
+                    <hr>
+                    <t-textarea id="textarea" placeholder='Enter here' cols='5' rows='2' maxlength='5'
+                        style="resize:none;" callback='gettinputtextcallback'>
+                    </t-textarea>
+                    <br>
+                    <label style="color:grey;font-size: 12px;">Arabic</label>
+                    <br>
+                    <t-textarea placeholder='نائب' lang="ar" cols='50' rows='4' maxlength='5'
+                        callback='gettinputtextcallback'>
+                    </t-textarea>
+                    <br>
+                    <label style="color:grey;font-size: 12px;">Disabled</label>
+                    <br>
+                    <t-textarea placeholder='Enter here' value="Disabled textarea" cols='50' rows='4' maxlength='5'
+                        callback='gettinputtextcallback' disabled=true>
+                    </t-textarea>
+                    <br>
+                    <br>
+
+                    <t-input theme="dark" lg placeholder='Large' tname='inputtextname' tclass="test" tid='inputtextid'
+                        value='' size='5' callback='gettinputtextcallback'>
+                    </t-input>
+                    <br>
+                    <br>
+                    <t-listbox sm theme="" btn-text="Small" callback="getlistboxcallback" data='[
+                            {"value":"1", "name":"listbox dummy text 1", "icon":"./assets/images/search.png"},
+                            {"value":"2", "name":"listbox dummy text 2", "icon":"./assets/images/search.png"},
+                            {"value":"3", "name":"listbox dummy text 3", "icon":"./assets/images/search.png"},
+                            {"value":"4", "name":"listbox dummy text 4", "icon":"./assets/images/search.png"},
+                            {"value":"5", "name":"listbox dummy text 5", "icon":"./assets/images/search.png"},
+                            {"value":"6", "name":"listbox dummy text 6", "icon":"./assets/images/search.png"}
+                        ]'>
+                    </t-listbox>
+                    <br>
+                    <t-listbox theme="" btn-text="Normal" callback="getlistboxcallback" data='[
+                            {"value":"1", "name":"listbox dummy text 1", "icon":"./assets/images/search.png"},
+                            {"value":"2", "name":"listbox dummy text 2", "icon":"./assets/images/search.png"},
+                            {"value":"3", "name":"listbox dummy text 3", "icon":"./assets/images/search.png"},
+                            {"value":"4", "name":"listbox dummy text 4", "icon":"./assets/images/search.png"},
+                            {"value":"5", "name":"listbox dummy text 5", "icon":"./assets/images/search.png"},
+                            {"value":"6", "name":"listbox dummy text 6", "icon":"./assets/images/search.png"}
+                        ]'>
+                    </t-listbox>
+                    <br>
+                    <t-listbox lg theme="" btn-text="Large " callback="getlistboxcallback" data='[
+                            {"value":"1", "name":"listbox dummy text 1", "icon":"./assets/images/search.png"},
+                            {"value":"2", "name":"listbox dummy text 2", "icon":"./assets/images/search.png"},
+                            {"value":"3", "name":"listbox dummy text 3", "icon":"./assets/images/search.png"},
+                            {"value":"4", "name":"listbox dummy text 4", "icon":"./assets/images/search.png"},
+                            {"value":"5", "name":"listbox dummy text 5", "icon":"./assets/images/search.png"},
+                            {"value":"6", "name":"listbox dummy text 6", "icon":"./assets/images/search.png"}
+                        ]'>
+                    </t-listbox>
+                    <br>
+
+                    <div style="width: 500px;"> <!-- Set the desired width here -->
+                        <t-tabs sm lang='en' theme='dark' (ttabs)="tabsclick">
+                            <t-tab-panel data-panel="1">
+                                <t-tab-title>
+                                    Tab 1
+                                </t-tab-title>
+                                <t-tab-content>
+                                    <div style="padding: 5px;margin-top: 5px;background-color: #262626;">
+                                        <div>Lorem Ipsum 1</div>
+                                        <p> Normal </p>
+                                    </div>
+                                </t-tab-content>
+                            </t-tab-panel>
+                            
+                            <t-tab-panel data-panel="2">
+                                <t-tab-title>
+                                    Tab 2
+                                </t-tab-title>
+                                <t-tab-content>
+                                    <div style="padding: 5px;margin-top: 5px;background-color: #262626;">
+                                        <div>Lorem Ipsum 2</div>
+                                        <p> Normal </p>
+                                    </div>
+                                </t-tab-content>
+                            </t-tab-panel>
+                    
+                            <t-tab-panel data-panel="3">
+                                <t-tab-title>
+                                    Tab 3
+                                </t-tab-title>
+                                <t-tab-content>
+                                    <div style="padding: 5px;margin-top: 5px;background-color: #262626;">
+                                        <div>Lorem Ipsum 3</div>
+                                        <p> Normal </p>
+                                    </div>
+                                </t-tab-content>
+                            </t-tab-panel>
+                        </t-tabs>
+                    </div>
+                    <br>
+                    <br>
+                    <div>
+                        <t-button icon="assets/icons/User_Settings_active.svg">
+
+                        </t-button>
+                    </div>
+                    <label style="color:grey;font-size: 12px;">Normal</label><br>
+                    <br>
+                    <t-button> Button </t-button>
+                    <t-button primary click="buttonClick1"> Button </t-button>
+                    <t-button warning onclick="buttonClick(event)"> Button </t-button>
+                    <t-button danger onclick="buttonClick(event)"> Button </t-button>
+                    <t-button light onclick="buttonClick(event)"> Button </t-button>
+                    <!-- <t-button  transparent onclick="buttonClick(event)">
+                       Button </t-button> -->
+                    <t-button transparent-primary onclick="buttonClick(event)"> Button </t-button>
+                    <t-button transparent-warning onclick="buttonClick(event)"> Button </t-button>
+                    <t-button transparent-danger onclick="buttonClick(event)"> Button </t-button>
+                    <t-button transparent-medium onclick="buttonClick(event)"> Button </t-button>
+                    <t-button theme="" btn-transparent onclick="buttonClick(event)"> Button </t-button>
+                    <t-button dotted onclick="buttonClick(event)"> Button </t-button>
+                    <br>
+                    <label style="color:grey;font-size: 12px;">Arabic</label>
+                    <br>
+                    <t-button onclick="buttonClick(event)" lang="ar"> بعض المكونات </t-button>
+                    <t-button primary onclick="buttonClick(event)" lang="ar"> بعض المكونات </t-button>
+                    <t-button warning onclick="buttonClick(event)" lang="ar"> بعض المكونات </t-button>
+                    <t-button danger onclick="buttonClick(event)" lang="ar"> بعض المكونات </t-button>
+                    <t-button transparent-primary onclick="buttonClick(event)" lang="ar"> بعض المكونات </t-button>
+                    <t-button transparent-warning onclick="buttonClick(event)" lang="ar"> بعض المكونات </t-button>
+                    <t-button transparent-danger onclick="buttonClick(event)" lang="ar"> بعض المكونات </t-button>
+                    <t-button transparent-medium onclick="buttonClick(event)" lang="ar"> بعض المكونات </t-button>
+                    <t-button theme="" btn-transparent onclick="buttonClick(event)" lang="ar"> بعض المكونات </t-button>
+                    <br>
+                    <label style="color:grey;font-size: 12px;">With icon</label>
+                    <br>
+                    <t-button lg onclick="buttonClick(event)" icon="assets/icons/User_Settings_active.svg"> Button
+                    </t-button>
+                    <t-button primary onclick="buttonClick(event)" icon="assets/icons/User_Settings_active.svg"> Button
+                    </t-button>
+                    <t-button warning onclick="buttonClick(event)" icon="assets/icons/User_Settings_active.svg"> Button
+                    </t-button>
+                    <t-button danger onclick="buttonClick(event)" icon="assets/icons/User_Settings_active.svg"> Button
+                    </t-button>
+                    <t-button dotted onclick="buttonClick(event)" icon="assets/icons/User_Settings_active.svg"> Button
+                    </t-button>
+                    <t-button transparent-primary onclick="buttonClick(event)"
+                        icon="assets/icons/User_Settings_active.svg"> Button </t-button>
+                    <t-button transparent-warning onclick="buttonClick(event)"
+                        icon="assets/icons/User_Settings_active.svg"> Button </t-button>
+                    <t-button transparent-danger onclick="buttonClick(event)"
+                        icon="assets/icons/User_Settings_active.svg"> Button </t-button>
+                    <t-button transparent-medium onclick="buttonClick(event)"
+                        icon="assets/icons/User_Settings_active.svg"> Button </t-button>
+                    <t-button theme="" btn-transparent onclick="buttonClick(event)" icon="assets/icons/Designation.svg">
+                        Button </t-button>
+                    <br>
+                    <label style="color:grey;font-size: 12px;">With icon Arabic Lang</label><br>
+                    <t-button onclick="buttonClick(event)" lang="ar" icon="assets/icons/User_Settings_active.svg"> بعض
+                        المكونات </t-button>
+                    <t-button primary onclick="buttonClick(event)" lang="ar"
+                        icon="assets/icons/User_Settings_active.svg"> بعض المكونات </t-button>
+                    <t-button warning onclick="buttonClick(event)" lang="ar"
+                        icon="assets/icons/User_Settings_active.svg"> بعض المكونات </t-button>
+                    <t-button danger onclick="buttonClick(event)" lang="ar"
+                        icon="assets/icons/User_Settings_active.svg"> بعض المكونات </t-button>
+                    <t-button transparent-primary onclick="buttonClick(event)" lang="ar"
+                        icon="assets/icons/User_Settings_active.svg"> بعض المكونات </t-button>
+                    <t-button transparent-warning onclick="buttonClick(event)" lang="ar"
+                        icon="assets/icons/User_Settings_active.svg"> بعض المكونات </t-button>
+                    <t-button transparent-danger onclick="buttonClick(event)" lang="ar"
+                        icon="assets/icons/User_Settings_active.svg"> بعض المكونات </t-button>
+                    <t-button transparent-medium onclick="buttonClick(event)" lang="ar"
+                        icon="assets/icons/User_Settings_active.svg"> بعض المكونات </t-button>
+                    <t-button theme="" btn-transparent onclick="buttonClick(event)" lang="ar"
+                        icon="assets/icons/Designation.svg"> بعض المكونات </t-button>
+                    <br>
+                    <label style="color:grey;font-size: 12px;">Disabled</label><br>
+                    <t-button disabled> Button </t-button>
+                    <br><br>
+                    <t-button lg transparent onclick="buttonClick(event)" icon="assets/icons/User_Settings_active.svg">
+                    </t-button>
+                    <t-button transparent onclick="buttonClick(event)" icon="assets/icons/User_Settings_active.svg">
+                    </t-button>
+                    <t-button dotted onclick="buttonClick(event)" icon="assets/icons/User_Settings_active.svg">
+                    </t-button>
+                    <t-button primary onclick="buttonClick(event)" icon="assets/icons/User_Settings_active.svg">
+                    </t-button>
+                    <t-button warning onclick="buttonClick(event)" icon="assets/icons/User_Settings_active.svg">
+                    </t-button>
+                    <t-button danger onclick="buttonClick(event)" icon="assets/icons/User_Settings_active.svg">
+                    </t-button>
+                    <t-button transparent-primary onclick="buttonClick(event)"
+                        icon="assets/icons/User_Settings_active.svg"> </t-button>
+                    <t-button transparent-warning onclick="buttonClick(event)"
+                        icon="assets/icons/User_Settings_active.svg"> </t-button>
+                    <t-button transparent-danger onclick="buttonClick(event)"
+                        icon="assets/icons/User_Settings_active.svg"> </t-button>
+                    <t-button transparent-medium onclick="buttonClick(event)"
+                        icon="assets/icons/User_Settings_active.svg"> </t-button>
+                    <t-button btn-transparent onclick="buttonClick(event)" icon="assets/icons/Designation.svg">
+                    </t-button>
+                    <br>
+                    <t-button sm primary onclick="buttonClick(event)" icon="assets/icons/User_Settings_active.svg">
+                    </t-button>
+                    <t-button primary onclick="buttonClick(event)" icon="assets/icons/User_Settings_active.svg">
+                    </t-button>
+                    <t-button lg primary onclick="buttonClick(event)" icon="assets/icons/User_Settings_active.svg">
+                    </t-button>
+                    <t-button sm transparent-primary onclick="buttonClick(event)"
+                        icon="assets/icons/User_Settings_active.svg"> </t-button>
+                    <t-button transparent-warning onclick="buttonClick(event)"
+                        icon="assets/icons/User_Settings_active.svg"> </t-button>
+                    <t-button lg transparent-danger onclick="buttonClick(event)"
+                        icon="assets/icons/User_Settings_active.svg"> </t-button>
+                    <t-button lg transparent-medium onclick="buttonClick(event)"
+                        icon="assets/icons/User_Settings_active.svg"> </t-button>
+                    <br>
+                    <br>
+
+                    <div style="display: flex;">
+                        <t-button sm icon="assets/icons/User_Settings_active.svg">
+                        </t-button>
+                        <t-dropdown sm theme="dark" placeholder="Select" selected='' callback="getdropdowncallback"
+                            option-keys='{"value":"value","label":"name"}' option-data='[]'>
+                        </t-dropdown>
+                        <t-multidropdown sm lang="" theme="dark" data='' selected='' placeholder="Select"
+                            callback="getMultidropdown">
+                        </t-multidropdown>
+                    </div>
+
+                    <div style="display: flex;">
+                        <t-button icon="assets/icons/User_Settings_active.svg">
+                        </t-button>
+                        <t-dropdown theme="dark" placeholder="Select" selected='' callback="getdropdowncallback"
+                            option-keys='{"value":"value","label":"name"}' option-data='[]'>
+                        </t-dropdown>
+                        <t-multidropdown lang="" theme="dark" data='' selected='' placeholder="Select"
+                            callback="getMultidropdown">
+                        </t-multidropdown>
+                    </div>
+
+                    <div style="display: flex;">
+                        <t-button lg icon="assets/icons/User_Settings_active.svg">
+                        </t-button>
+                        <t-dropdown lg theme="dark" placeholder="Select" selected='' callback="getdropdowncallback"
+                            option-keys='{"value":"value","label":"name"}' option-data='[]'>
+                        </t-dropdown>
+                        <t-multidropdown lg lang="" theme="dark" data='' selected='' placeholder="Select"
+                            callback="getMultidropdown">
+                        </t-multidropdown>
+                    </div>
+
+                    <br>
+                    <br>
+
+
+                    <label style="color:grey;font-size: 14px;">Drop down</label>
+                    <hr>
+                    <t-dropdown sm id="dropdown1" theme="dark" placeholder="Select" selected='' position=""
+                        callback="getdropdowncallback" option-keys='{"value":"value","label":"name"}' option-data='[]'>
+                    </t-dropdown>
+                    <br>
+                    <t-dropdown id="dropdown2" lang="" theme="dark" search="true" placeholder="Select" selected='2'
+                        position="top" callback="getdropdowncallback" option-keys='{"value":"value","label":"name"}'
+                        dropheight="15vh"
+                        option-data='[{"value":"1", "name":"One"}, {"value":"2", "name":"Two"}, {"value":"3", "name":"Three"}, {"value":"4", "name":"Four"}, {"value":"5", "name":"Five"}, {"value":"6", "name":"Six"}]'>
+                    </t-dropdown>
+                    <br>
+                    <t-dropdown lg id="dropdown3" theme="dark" placeholder="Select" selected='' position="bottom"
+                        callback="getdropdowncallback" option-keys='{"value":"value","label":"name"}'
+                        option-data='[{"value":"1", "name":"Profile"}, {"value":"2", "name":"Settings"}, {"value":"3", "name":"Large"}]'>
+                    </t-dropdown>
+                    <br>
+
+
+                    <h4 style="color: #fff;">Multi dropDown</h4>
+                    <hr>
+
+                    <t-multidropdown id="multidropdownsm" lang="" sm theme="dark" data='' selected=''
+                        placeholder="Select" callback="getMultidropdown">
+                    </t-multidropdown>
+                    <br>
+                    <t-multidropdown id="multidropdown" lang="" theme="dark" placeholder="Select"
+                        data='[{"id":25,"label":"sanjith","checked":false}, {"id":2,"label":"shreyas","checked":true}, {"id":3,"label":"Avinash","checked":false}, {"id":4,"label":"manjunath","checked":true}, {"id":5,"label":"ranjan","checked":true}]'
+                        selected='[2,4,5]' callback="getMultidropdown" search="true">
+                    </t-multidropdown>
+                    <br>
+                    <t-multidropdown id="multidropdownlg" lang="" lg theme="dark" placeholder="Select"
+                        data='[{"id":25,"label":"sanjith"}, {"id":2,"label":"shreyas"}, {"id":3,"label":"Avinash"}, {"id":4,"label":"manjunath"}, {"id":5,"label":"ranjan"}]'
+                        selected='[25,2,3,4,5]' callback="getMultidropdown" search="true">
+                    </t-multidropdown>
+                    <br>
+                    <!--  
+                        <br><br>
+                        <t-multiselect theme="" lang="" callback="gettmultiselectcallback" placeholder="Please Select"
+                        selected='[{ "name": "New York", "value": "NY" }]'
+                        data='[{ "name": "New York", "value": "NY" }, { "name": "Washington", "value": "WA" }, { "name": "California", "value": "CA" }, { "name": "New Jersey", "value": "NJ" }, { "name": "North Carolina", "value": "NC" } ]'>
+                    </t-multiselect> -->
+                    <br><br>
+                    <!-- <label style="color:grey;font-size: 14px;">Dropdown</label>
+                    <t-searchdropdown id="t-searchdropdown" lang="" theme="" searchable="true"
+                        callback="getsearchdropdowncallback">
+                    </t-searchdropdown>
+
+                    <br>
+                    <br> -->
+                    <br>
+                    <br>
+
+                    <label style="color:grey;font-size: 14px;">Links(Modified)</label>
+                    <hr>
+                    <t-link theme="" href="http://www.google.com" target="_blank" text="Links">Click Here</t-link>
+                    <br>
+                    <br>
+
+                    <label style="color:grey;font-size: 14px;">Table(Modified)</label>
+                    <hr>
+                    <t-table theme="" lang="" callback="gettablecallback">
+                        <table slot="table" class="ttable">
+                            <tr>
+                                <th>Alarm Name</th>
+                                <th>Type Code</th>
+                                <th>SOP Name</th>
+                                <th>Action</th>
+                            </tr>
+                            <tr>
+                                <td>Camera Tamper</td>
+                                <td>2488</td>
+                                <td>Camera tampering protocol violation</td>
+                                <td>
+                                    <t-button transparent onclick="buttonClick(event)"
+                                        icon="https://pngimage.net/wp-content/uploads/2018/05/about-us-icon-png-white-1.png">
+                                    </t-button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Face recognition</td>
+                                <td>2153</td>
+                                <td>Face recognition protocol</td>
+                                <td>
+                                    <t-button transparent onclick="buttonClick(event)"
+                                        icon="https://pngimage.net/wp-content/uploads/2018/05/about-us-icon-png-white-1.png">
+                                    </t-button>
+                                </td>
+                            </tr>
+                        </table>
+                    </t-table>
+                    <br>
+                    <br>
+                    <label style="color:grey;font-size: 14px;">TNestedTable</label>
+                    <hr>
+                    <t-nested-table theme="" [attr.lang]="language" open="true" callback="getOuterTableCallback">
+                        <table slot="table" class="t-nested-table inner-table">
+
+                            <!-- Outer table header -->
+                            <tr>
+                                <th>Outer Table Alarm Name</th>
+                                <th>Outer Table Type Code</th>
+                                <th>Outer Table SOP Name</th>
+                                <th>Outer Table Action</th>
+                            </tr>
+
+
+                            <tr>
+                                <td>Outer Table Alarm Name</td>
+                                <td>Outer Table Type Code</td>
+                                <td>Outer Table SOP Name</td>
+                                <td>Outer Table Action</td>
+                            </tr>
+
+                            <!-- Nested table within an outer table row -->
+                            <tr class="nested-table-row">
+                                <td colspan="4">
+
+                                    <!-- Inner table within an outer table row -->
+                                    <t-nested-table theme="" [attr.lang]="language" open="true"
+                                        callback="getInnerTableCallback">
+                                        <table slot="table" class="t-nested-table inner-table">
+
+                                            <!-- Inner table header -->
+                                            <tr>
+                                                <th>Inner Table Alarm Name</th>
+                                                <th>Inner Table Type Code</th>
+                                                <th>Inner Table SOP Name</th>
+                                                <th>Inner Table Action</th>
+                                            </tr>
+                                            <tr>
+                                                <td>Outer Table Alarm Name</td>
+                                                <td>Outer Table Type Code</td>
+                                                <td>Outer Table SOP Name</td>
+                                                <td>Outer Table Action</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Outer Table Alarm Name</td>
+                                                <td>Outer Table Type Code</td>
+                                                <td>Outer Table SOP Name</td>
+                                                <td>Outer Table Action</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Outer Table Alarm Name</td>
+                                                <td>Outer Table Type Code</td>
+                                                <td>Outer Table SOP Name</td>
+                                                <td>Outer Table Action</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Outer Table Alarm Name</td>
+                                                <td>Outer Table Type Code</td>
+                                                <td>Outer Table SOP Name</td>
+                                                <td>Outer Table Action</td>
+                                            </tr>
+
+                                            <!-- Another nested table within the same inner table row -->
+                                            <tr class="nested-table-row">
+                                                <td colspan="4">
+
+                                                    <!-- Innermost table within the same inner table row -->
+                                                    <t-nested-table theme="" [attr.lang]="language" [attr.open]="open"
+                                                        callback="getInnerTableCallback">
+                                                        <table slot="table" class="t-nested-table inner-table">
+
+                                                            <!-- Innermost table header -->
+                                                            <tr>
+                                                                <th>Innermost Table Alarm Name</th>
+                                                                <th>Innermost Table Type Code</th>
+                                                                <th>Innermost Table SOP Name</th>
+                                                                <th>Innermost Table Action</th>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td>Outer Table Alarm Name</td>
+                                                                <td>Outer Table Type Code</td>
+                                                                <td>Outer Table SOP Name</td>
+                                                                <td>Outer Table Action</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Outer Table Alarm Name</td>
+                                                                <td>Outer Table Type Code</td>
+                                                                <td>Outer Table SOP Name</td>
+                                                                <td>Outer Table Action</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Outer Table Alarm Name</td>
+                                                                <td>Outer Table Type Code</td>
+                                                                <td>Outer Table SOP Name</td>
+                                                                <td>Outer Table Action</td>
+                                                            </tr>
+
+
+
+
+                                                        </table>
+                                                    </t-nested-table>
+
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </t-nested-table>
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Outer Table Alarm Name</td>
+                                <td>Outer Table Type Code</td>
+                                <td>Outer Table SOP Name</td>
+                                <td>Outer Table Action</td>
+                            </tr>
+                            <tr>
+                                <td>Outer Table Alarm Name</td>
+                                <td>Outer Table Type Code</td>
+                                <td>Outer Table SOP Name</td>
+                                <td>Outer Table Action</td>
+                            </tr>
+                            <tr>
+                                <td>Outer Table Alarm Name</td>
+                                <td>Outer Table Type Code</td>
+                                <td>Outer Table SOP Name</td>
+                                <td>Outer Table Action</td>
+                            </tr>
+
+                        </table>
+                    </t-nested-table>
+                    <br>
+                    <br>
+                    <label style="color:grey;font-size: 14px;">Pagination</label>
+                    <hr>
+                    <t-pagination id="pagination1" theme="" numberofitems="100" limitperpage="10" currentpage="3"
+                        callback="getPagination">
+                    </t-pagination>
+                    <br>
+                    <t-pagination id="pagination2" numberofitems="100" limitperpage="7" currentpage="1" pages="true"
+                        callback="getPagination">
+                    </t-pagination>
+
+                    <br>
+                    <br>
+                    <br>
+                    <label style="color:grey;font-size: 14px;">Dialog(Modified)</label>
+                    <hr>
+                    <t-dialog theme="" style="width:50%" callback="getdialogcallback">
+                        <div class="t-dialog-title" slot="title">Title Contenttttt</div>
+                        <div class="t-dialog-content" slot="content">
+                            Content here
+                        </div>
+                        <div class="t-dialog-footer" slot="footer">Footer Content</div>
+                    </t-dialog>
+                    <t-button onclick="document.querySelector('t-dialog').open = true;"> Dialog </t-button>
+                    <br>
+                    <br>
+
+                    <div>
+                        <!-- <t-dialog-custom sm callback="dialogcustom" theme="dark" position="bottom" lang="en"
+                            width="42%">
+                            <t-dialog-header close="true">
+                                <t-dialog-title sm>
+                                    <div>test Lorem ipsumsaepe!</div>
+                                </t-dialog-title>
+                                <t-dialog-action>
+                                    <t-button danger onclick="buttonClick(event)"
+                                        icon="https://iconsplace.com/wp-content/uploads/_icons/ffffff/256/png/save-icon-18-256.png">
+                                    </t-button>
+                                    <t-button danger onclick="buttonClick(event)"
+                                        icon="https://iconsplace.com/wp-content/uploads/_icons/ffffff/256/png/save-icon-18-256.png">
+                                    </t-button>
+                                </t-dialog-action>
+                            </t-dialog-header>
+                            <t-dialog-content>Content
+                            </t-dialog-content>
+                            <t-dialog-footer cancel="Cancesssl" sm submit="Submiddt"></t-dialog-footer>
+                        </t-dialog-custom> -->
+                    </div>
+
+                    <br>
+                    <br>
+                    <label style="color:grey;font-size: 14px;">Disclosure</label>
+                    <hr>
+                    <t-disclosure theme="" style="width:50%" callback="getdisclosurecallback">
+                        <div class="t-disclosure-title">Title</div>
+                        <div class="t-disclosure-content">
+                            This is a disclosure
+                        </div>
+                        <div class="t-disclosure-footer">
+                            <t-button onclick="buttonClick(event)"> cancel </t-button>
+                        </div>
+                        <div class="t-disclosure-footer">
+                            <t-button onclick="buttonClick(event)"> submit </t-button>
+                        </div>
+
+                    </t-disclosure>
+                    <t-button onclick="document.querySelector('t-disclosure').open = true;"> Disclosure </t-button>
+
+                    <br>
+                    <br>
+                    <label style="color:grey;font-size: 14px;">Checkbox(Modified)</label>
+                    <hr>
+                    <div>
+                        <!-- <t-checkbox lg id="checkboxId" lang='en' callback="gettcheckboxcallback" theme=""
+                            data='[{"id":"1","name":"Checkbox 1","value":"Checbox1"},{"id":"2","name":"Checkbox 2","value":"Checbox2"}, {"id":"3","name":"Checkbox 3","value":"Checbox3","disabled":"true"}]'
+                            selected='["Checbox3"]' horizontal>
+                        </t-checkbox> -->
+                        <t-checkbox id="checkboxId" lang='en' callback="gettcheckboxcallback" theme=""
+                            data='[{"id":"1","name":"Checkbox 1","value":"Checbox1"},{"id":"2","name":"Checkbox 2","value":"Checbox2"}, {"id":"3","name":"Checkbox 3","value":"Checbox3","disabled":"true"}]'
+                            selected='["Checbox2"]'>
+                        </t-checkbox>
+                    </div>
+
+                    <br>
+
+                    <label style="color:grey;font-size: 14px;">CheckboxSingle</label>
+                    <hr>
+                    <div>
+                        <t-checkbox-single id="checkboxId" sm lang="en" [attr.theme]="fontColortheme" disabled="false"
+                            title="singleCheckBox" selected="true" value="this value will be returned in the callback"
+                            (tcheckboxnew)=" gettcheckboxcallback($event);">
+                        </t-checkbox-single>
+                    </div>
+
+                    <br>
+                    <label style="color:grey;font-size: 12px;">Arabic</label>
+                    <br>
+
+                    <t-checkbox callback="gettcheckboxcallback" lang="ar" theme=""
+                        data='[{"id":"1","name":"خانة الاختيار 1","value":"Checbox1"},{"id":"2","name":"خانة الاختيار 2","value":"Checbox2"}, {"id":"3","name":"خانة الاختيار 3","value":"Checbox3","disabled":"true"}]'
+                        selected='["Checbox3"]'>
+                    </t-checkbox>
+
+                    <br>
+                    <br>
+                    <label style="color:grey;font-size: 14px;">Radio(Modified)</label>
+                    <hr>
+                    <div>
+                        <t-radiogroup position="horizontal" lg id="radiogroup" theme="dark"
+                            callback="gettradioButtoncallback"
+                            data='[{"id":"1","name":"radio","text":"One","value":"1"},{"id":"2","name":"radio","text":"Two","value":"2","disabled":"true"},{"id":"3","name":"radio","text":"Three","value":"3"}]'
+                            selected="1">
+                        </t-radiogroup>
+                        <!-- <t-radiogroup id="radiogroup" theme="" callback="gettradioButtoncallback" data='' selected="1"
+                            horizontal>
+                        </t-radiogroup> -->
+                    </div>
+                    <br>
+                    <label style="color:grey;font-size: 12px;">Arabic</label>
+                    <br>
+                    <t-radiogroup theme="" callback="gettradioButtoncallback" lang="ar"
+                        data='[{"id":"1","name":"radio","text":"مذياع","value":"1"},{"id":"2","name":"radio","text":"مذياع","value":"2","disabled":"true"},{"id":"3","name":"radio","text":"مذياع","value":"3"}]'
+                        selected="1">
+                    </t-radiogroup>
+                    <br>
+                    <br>
+                    <label style="color:grey;font-size: 14px;">Spin button</label>
+                    <hr>
+                    <t-spinbtn callback="spinbuttoncallback" lang="" theme="" inputMax="20" max="20" value="7"
+                        inputVal="7">
+                    </t-spinbtn>
+                    <br>
+                    <t-spinbtn type="text" callback="spinbuttoncallback" lang="" theme="" text-data='[
+							{"id": "1", "name": "Update"},
+							{"id": "2", "name": "Delete"},
+							{"id": "3", "name": "Clear"},
+							{"id": "4", "name": "Remove"}
+							]'>
+                    </t-spinbtn>
+
+
+                    <br>
+                    <br>
+                    <label style="color:grey;font-size: 14px;">Toggle Switch(Modified)</label>
+                    <hr>
+                    <t-toggleswitch checked="true" disabled="false"
+                        callback="getttoggleswitchcallback"></t-toggleswitch>
+                    <t-toggleswitch checked="true" disabled="true" callback="getttoggleswitchcallback"></t-toggleswitch>
+                    <t-toggleswitch checked="false" disabled="false"
+                        callback="getttoggleswitchcallback"></t-toggleswitch>
+                    <!-- <br> -->
+                    <!-- <label style="color:grey;font-size: 12px;">Disabled</label>
+                    <br> -->
+                    <!-- <t-toggleswitch callback="getttoggleswitchcallback" disabled="true"></t-toggleswitch>
+                    <t-toggleswitch callback="getttoggleswitchcallback" checked="true" disabled></t-toggleswitch> -->
+                    <br>
+                    <br>
+                    <label style="color:grey;font-size: 14px;">Accordion(Modified)</label>
+                    <hr>
+
+                    <!-- <t-accordion>
+                        <t-accordion-panel>
+                            <div class="t-accordion-title">
+                                Accordion 1
+                            </div>
+                            <div class="t-accordion-content">
+                                Accordion 1
+                                <t-accordion>
+                                    <t-accordion-panel>
+                                        <div class="t-accordion-title">
+                                            Accordion 1-1
+                                        </div>
+                                        <div class="t-accordion-content">
+                                            Accordion 1-1
+                                        </div>
+                                    </t-accordion-panel>
+                                </t-accordion>
+                            </div>
+                        </t-accordion-panel>
+                        <t-accordion-panel class="open">
+                            <div class="t-accordion-title">
+                                Accordion 2
+                            </div>
+                            <div class="t-accordion-content">
+                                Accordion 2
+                            </div>
+                        </t-accordion-panel>
+                    </t-accordion> -->
+
+                    <t-accordion theme="" multi="false" lang="en" callback="getaccordiancallback">
+                        <t-accordion-panel value="1" backgroundColor="#F00000">
+                            <t-accordion-title>
+                                <span>Accordion 1</span>
+                            </t-accordion-title>
+                            <t-accordion-content>
+                                <div>
+                                    <t-accordion>
+                                        <t-accordion-panel>
+                                            <t-accordion-title>
+                                                <span>Accordion 1-1</span>
+                                            </t-accordion-title>
+                                            <t-accordion-content>
+                                                <div>
+                                                    Accordion 1-1
+                                                </div>
+                                            </t-accordion-content>
+                                        </t-accordion-panel>
+                                        <t-accordion-panel>
+                                            <t-accordion-title>
+                                                <span>Accordion 1-2</span>
+                                            </t-accordion-title>
+                                            <t-accordion-content>
+                                                <div>
+                                                    Accordion 1-2
+                                                </div>
+                                            </t-accordion-content>
+                                        </t-accordion-panel>
+                                    </t-accordion>
+                                </div>
+                            </t-accordion-content>
+                        </t-accordion-panel>
+                        <t-accordion-panel value="2" open="true">
+                            <t-accordion-title>
+                                <span>Accordion 2</span>
+                            </t-accordion-title>
+                            <t-accordion-content>
+                                <section> Accordion 2</section>
+                            </t-accordion-content>
+                        </t-accordion-panel>
+                        <t-accordion-panel value="3">
+                            <t-accordion-title>
+                                <span>Accordion 3</span>
+                            </t-accordion-title>
+                            <t-accordion-content>
+                                <section> Accordion 3 </section>
+                            </t-accordion-content>
+                        </t-accordion-panel>
+                        <t-accordion-panel value="4">
+                            <t-accordion-title>
+                                <span>Accordion 4</span>
+                            </t-accordion-title>
+                            <t-accordion-content>
+                                <section> Accordion 4</section>
+                            </t-accordion-content>
+                        </t-accordion-panel>
+                    </t-accordion>
+                    <br>
+                    <br>
+                    <label style="color:grey;font-size: 14px;">Progress Bar</label>
+                    <hr>
+                    <t-progress-bar percent="50"></t-progress-bar>
+                    <br>
+                <div>
+                    <label style="color:grey;font-size: 14px;">vProgress Bar</label>
+                    <t-vprogress-bar percent="40" icon="assets\icons\fuel.png" color="red"></t-vprogress-bar>
+                </div>
+                <br>
+                <br>
+                <label style="color:grey;font-size: 14px;">cProgress Bar</label>
+                <div >
+                    <t-cprogress-bar percent="90" color="#029588" inner-color="white"></t-cprogress-bar>
+                </div>
+                <br>
+                <br>
+                <label style="color:grey;font-size: 14px;">fieldcard </label>
+                <div >
+                    <t-field-card percent="90" icon="assets\icons\fuel.png" header="Status" color="#009688" value="Assigned"></t-field-card>
+                </div>
+                
+                    <label style="color:grey;font-size: 14px;">Card(New component)</label>
+                    <hr>
+                    <br>
+                    <t-card sm theme="dark" lang="en">
+                        <div slot="header"> Data </div>
+                        <div slot="content"> Content here </div>
+                        <div slot="footer"> Footer </div>
+                    </t-card>
+                    <br>
+                    <br>
+                    <label style="color:grey;font-size: 14px;">Carousel(Modified)</label>
+                    <hr>
+                    <t-carousel callback="getcarouselcallback" sliderTime="10">
+                        <t-carousel-img>
+                            <img src="https://dummyimage.com/600x300/04afb8/fff.jpg&text=First+Image" alt="">
+                        </t-carousel-img>
+                        <t-carousel-img>
+                            <img src="https://dummyimage.com/600x300/04afb8/fff.jpg&text=Second+Image" alt="">
+                        </t-carousel-img>
+                        <t-carousel-img>
+                            <img src="https://dummyimage.com/600x300/04afb8/fff.jpg&text=Third+Image" alt="">
+                        </t-carousel-img>
+                        <t-carousel-img>
+                            <img src="https://dummyimage.com/600x300/04afb8/fff.jpg&text=Fourth+Image" alt="">
+                        </t-carousel-img>
+                        <t-carousel-img>
+                            <img src="https://dummyimage.com/600x300/04afb8/fff.jpg&text=Fifth+Image" alt="">
+                        </t-carousel-img>
+                    </t-carousel>
+                    <label style="color:grey;font-size: 14px;">timeline</label>
+                                   
+
+                  
+                    <t-timeline disabled="">
+                        <timeline-step date="21 NOV 23" time="10:58:39" 
+                            right-text='Step 1<br>Status: <span style="color: #009688;">Completed</span><br>Remarks: Remarks goes here' 
+                            selected="true">
+                        </timeline-step>
+                    
+                        <timeline-step date="21 NOV 23" time="10:59:02" 
+                            right-text='Step 2<br>Status: <span style="color: #B82121;">Failed</span><br>Remarks: Remarks goes here' 
+                            selected="true">
+                        </timeline-step>
+                    
+                        <timeline-step date="21 NOV 23" time="10:58:39"
+                            right-text='Step 3<br>Status: <span style="color: #FFC62A;">In Progress</span><br>Remarks: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur, risus a tincidunt porttitor, ipsum lacus commodo mi, non mollis elit metus non libero.'>
+                        </timeline-step>
+                    
+                        <timeline-step date="22 NOV 23" time="04:58:03"
+                            right-text='Step 4<br>Status: <span style="color: #FF6600;">Pending</span><br>Remarks: Remarks goes here'>
+                        </timeline-step>
+                    
+                        <timeline-step date="22 NOV 23" time="10:58:39"
+                            right-text='Step 5<br>Status: <span style="color: #7DB239;">Retry</span><br>Remarks: Remarks goes here'>
+                        </timeline-step>
+                    </t-timeline>
+                    
+
+                    <br>
+                    <br>
+                    <label style="color:grey;font-size: 14px;">Slider </label>
+                    <hr>
+                    <div style="width:25%">
+                        <t-slider id="slider" prefix=""  callback="getslidercallback" displayvalue="true" lang="en"
+                            min="1" max="100" value="20">
+                        </t-slider>
+                    </div>
+                    <br><br>
+
+                    <div style="width: 25%;">
+                        <t-multislider min="0" max="1000" InitialThumbValue="" finalThumbValue=""
+                            callback="getmultislidercallback">
+                        </t-multislider>
+                    </div>
+
+                    <br>
+                    <br>
+                    <label style="color:grey;font-size: 14px;">Tree View(Modified)</label>
+                    <hr>
+                    <!-- <t-treegrid theme="" callback="gettreecallback" lang=""
+                        treeData='[{ "id": "1", "name": "Lorem Ipsum", "children": [{ "id": "1.1", "name": "Lorem Ipsum 1", "children": [{ "id": "1.2", "name": "Lorem Ipsum", "children": [{ "id": "1.3", "name": "Lorem Ipsum" }, { "name": "Lorem Ipsum", "children": [{ "id": "1.4", "name": "Lorem Ipsum" }, { "name": "Lorem Ipsum" } ] } ] }, { "name": "Lorem Ipsum" }, { "name": "Lorem Ipsum" } ] }, { "id": "2", "name": "Lorem Ipsum 2", "children": [{ "name": "Lorem Ipsum" }, { "name": "Lorem Ipsum" } ] } ] } ]'>
+                    </t-treegrid>
+                    <br>
+                    <br> -->
+                    <t-treeroot theme="" lang="" callback="getTreeRootData"
+                        data='[{ "id": 1, "label": "One", "checked":true, "disabled": true, "children": [{ "id": 11, "label": "One-One", "checked":true, "disabled": true } ] }, { "id": 2, "label": "Two", "children": [{ "id": 21, "label": "Two-One" }, { "id": 22, "label": "Two-Two", "children": [{ "id": 221, "label": "Two-Two-One" }, { "id": 222, "label": "Two-Two-Two" } ] }, { "id": 23, "label": "Two-Three", "checked":true, "disabled": true } ] } ]'>
+                    </t-treeroot>
+                    <br>
+                    <br>
+                    <label style="color:grey;font-size: 14px;">Rating control(Modified)</label>
+                    <hr>
+                    <t-ratingcontrol disabled></t-ratingcontrol>
+                    <br>
+                    <label style="color:grey;font-size: 12px;" dir="rtl" lang="ar">Arabic</label>
+                    <br>
+                    <t-ratingcontrol theme="" lang="ar" disabled callback="getratingcallback" total-rating-shape="10">
+                    </t-ratingcontrol>
+                    <br>
+                    <br>
+
+                    <label style="color:grey;font-size: 14px;">Tooltip</label>
+                    <hr>
+                    <t-tooltip tooltip-text="hover over me!!" behaviour="top">
+                    </t-tooltip>
+
+                    <br>
+                    <br>
+                    <label style="color:grey;font-size: 14px;">Alert</label>
+                    <hr>
+                    <t-button onclick="openAlert()"> Alert </t-button>
+                    <t-alert id="alert" theme='dark' position="bottom-right" lang="en"></t-alert>
+                    <br>
+                    <br>
+                    <label style="color:grey;font-size: 14px;">Notification(Modified)</label>
+                    <hr>
+                    <div style="position: relative;">
+                        <t-button transparent onclick="notification()" count="10"
+                            icon="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAQAAAAAYLlVAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAAHdElNRQflAgoMBAT1O2vsAAADL0lEQVRo3u1ZS0hUURj+zh11fEw+ZrRASKhFkptAemhSEYEtWtQiNB9gyZjQY+FMYhLUIEpFeiVBCoIgSIoIIsIWQauwhdQ2qCCyrIU2NaU5w4xzT9uZ8d4z55x77kDgt7vn8X/f/c7rnv8SSIKSsXbSi3oAb+nt4ENC5eIQuW6PXF/ukxMpBVObu1qSMpE0OQHzl9LogY75wRw6oBfRBXgyCv8sbQrFcuXA7jX0QGnpLplQUgKMKrNSujFnAjTzXnKxZDqpxLoAl2gH3dvcgyDMpmFds+vgx5eCS1FoH9C9dAh+uBlNYrgTvzL4yxEBo35cIz6Ohj8wELyrWMCEO36LnBIwa2rJz7cvcgkYL08+J40C9AAwkzhy8Xf2ZhyrIFRgPBamB5ryn064szfjEOC5h0PC9ABwIMExE7IK0LsyDl4RtI91ZmuSZQ6MVpJ3pmueEzRM6/oXbDhAhu3QA8SnXbbhgO6lX1FsRwCAFXfNubCkA8Zp2/RAcbybVc0eglbb9ABoC6uWMQS6ly4qOS2TWmVfRMIBY7+iw9pF91lXMihIrRJ6AJQRiSGA2lqAaWBEYjmgTACVE4AiZQ6UyAnICdYFrAtgLUPJ5IVYJNZGVKbsNTdICUCFMgcYkVgCvMocYESyHJ1JTywifnO0QNIo6/8r6EC0Xhk94NJ2WFVZCtCkMj5WoHuEBdBjKgWQo5Y15sU3a1Y/yyYxzd+HbrkwJ+BAolMpPUDQJuDAjRLtE6SSbgwsFm49u8zpADmvnB6oip7hdED3Gh+4MiGCoGFtW+AnhwPGiBP0APHRYQ4HxuuNWYVbUMa7kcbALNOBkGZMOkYPaHQylMGY8ejpRoNj9ACwszQj1ZU2BFcrCt7bywdkBw0X1qZe19McKBhxmh4gvtiQhQOOTr9UpE3FFAeSPTmhBzR6MuUhxYxpcCQWFSBiTOeE5z+B4KF7vTqvid1idWbgu0jEPDEB5ZHlUdQwGszlbxeLKHg1610hnUhYVse1jkDUUQFA4BVphfmfgCg53jcjGk/ichp4ojXizZriWaMh8Ew8muSXHyXjh2kb9qIaIN+M13gQfCH3A/8fY8a6s0IsMy8AAAAldEVYdGRhdGU6Y3JlYXRlADIwMjEtMDItMTBUMTI6MDQ6MDQrMDA6MDDoUR/UAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIxLTAyLTEwVDEyOjA0OjA0KzAwOjAwmQynaAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAAASUVORK5CYII=">
+                        </t-button>
+                        <t-notification lang='ar' view=false theme="" class="notify" callback="getnotificationcallback"
+                            notification-data='[
+                            {"value":"1", "name":"notification dummy text 1", "icon":""},
+                            {"value":"2", "name":"notification dummy text 2", "icon":""},
+                            {"value":"3", "name":"notification dummy text 3", "icon":""},
+                            {"value":"4", "name":"notification dummy text 4", "icon":""},
+                            {"value":"5", "name":"notification dummy text 5", "icon":""},
+                            {"value":"6", "name":"notification dummy text 6", "icon":""},
+                            {"value":"7", "name":"notification dummy text 7", "icon":""},
+                            {"value":"8", "name":"notification dummy text 8", "icon":""},
+                            {"value":"9", "name":"notification dummy text 9", "icon":""},
+                            {"value":"10","name":"notification dummy text 10","icon":""}
+                            ]'>
+                        </t-notification>
+                    </div>
+
+                    <br>
+                    <br>
+                    <label style="color:grey;font-size: 14px;">Listbox(Modified)</label>
+                    <hr>
+                    <t-listbox lg theme="" btn-text="Click Me" callback="getlistboxcallback" data='[
+                            {"value":"1", "name":"listbox dummy text 1", "icon":"./assets/images/search.png"},
+                            {"value":"2", "name":"listbox dummy text 2", "icon":"./assets/images/search.png"},
+                            {"value":"3", "name":"listbox dummy text 3", "icon":"./assets/images/search.png"},
+                            {"value":"4", "name":"listbox dummy text 4", "icon":"./assets/images/search.png"},
+                            {"value":"5", "name":"listbox dummy text 5", "icon":"./assets/images/search.png"},
+                            {"value":"6", "name":"listbox dummy text 6", "icon":"./assets/images/search.png"}
+                        ]'>
+                    </t-listbox>
+
+                    <br>
+                    <br>
+
+                    <label style="color:grey;font-size: 14px;"> Date Range Time picker</label>
+                    <hr>
+                    <div style="position: absolute;left:25%;">
+                        <t-date-range-time-picker id="my-date-picker" sm lang="en" min="09-12-2023" max="08-27-2025"
+                            format="DD-MM-YYYY" position="top" placeholder="Select Date"
+                            icon="assets/icons/Schedule.svg"></t-date-range-time-picker>
+                    </div>
+                    <br><br>
+
+                    <label style="color:grey;font-size: 14px;">Color Picker(Modified)</label>
+                    <hr>
+                    <t-colorpicker name="Color" value='#404040' callback="getcolorcallback">
+                    </t-colorpicker>
+                    <br>
+                    <br>
+                    <label style="color:grey;font-size: 14px;">New Custom Date picker</label>
+                    <hr>
+                    <div style="position: absolute;left:25%;">
+                        <t-date-picker id="my-date-picker" sm lang="en" min="01-05-2024" max="01-08-2024"
+                            format="DD-MM-YYYY" position="top" placeholder="Select Date"
+                            icon="assets/icons/Schedule.svg"></t-date-picker>
+                    </div>
+                    <br><br>
+                    <hr>
+                    <label style="color:grey;font-size: 14px;">New Custom Time picker ----</label>
+                    <br>
+                    <div style="position: absolute;left:25%;">
+                        <t-timepicker id="custom-time-picker" theme="dark" disabled="false" lang="en" min="12:10:45"
+                            max="18:45:54" placeholder="Select Time"
+                            icon="assets/images/clock-regular.svg"></t-timepicker>
+                    </div>
+                    <br><br>
+                    <hr>
+                    <label style="color:grey;font-size: 14px;">New Custom Date Time picker</label>
+                    <div style="position: absolute;left:50%;">
+                        <t-date-time-picker id="custom-date-time-picker1" sm theme="dark" lang="ar" position="top"
+                            format="MM-DD-YYYY HH:mm:ss" placeholder="Select Date Time"></t-date-time-picker>
+                    </div>
+                    <br><br><br>
+                    <hr>
+                    <label style="color:grey;font-size: 14px;">New Custom Date Range picker</label>
+                    <div style="position: absolute;left:50%;">
+                        <t-date-range-picker id="custom-date-range-picker" sm theme="dark" lang="en" position="top"
+                            format="DD-MM-YYYY" placeholder="Select Date Range"></t-date-range-picker>
+                    </div>
+                    <br><br><br><hr>
+                    <label style="color:grey;font-size: 14px;">New Custom Date Range Time picker</label>
+                    <div style="position: absolute;left:50%;">
+                      <t-date-range-time-picker id="custom-date-range-time-picker" sm theme="dark" lang="en" position="top" format="MM-DD-YYYY" placeholder="Select Date Time Range"></t-date-range-time-picker>
+                    </div>
+                    <br><br><br><hr>
+                    <label style="color:grey;font-size: 14px;">New Custom Image uploader</label>
+                    <t-image-upload sm theme="dark" buttontext="Browse Image" lang="" disabled="false"></t-image-upload>
+                    <!-- <t-image-upload lg theme="light"></t-image-upload> -->
+
+                    <!-- previous date-time picker date: 28-11-2023 -->
+                    <!-- <div>
+                        <t-datetimepicker callback="getdatepickercallback" time="true" lang="" theme=""
+                            format="dd-mm-yyyy">
+                        </t-datetimepicker>
+                    </div> -->
+                    <br><br>
+
+                    <hr>
+                    <label style="color:grey;font-size: 14px;">TimeSeries</label>
+
+                    <t-time-series theme="dark" selected="button1" disabled="button3,button5" lang="en">
+                        <button value="1">
+                            <label label-left>Label to the left</label>
+                        </button>
+
+                        <button value="2">
+                            <label label-right>Another label to the left</label>
+                        </button>
+
+                        <!-- Add other buttons as needed -->
+
+                    </t-time-series>
+
+                    <t-time-series selected="1" lablePosition="left">
+                        <button value="1" label-left label="Tide">
+                        </button>
+                        <button value="2" label="icc">
+
+                        </button>
+                        <button value="3" label="swm" label-right>
+
+                        </button>
+                        <button value="4" label="cad" label-left></button>
+                        <button value="5" label="Engage" label-right>
+
+                        </button>
+                        <button value="6" label="iotops" label-right></button>
+                    </t-time-series>
+
+                    <br><br><hr>
+                    <label style="color:grey;font-size: 14px;">New Custom Image viewer</label>
+                    <t-image-viewer theme="dark" startindex="3" images="assets/icons/Tenant_Details.svg,assets/icons/Alert_Management.svg,assets/icons/Configuration_inactive.svg,assets/icons/Gas_Meter_Active.svg,assets/icons/Camera_Widget_Footage_01.jpg,assets/icons/rose.jpg,assets/icons/rose2.jpg,assets/icons/roses3.jpg,assets/icons/mogra.jpg,assets/icons/mogra2.jpg,assets/icons/mogra3.jpg"></t-image-viewer>
+                    <t-button onclick="document.querySelector('t-image-viewer').open = true;"> Image viewer </t-button>
+                    
+                    <br><br><hr>
+                    <label style="color:grey;font-size: 14px;">New Custom Video Gallery </label>
+                    <t-video-gallery theme="dark"  backward="4" forward="3" videos="assets/videos/mov_bbb.mp4,assets/videos/movie.mp4"  ></t-video-gallery>
+                    <t-button onclick="document.querySelector('t-video-gallery').open = true;"> Video Gallery </t-button>
+
+                    <br><br><hr>
+                    <label style="color:grey;font-size: 14px;">New Custom Audio Gallery </label>
+                    <t-audio-gallery theme="dark" backward="4" forward="6" audios="assets/audio/file_example_WAV_1MG.wav,assets/audio/mixkit-staring-at-the-night-sky.mp3,assets/audio/mixkit-spirit-in-the-woods.mp3,https://tengagecep.trinityiot.in/fileUpload/1717134317915.wav"  ></t-audio-gallery>
+                    <t-button onclick="document.querySelector('t-audio-gallery').open = true;"> Audio Gallery </t-button>
+
+                    <!-- <br><br><hr>
+                    <label style="color:grey;font-size: 14px;">New Custom Audio Gallery Without Wavesurfer </label>
+                    <t-custom-audio theme="dark" width="45vw" height="45vh" backward="4" forward="6" audios="assets/audio/mixkit-staring-at-the-night-sky.mp3,assets/audio/mixkit-spirit-in-the-woods.mp3"  ></t-custom-audio>
+                    <t-button onclick="document.querySelector('t-custom-audio').open = true;"> Audio Gallery </t-button>
+
+                    <br><br><hr>
+
+                    <label style="color:grey;font-size: 14px;">New Custom Audio Wave Gallery </label>
+                    <t-audio theme="dark" backward="4" forward="6" audios="assets/audio/file_example_WAV_1MG.wav,assets/audio/mixkit-staring-at-the-night-sky.mp3,assets/audio/mixkit-spirit-in-the-woods.mp3" ></t-audio>
+                    <t-button onclick="document.querySelector('t-audio').open = true;"> Audio Gallery </t-button> -->
+                    <br><br><hr>
+                    <label style="color:grey;font-size: 14px;">Stepper</label>
+                    <t-stepper id="stepper" theme="" callback="getsteppercallback" selected="2" disabled="true">
+                        <button value="1">
+
+                            <!-- <label>hello</label> -->
+                        </button>
+                        <button value="2">
+                            <img src="https://www.linkpicture.com/q/chat-2.png">
+                            <label>Chat</label>
+                        </button>
+                        <button value="3">
+                            <img src="https://www.linkpicture.com/q/skyline.png">
+                            <label>Skyline</label>
+                        </button>
+                        <button value="4">
+                            <img src="https://www.linkpicture.com/q/worldwide.png">
+                            <label>Map</label>
+                        </button>
+                    </t-stepper>
+                    <!-- <div style="width: 50%">
+                        <t-stepper theme="" callback="getsteppercallback" inputMax="20" inputVal="7">
+                            <button slot="title" selected><img
+                                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAmCAYAAADX7PtfAAAABHNCSVQICAgIfAhkiAAAA+BJREFUWEfFl/1RG0EMxaUKSCoAKghUEHQNYCqIqSCmgpgKIBUEKohp4ORUEKggoYI4FSjzu9HdnPF9mWQmO+M/bO/tW0lPT+9UJix3fyMiH0RkJiInIsJ31mN+7s1sPeEo0bFN7j4XkZuI+K2qtwlQP3aUlzgXkZWIXJrZZujMQUB3/xIRF6q6NDPAOpe7H0XESlVDRGwItBeQyCLiVlXPzIzUjS53J8pDMzvt29wJmDX7ISJXZnY3ipQbeC4iHkl9X0b6ABcRMS+KAoLstbLmn8zsuOvBTsCyLNequmrf0t0r8LH0ZnZ+ichp196+COviN1R39+8iAishxWBNy7IkrRCNmm6tSYDufiYiLiIPIvI+6b9zWH1yZmhtZsu9ATNFRPdgZgt355BPIrKGxUVRcImt9WrAjGaRYAhAteg7EVlGxExVDwBPQaDpH7Kd9o7wZ9YM9ehtjUw3KT+JiJO8APf6PCmlL+p1bmaj8teKnKjJxEZVf8Gu0RqmWhAdpPBXAJ6pKiJPaxybGWc1a+f2/wOQ233NCGf7RphjbMN0KYqC2k7qw1lELFX13Z6At8lcWLvomhqDhCjLkuIT5aThmmrEMO4dZWPzkHY4MLOLMQVvsXuHKIOkaf+ZgxVdJD1DvYjlaNRo6HKjPebuNYkApJkb4U7Zw16QQqSvUaM+0FHAlDJUBAtx2HPQdZeqdO2dBJigpOxJRF6mlily0TWKXgWYQv1FROipnUjcndnJYv5dj5FryEQxET6KCHX5lgeR0saVpZ3gMtcRsUA/E/h+cg3LsjxXVUBofrwoEVT+JCKwHpUbSD8KWDVNapfHvtxTk6xbS+vURcQpfiaZB92pUZXKdGWAMgPJQDO63B2X92RmswSfqyruAAd3VUdcpTQNEgeTunlbklJtwsze5t4bZIsRVPubVmq3ZidiEBF3qsrUuayibzOwq49yetBrWAvSfJzjh/6kxoDzIeIdlcms/EyvutSWwz7qEtvW7akhNcU+zrMEP/K3g4h4LooC0J2V4kG9jzUNzyMGqWczh1QuXEQgAA+iNrxPPEOwJBMX6TyDc8uyJMoqQhoaUlS2L+WKaBsJS58J6/itIlFEMNk3SRLagfo11hFevDgDsq0B3DK9Wehle3i6O1pJpCvmJKlzd6LhnZHIt6xITo6vNdEyEM7YTAWsBbyKjMu0xtFnLkOkdUnq/9rDO/2sTALMG9YS1vRkGiXag9+aofuvAKkP7dH0WvYoIrDVDlMAeT2rSKKqvCXBvC3Gpdwhee29VW3TxzBJaJ13eQb+pjFR+fwzbYFv4ZZ/uyBPLfh9Z139AVl8tEpQooWYAAAAAElFTkSuQmCC"></button>
+                            <section>
+                                content panel 1 <br>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores quod dolores
+                                laboriosam.
+                            </section>
+                            <button slot="title" disabled><img
+                                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAgCAYAAAB6kdqOAAAABHNCSVQICAgIfAhkiAAAA59JREFUWEe9l9FRFEEQhruLADwTUIhAiEB6ExAjECJQn3wEMjgi8IhAePJtByIQTMAzAYEqH6lq69vquZpb9mCP23OqKLb2Zmf++fvv7n9UOkZKaVdEDuOnYzO76Jq3jndaLloAAVA5APRfgDWAHgHSJmHtwLSu6wtVfZt3dvffqnokIlfxbtvdx6r6okB3amb7awlZXde3eTN3v1TVPRHh701sCLBzdwd48455VVW1wzoIvhlD7n6nqtsiAjsfWqsfi8iZiPyI9+dmBujBh6aUxiLyMZ86peRdu5gZ4K+CJQQO8MEHgNDCV7JIRBBtegRQ1tuOmWWNDQoKQCMRuenLkIiMqqraHBRFsVhO+4mIvBORnR4aWlu4wJUBceJfEbL3kWUI/DbSvwmlu2+pKnPR3esFobVV2JtV6pQSIqVdTIOla8IT6c9vPH8WEdj8tGjTVcVeAhqVtaa9YaExmJtubGy8UtW/9/f3f9w91yxR1btVBN/uZZvuTmqXVZlCSPUGCH9kIWH54u4/VfV7R2YSasJ6YmY89x5zgPgqpUSrIL0bUO5+rapUZbQDGEL3FKAMgNJgy4B6AChAwRSVmbZCRQbEt2CIKX0BMXcpUJ2AAtSIk8FYwUw++TKA+IawwdSTxXQRQ1RvWgjMoIX2WBZQb1CdGupgZAhAvUAtDFnvtBh4Ir2MIoeAyahZ9a2q6jKcJObthPCVv/fFoaq5wGJpTtFTq27xOzqllp0CCK2gidLYAwDt4H/OozLTWtDUsuPKzHbCung8T1U1H77c+2IRoK0ARMPlucu0NcBK99i2wwXyg8g0Sgc2h/aE5WHQO2HtjNrXmK6qqrZTSoQNADNGiqJ48wgtuQEzBeq7WAQAToJ1pma2VRjBuTqVuz0LZXvKCWigVGY24z8nW3W8jLU2zeysxSaAcRTTmYUN+vHVuxSwEPRtPGcn8FxQB2Y2aa2ZnercmllD+SUCgxUYya4QSokzIiekyw4sC2uwZg4nbLAmGZ5vyM26M0DoBS3VdU0G8EHjeaLREnsWzmHtBSpuMtn8cVPZTyk1fTL2gPk5fQIo36+IIydgUzILQACDscSto5jbC1B8y5r5ewCwD+MwxD2XCG0/1Bj+qEs8QzV2ZFJV1XNqUL6mY1sQdbbFe+6+R0TaJ+vqZaQ/VTPfu9AOV+eFtvUpunJRdPejMHqsxWXhQePuAgQTR+5OFuCHJqv65LhqjWEl1hx3geFg/wB9L/yiHjvDQwAAAABJRU5ErkJggg=="></button>
+                            <section>content panel 2
+                                <br>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores quod dolores
+                                laboriosam.
+                            </section>
+                            <button slot="title"><img
+                                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABHNCSVQICAgIfAhkiAAAAb1JREFUOE+FVNF1E0EQkyoAKsCpAKeCWNdAnApwKsBUQAmECgINgNPATlJBjgqSVIBTwfB0bzecydneH/vd3Wg0kmaJAycilgC+AJgD2AD4LOlxqoT7cCrIr8x8IrnJzBXJPwBOJW3/rzsE5OI5ybkLGzAASbo9ChQRbwF8BbAC8CjpxEURsfAPgAtJHnPn7DCKCGtxbU0y8zfJD1UbM1hlpkF/kjytzF5GfAGqTO4z8x3JhaQ+Iq4AfHLrzHwmaZZm7Ga9JAMOZwzUinY0qA1mBm5FEbGu49tF1/0DKqWYZt91nbU4ekoptyTfNw0HRseEnEKNCI/pER2HfjyadXll64Gc7bg4ZvSxCrmR9ONI4s3mHICT/03SmqMEPwPYeu72cs9IgylOvBuTfONssZRiN/ygJdhhO5c0mfqISAA3kpZ2NDN7kmlGfjHQq8I3awcRx6xqYO/r8g62t6wZyAzO6lKa7rUT3HWdg/fqOCYkHwBcAphV5+4MNMvMIROjKmfqcmqnrGlmfq/aOPG+HRbNNXe3ne6wzcyr+qFHM6hj4T30N2bi5/4/vPPtsE9QA3tJlyTPRrtmwPXU5fYX2Bj6Qir7ai4AAAAASUVORK5CYII="></button>
+                            <section>content panel 3
+                                <br>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores quod dolores
+                                laboriosam.
+                            </section>
+                        </t-stepper>
+                    </div> -->
+                    <br>
+                </div>
+            </t-pagelayout-1>
+
+
+            <!-- pagelayout2 -->
+            <!-- <t-pagelayout-2 slot="layout">
+                <div slot="slot1">
+                    Content
+                </div>
+                <div slot="slot2">
+                    Content
+                </div>
+            </t-pagelayout-2> -->
+
+            <!-- pagelayout3 -->
+            <!-- <t-pagelayout-3 slot="layout">
+                <div slot="slot1">
+                    Content
+                </div>
+                <div slot="slot2">
+                    Content
+                </div>
+            </t-pagelayout-3> -->
+
+            <!-- pagelayout4 -->
+            <!--  <t-pagelayout-4 slot="layout">
+                <div slot="slot1">
+                    Content
+                </div>
+                <div slot="slot2">
+                    Content
+                </div>
+                <div slot="slot3">
+                    Content
+                </div>
+            </t-pagelayout-4> -->
+
+            <!-- pagelayout5 -->
+            <!-- <t-pagelayout-5 slot="layout">
+                <div slot="slot1">
+                    slot1
+                </div>
+                <div slot="slot2">
+                    slot2
+                </div>
+                <div slot="slot3">
+                    slot3
+                </div>
+                <div slot="slot4">
+                    slot4
+                </div>
+            </t-pagelayout-5> -->
+
+            <!-- pagelayout6 -->
+            <!-- <t-pagelayout-6 slot="layout">
+                <div slot="slot1-1">
+                    slot 1-1
+                </div>
+                <div slot="slot1-2">
+                    slot 1-2
+                </div>
+
+                <div slot="slot2-1">
+                    slot 2-1
+                </div>
+
+                <div slot="slot2-2">
+                    slot 2-2
+                </div>
+
+                <div slot="slot2-3">
+                    slot 2-3
+                </div>
+
+                <div slot="slot3-1">
+                    slot 3-1
+                </div>
+
+                <div slot="slot3-2">
+                    slot 3-2
+                </div>
+
+                <div slot="slot3-3">
+                    slot 3-3
+                </div>
+
+                <div slot="slot4">
+                    slot 4
+                </div>
+
+            </t-pagelayout-6> -->
+
+            <!-- pagelayout7 -->
+            <!-- <t-pagelayout-7 slot="layout">
+                <div slot="slot1-1">
+                    slot1-1
+                </div>
+                <div slot="slot1-2">
+                    slot1-2
+                </div>
+                <div slot="slot1-3">
+                    slot1-3
+                </div>
+                <div slot="slot1-4-1">
+                    slot1-4-1
+                </div>
+                <div slot="slot1-4-2">
+                    slot1-4-2
+                </div>
+                <div slot="slot2-1">
+                    slot2-1
+                </div>
+                <div slot="slot2-2">
+                    slot2-2
+                </div>
+            </t-pagelayout-7> -->
+
+            <!-- pagelayout8 -->
+            <!-- <t-pagelayout-8 slot="layout">
+                <div slot="slot1">
+                    slot1
+                </div>
+
+                <div slot="slot2">
+                    slot2
+                </div>
+
+                <div slot="slot3-1">
+                    slot3-1
+                </div>
+
+                <div slot="slot3-2">
+                    slot 3-2
+                </div>
+
+                <div slot="slot3-3">
+                    slot3-3
+                </div>
+            </t-pagelayout-8> -->
+
+            <!-- pagelayout9 -->
+            <!-- <t-pagelayout-9 slot="layout">
+                <div slot="slot1-1">
+                    slot 1-1
+                </div>
+ 
+                <div slot="slot1-2">
+                    slot 1-2
+                </div>
+
+                <div slot="slot1-3">
+                    slot 1-3
+                </div>
+
+                <div slot="slot2">
+                    slot2
+                </div>
+
+            </t-pagelayout-9> -->
+
+            <!-- pagelayout10 -->
+            <!-- <t-pagelayout-10 slot="layout">
+                <div slot="slot1-1">
+                    slot 1-1
+                </div>
+
+                <div slot="slot1-2">
+                    slot 1-2
+                </div>
+
+                <div slot="slot2">
+                    slot 2
+                </div>
+
+                <div slot="slot3-1">
+                    slot 3-1
+                </div>
+
+                <div slot="slot3-2">
+                    slot 3-2
+                </div>
+            </t-pagelayout-10> -->
+
+            <!-- webportal 1 -->
+            <!-- <t-webportal-1 slot="layout">
+                <div slot="slot1">
+                    slot 1
+                </div>
+
+                <div slot="slot2-1">
+                    slot 2-1
+                </div>
+
+                <div slot="slot2-2">
+                  slot 2
+                </div>
+
+                <div slot="slot3">
+                  slot 3
+                </div>
+                <div slot="slot4">
+                    slot 4
+                </div>
+             </t-webportal-1> -->
+
+            <!-- webportal 2 -->
+            <!-- <t-webportal-2 slot="layout">
+                <div slot="slot1">
+                    slot 1
+                </div>
+
+                <div slot="slot2">
+                    slot 2
+                </div>
+
+                <div slot="slot3">
+                    slot 3
+                </div>
+
+                <div slot="slot4">
+                    slot 4
+                </div>
+            </t-webportal-2> -->
+
+            <!-- webportal 3 -->
+            <!-- <t-webportal-3 slot="layout">
+                <div slot="slot1">
+                    slot 1
+                </div>
+
+                <div slot="slot2">
+                    slot 2
+                </div>
+
+                <div slot="slot3-1">
+                    slot 3-1
+                </div>
+
+                <div slot="slot3-2">
+                    slot 3-2
+                </div>
+
+                <div slot="slot4">
+                    slot 4
+                </div>
+
+            </t-webportal-3> -->
+
+            <!-- webportal 4 -->
+            <!-- <t-webportal-4 slot="layout">
+                <div slot="slot1">
+                    slot 1
+                </div>
+
+                <div slot="slot2">
+                    slot 2
+                </div>
+
+                <div slot="slot3-1">
+                    slot 3-1
+                </div>
+
+                <div slot="slot3-2">
+                    slot 3-2
+                </div>
+
+                <div slot="slot3-3">
+                    slot 3-3
+                </div>
+
+                <div slot="slot4">
+                    slot 4
+                </div>
+            </t-webportal-4> -->
+
+            <!-- mobilelayou 1 -->
+            <!-- <t-mobilelayout-1 slot="layout">
+                <div slot="slot1">
+                    slot 1
+                </div>
+            </t-mobilelayout-1> -->
+
+            <!-- mobilelayou 2 -->
+            <!-- <t-mobilelayout-2 slot="layout">
+                <div slot="slot1">
+                    slot 1
+                </div>
+                <div slot="slot2">
+                    slot 2
+                </div>
+            </t-mobilelayout-2> -->
+
+            <!-- mobilelayout 3 -->
+            <!-- <t-mobilelayout-3 slot="layout">
+                <div slot="slot1">
+                    slot 1
+                </div>
+                <div slot="slot2">
+                    slot 2
+                </div>
+            </t-mobilelayout-3> -->
+
+            <!-- mobilelayout 4 -->
+            <!-- <t-mobilelayout-4 slot="layout">
+                <div slot="slot1">
+                    slot 1
+                </div>
+
+                <div slot="slot2">
+                    slot 2
+                </div>
+
+                <div slot="slot3">
+                    slot 3
+                </div>
+            </t-mobilelayout-4> -->
+
+            <!-- mobilelayout 5 -->
+            <!-- <t-mobilelayout-5 slot="layout">
+                <div slot="slot1">
+                    slot 1
+                </div>
+
+                <div slot="slot2">
+                    slot 2
+                </div>
+
+                <div slot="slot3">
+                    slot 3
+                </div>
+
+                <div slot="slot4">
+                    slot 4
+                </div>
+
+                <div slot="slot5">
+                    slot 5
+                </div>
+
+                <div slot="slot6">
+                    slot 6
+                </div>
+            </t-mobilelayout-5> -->
+
+            <!-- mobilelayout 6 -->
+            <!-- <t-mobilelayout-6 slot="layout">
+                <div slot="slot1">
+                    slot -1
+                </div>
+                <div slot="slot2">
+                    slot -2
+                </div>
+            </t-mobilelayout-6> -->
+
+            <!-- mobilelayout 7 -->
+            <!-- <t-mobilelayout-7 slot="layout">
+                <div slot="slot1">
+                    slot 1
+                </div>
+                <div slot="slot2">
+                    slot 2
+                </div>
+            </t-mobilelayout-7> -->
+
+            <!-- mobilelayout 8 -->
+            <!-- <t-mobilelayout-8 slot="layout">
+                <div slot="slot1">
+                    slot 1
+                </div>
+
+                <div slot="slot2-1">
+                    slot 2-1
+                </div>
+
+                <div slot="slot2-2">
+                    slot 2-2
+                </div>
+
+                <div slot="slot2-3">
+                    slot 2-3
+                </div>
+
+            </t-mobilelayout-8> -->
+
+            <!-- mobilelayout 9 -->
+            <!-- <t-mobilelayout-9 slot="layout">
+                <div slot="slot1">
+                    slot 1
+                </div>
+
+                <div slot="slot2">
+                    slot 2
+                </div>
+
+                <div slot="slot3">
+                    slot 3
+                </div>
+
+                <div slot="slot4">
+                    slot 4
+                </div>
+
+                <div slot="slot5">
+                    slot 5
+                </div>
+            </t-mobilelayout-9> -->
+
+            <!-- mobilelayout 10 -->
+            <!-- <t-mobilelayout-10 slot="layout">
+                <div slot="slot1">
+                    slot 1
+                </div>
+
+                <div slot="slot2-1">
+                    slot 2-1
+                </div>
+
+                <div slot="slot2-2">
+                    slot 2-2
+                </div>
+
+                <div slot="slot2-3">
+                   slot 2-3
+                </div>
+            </t-mobilelayout-10> -->
+
+            <!-- mobilelayout 11 -->
+            <!-- <t-mobilelayout-11 slot="layout">
+                <div slot="slot1">
+                    slot 1
+                </div>
+
+                <div slot="slot2">
+                    slot 2
+                </div>
+
+                <div slot="slot3">
+                    slot 3
+                </div>
+            </t-mobilelayout-11> -->
+
+            <!-- mobilelayout 12 -->
+            <!-- <t-mobilelayout-12 slot="layout">
+                <div slot="slot1-1">
+                    slot 1-1
+                </div>
+                <div slot="slot1-2">
+                    slot 1-2
+                </div>
+
+                <div slot="slot2-1">
+                    slot 2-1
+                </div>
+
+                <div slot="slot2-2">
+                    slot 2-2
+                </div>
+
+                <div slot="slot3-1">
+                    slot 3-1
+                </div>
+
+                <div slot="slot3-2">
+                    slot 3-2
+                </div>
+            </t-mobilelayout-12> -->
+
+        </t-container>
+
+        <!-- <t-footer theme="light" lang="" callback="getfootercallback" version="V1.0"
+            copyRight="Trinity Mobility Pvt. Ltd" slot="footer">
+        </t-footer> -->
+
+        t-footer            
+<t-footer theme="dark" lang="" callback="getfootercallback"  behaviour="scroll"  direction="left" font-size="10px" font-color="white" marquee-speed="100" color ="red" font-weight="700"  marquee-content="Trinity Interface Design Ethics Trinity Interface Design Ethics Trinity Interface Design Ethics  Trinity Interface Design Ethics  Trinity Interface Design Ethics  Trinity Interface Design Ethics  Trinity Interface Design Ethics  Trinity Interface Design Ethics   Trinity Interface Design Ethics   Trinity Interface Design Ethics" version="V1.0"
+            slot="footer"  logo="">
+            </t-footer>  
+
+    </t-applayout>
+</body>
+<script>
+    function tabsClick(event) {
+        console.log("evnet for tab has been triggerd",event.detail.data)
+        alert(1);
+    }
+
+    const tabsElement = document.querySelector('t-tabs'); // Replace with your actual element selector
+
+tabsElement.addEventListener('ttabs', (event) => {
+    const panelAttribute = event.detail.data;
+    console.log('Selected t-tab-panel attribute:', panelAttribute);
+});
+
+    function onThemeChange(e) {
+        console.log("onThemeChange -> ", e);
+        var themeStyle = '';
+        if (e.target.checked) {
+            themeStyle = 'dark';
+        } else {
+            themeStyle = 'light';
+        }
+        document.body.className = themeStyle;
+
+        var componentsList = ['t-widget-map', 't-widget-camera', 't-widget-communication', 't-widget-tabular-list', 't-header', 't-footer', 't-select', 't-multiselect', 't-multidropdown', 't-searchdropdown', 't-container', 't-dropdown', 't-dropdownnew', 't-navbar', 't-sidebar', 't-sidebarmenu', 't-table', 't-spinbtn', 't-dialog', 't-disclosure', 't-link', 't-listbox', 't-alert', 't-toggleswitch', 't-stepper', 't-datetimepicker', 't-ratingcontrol', 't-treegrid', 't-treeroot', 't-slider', 't-accordion', 't-checkbox', 't-radiogroup', 't-notification', 't-pagination', 't-button', 't-dialog-custom', 't-date-picker', 't-timepicker', 't-date-time-picker', 't-date-range-picker', 't-image-upload', 't-image-viewer'];
+        componentsList.forEach(component => {
+            document.querySelectorAll(component).forEach(element => {
+                element.setAttribute('theme', themeStyle);
+            });
+        });
+    }
+
+    function onLanguageChange(e) {
+        var applang = 'en';
+        if (e.target.checked) {
+            applang = 'ar';
+        }
+
+        if (applang == 'ar') {
+            document.querySelector('body').setAttribute('lang', applang);
+            document.querySelector('body').setAttribute('dir', 'rtl');
+        } else {
+            document.querySelector('body').setAttribute('lang', applang);
+            document.querySelector('body').setAttribute('dir', 'ltr');
+        }
+
+        var componentsList = ['t-footer', 't-container', 't-sidebar', 't-navbar', 't-alert', 't-treeroot', 't-pagination', 't-dropdown', 't-multidropdown', 't-date-picker', 't-timepicker', 't-date-time-picker', 't-image-upload'];
+        componentsList.forEach(component => {
+            document.querySelectorAll(component).forEach(element => {
+                element.setAttribute('lang', applang);
+            });
+        });
+    }
+
+    function isDisabled(e) {
+        var isDisabled = "true";
+        if (e.target.checked) {
+            isDisabled = "false";
+        }
+        document.querySelector('body').setAttribute('disabled', isDisabled);
+        var componentsList = ['t-textarea', 't-input', 't-toggleswitch', 't-treeroot', 't-slider', 't-checkbox', 't-radiogroup', 't-notification', 't-pagination', 't-image-upload'];
+        componentsList.forEach(component => {
+            document.querySelectorAll(component).forEach(element => {
+                element.setAttribute('disabled', isDisabled);
+            });
+        });
+    }
+
+    const datePicker = document.getElementById('my-date-picker');
+    datePicker.addEventListener('dateSelected', (event) => {
+        console.log('Date picker details event ->', event);
+        console.log('Selected Date:', event.detail.date);
+    });
+
+    // const datePicker1 = document.getElementById('my-date-picker1');
+    // datePicker1.addEventListener('dateSelected', (event) => {
+    //     console.log('Date picker details event 1 ->',event);
+    //     console.log('Selected Date 1:', event.detail.date);
+    // });
+
+    const timePicker = document.getElementById('custom-time-picker');
+    timePicker.addEventListener('selectedTime', (event) => {
+        console.log('Selected Time, hour, min, sec:', event.detail.time, event.detail.hour, event.detail.minute, event.detail.second);
+    });
+
+    // const dateTimePicker = document.getElementById('custom-date-time-picker');
+    // dateTimePicker.addEventListener('selectedDateTime', (event) => {
+    //     console.log('Custom DateTimePicker Selected Date Time', event.detail.datetime);
+    // });
+
+    const dateRangePicker = document.getElementById('custom-date-range-picker');
+    dateRangePicker.addEventListener('dateRangeSelected', (event) => {
+        console.log('Custom DateRangePicker Selected Date range', event.detail.date);
+    });
+
+    // You can add your images dynamically or hardcode them in the JavaScript file.
+    // const images = [
+    //     'assets/icons/Tenant_Details.svg',
+    //     'assets/icons/Alert_Management.svg',
+    //     'assets/icons/Designation.svg',
+    //     'assets/icons/User_detail.svg'
+    // ];
+    // const imageViewer = document.querySelector('t-image-viewer');
+    // imageViewer.images = images;
+
+</script>
+
+
+<script>
+
+     function handleNavbarEvent(event) {
+        console.log("Received Navbar Event:", event.detail.data);
+ }
+
+
+     document.addEventListener('DOMContentLoaded', () => {
+     const navbar = document.querySelector('navki');
+
+    // // Add the callback function to handle events
+    document.addEventListener('tnavbar', handleNavbarEvent);
+
+    // // You can also remove the event listener when it's no longer needed
+     document.removeEventListener('tnavbar', handleNavbarEvent);
+    });
+
+
+    document.addEventListener('tnavbar', getnavbarcallback1);
+
+
+    function getnavbarcallback1(event) {
+        console.log("Received new Event:", event.detail.data);
+        // Add your logic to handle the event data here
+    }
+
+    // function getnavbarcallback1(event) {
+    //     console.log("Received new Event:", event.detail.data);
+    //     // Add your logic to handle the event data here
+    // }
+
+
+
+
+    function openAlert() {
+        document.querySelector('#alert').show('Trinity Mobility Pvt Ltd.', 'TIDE', 0, 'success');
+    }
+
+    // window.addEventListener("mapWidget", console.log("::::::::::", this));
+
+    /* document.addEventListener('mapwidget', function (e) {
+        // console.log("mapwidget -> ", e.detail);
+        window[e.detail.method](e.detail.data);
+    }); */
+
+    function mapwidgetcallback(data) {
+        console.log("mapwidgetcallback -> ", data);
+        if (data.type == 'mapCreate') {
+            /* var element = document.querySelector('#mapWidgetId');
+            element.setAttribute('data', '{ "type": "categoryList", "data": [{ "id": 1, "layerName":"layer1", "imageUrl": "https://trinityiotandaiplatformd.blob.core.windows.net/trinityiccc/16/deviceType/Camera_workingIcon.png", "name": "Camera" }, { "id": 2, "layerName":"layer2", "imageUrl": "https://trinityiotandaiplatformd.blob.core.windows.net/trinityiccc/49658/category/Environment.png", "name": "Environment" } ] }');
+
+            setTimeout(() => {
+                var element = document.querySelector('#mapWidgetId');
+                element.setAttribute('data', '{ "type": "assetData", "data": { "layer1": { "features": [{ "deviceId": 45, "cameraId": 1, "deviceUrl": "http://10.9.76.169:8084/TrinityLiveStream/plexonics/?CameraId=19", "latitude": 12.982734, "longitude": 77.591348, "deviceLocation": "53/23, Fakir Sahib St, Subba Road Avenue, Kalmandapam, Royapuram, Chennai", "deviceName": "SWM Box2 Sheik maistry", "macId": "1", "deviceType": 1, "categoryId": 1, "jurisdictionId": 5, "deviceStatus": 1, "deviceUpdatedDate": "14-12-2020 17:46:22", "cameraType": 1, "locationType": 1, "layoutType": null, "layoutSubId": null, "layoutId": null, "layoutLatitude": null, "layoutLongitude": null, "layoutImageUrl": null, "workingIcon": "https://trinityiotandaiplatformd.blob.core.windows.net/trinityiccc/16/deviceType/Camera_workingIcon.png", "notWorkingIcon": "https://trinityiotandaiplatformd.blob.core.windows.net/trinityiccc/16/deviceType/Camera_notWorkingIcon.png", "isLiveStreamRequired": true, "isTrackRequired": false, "isTripRequired": false, "isDetailsRequired": false, "isLayoutRequired": false, "vendorCode": "PLE", "vendorId": 1052, "apiDetails": null, "speed": null, "dataToFill": null, "profileDetails": null, "vmsProfileId": 2, "companyCode": "csc", "companyId": 16, "siteId": 37, "id": "1", "siteName": "ROYAPURAM", "jurisdictionName": "50", "img_url": "https://trinityiotandaiplatformd.blob.core.windows.net/trinityiccc/16/deviceType/Camera_workingIcon.png", "label": "SWM Box2 Sheik maistry", "lat": 12.982734, "lon": 77.591348 } ] }, "layer2": { "features": [{ "deviceId": 45, "cameraId": 1, "deviceUrl": "http://10.9.76.169:8084/TrinityLiveStream/plexonics/?CameraId=19", "latitude": 12.969850, "longitude": 77.627232, "deviceLocation": "53/23, Fakir Sahib St, Subba Road Avenue, Kalmandapam, Royapuram, Chennai", "deviceName": "SWM Box2 Sheik maistry", "macId": "2", "deviceType": 1, "categoryId": 2, "jurisdictionId": 5, "deviceStatus": 1, "deviceUpdatedDate": "14-12-2020 17:46:22", "cameraType": 1, "locationType": 1, "layoutType": null, "layoutSubId": null, "layoutId": null, "layoutLatitude": null, "layoutLongitude": null, "layoutImageUrl": null, "workingIcon": "https://trinityiotandaiplatformd.blob.core.windows.net/trinityiccc/49658/category/Environment.png", "notWorkingIcon": "https://trinityiotandaiplatformd.blob.core.windows.net/trinityiccc/49658/category/Environment.png", "isLiveStreamRequired": true, "isTrackRequired": false, "isTripRequired": false, "isDetailsRequired": false, "isLayoutRequired": false, "vendorCode": "PLE", "vendorId": 1052, "apiDetails": null, "speed": null, "dataToFill": null, "profileDetails": null, "vmsProfileId": 2, "companyCode": "csc", "companyId": 16, "siteId": 37, "id": "2", "siteName": "ROYAPURAM", "jurisdictionName": "50", "img_url": "https://trinityiotandaiplatformd.blob.core.windows.net/trinityiccc/49658/category/Environment.png", "label": "SWM Box2 Sheik maistry", "lat": 12.969850, "lon": 77.627232 } ] } } }');
+            }, 100); */
+
+            setTimeout(() => {
+                var element = document.querySelector('#mapWidgetId');
+                var JSONData = { "type": "layer", "layerName": "Non Cluster Layer", "dataKeys": { "id": "macId", "label": "deviceName", "lat": "latitude", "lon": "longitude", "img_url": "icon", }, "data": [{ "macId": 1, "icon": "", "cameraId": 1, "deviceUrl": "http://10.9.76.169:8084/TrinityLiveStream/plexonics/?CameraId=19", "latitude": 12.782734, "longitude": 77.491348, "deviceLocation": "53/23, Fakir Sahib St, Subba Road Avenue, Kalmandapam, Royapuram, Chennai", "deviceName": "label 2" }, { "macId": 2, "icon": "https://trinityiotandaiplatformd.blob.core.windows.net/trinityiccc/CrimeAnalytics/murder1621586398288.png", "cameraId": 1, "deviceUrl": "http://10.9.76.169:8084/TrinityLiveStream/plexonics/?CameraId=19", "latitude": 12.683734, "longitude": 77.592348, "deviceLocation": "53/23, Fakir Sahib St, Subba Road Avenue, Kalmandapam, Royapuram, Chennai", "deviceName": "label 2" }] };
+                element.setAttribute('data', JSON.stringify(JSONData));
+            }, 200);
+
+            setTimeout(() => {
+                var element = document.querySelector('#mapWidgetId');
+                var JSONData = { "type": "clusterLayer", "layerName": "Cluster Layer", "dataKeys": { "id": "macId", "label": "deviceName", "lat": "latitude", "lon": "longitude", "img_url": "icon", }, "data": [{ "macId": 1, "icon": "https://trinityiotandaiplatformd.blob.core.windows.net/trinityiccc/16/deviceType/Camera_workingIcon.png", "cameraId": 1, "deviceUrl": "http://10.9.76.169:8084/TrinityLiveStream/plexonics/?CameraId=19", "latitude": 12.982734, "longitude": 77.591348, "deviceLocation": "53/23, Fakir Sahib St, Subba Road Avenue, Kalmandapam, Royapuram, Chennai", "deviceName": "label 2" }, { "macId": 2, "icon": "https://trinityiotandaiplatformd.blob.core.windows.net/trinityiccc/16/deviceType/Camera_workingIcon.png", "cameraId": 1, "deviceUrl": "http://10.9.76.169:8084/TrinityLiveStream/plexonics/?CameraId=19", "latitude": 12.983734, "longitude": 77.592348, "deviceLocation": "53/23, Fakir Sahib St, Subba Road Avenue, Kalmandapam, Royapuram, Chennai", "deviceName": "label 2" }] };
+                // var JSONData = { "type": "clusterLayer", "layerName": "Dummy Layer", "data": [{ "id": 1, "lat": 12.982734, "lon": 77.591348, "label": "label 1", "img_url": "https://trinityiotandaiplatformd.blob.core.windows.net/trinityiccc/16/deviceType/Camera_workingIcon.png", "cameraId": 1, "deviceUrl": "http://10.9.76.169:8084/TrinityLiveStream/plexonics/?CameraId=19", "latitude": 12.982734, "longitude": 77.591348, "deviceLocation": "53/23, Fakir Sahib St, Subba Road Avenue, Kalmandapam, Royapuram, Chennai", "deviceName": "label 2" }, { "id": 2, "lat": 12.983734, "lon": 77.592348, "label": "label 2", "img_url": "https://trinityiotandaiplatformd.blob.core.windows.net/trinityiccc/16/deviceType/Camera_workingIcon.png", "cameraId": 1, "deviceUrl": "http://10.9.76.169:8084/TrinityLiveStream/plexonics/?CameraId=19", "latitude": 12.983734, "longitude": 77.592348, "deviceLocation": "53/23, Fakir Sahib St, Subba Road Avenue, Kalmandapam, Royapuram, Chennai", "deviceName": "label 2" }] };
+                element.setAttribute('data', JSON.stringify(JSONData));
+            }, 200);
+        } else if (data.type == 'getOverlayFeature') {
+            console.log("data -> ", data.data);
+            /* let ids = data.data.ids;
+            let coords = data.data.coords;
+            let layerName = data.data.layerName;
+            let properties = data.data.properties;
+            let mapObject = data.data.mapObject;
+            var popuphtml = "<div class='trinityTooltip'>" +
+                "<div class='toolTitle'>" +
+                "<label>Details</label>" +
+                // "<div class='tooltipClose'><i class='far fa-window-close'></i></div>" +
+                "<button>X</button>" +
+                "</div>" +
+                "<div class='toolContent'><div class='toolSplit'>" +
+                "<table><colgroup><col style='width:30%'><col style='width:3%'><col style='width:67%'></colgroup>" +
+                "<tr class='border_bottom'><td><label>Name</label></td><td><label>:</label></td><td><label>" + properties[0].label + "</label></td></tr>" +
+                "<tr class='border_bottom'><td><label>Id</label></td><td><label>:</label></td><td><label>" + properties[0].id + "</label></td></tr>" +
+                "<tr class='border_bottom'><td><label>Latitide</label></td><td><label>:</label></td><td><label>" + properties[0].lat + "</label></td></tr>" +
+                "<tr class='border_bottom'><td><label>Longitude</label></td><td><label>:</label></td><td><label>" + properties[0].lon + "</label></td></tr>" +
+                // "<tr class='border_no_bottom'><td><label>" + this._translate.instant('Location') + "</label></td><td><label>:</label></td><td><label>" + this.showLocation(property.location) + "</label></td></tr>" +
+                "</table>" +
+                "</div></div></div>";
+            tmpl.Tooltip.add({
+                map: mapObject,
+                html: popuphtml,
+                coordinate: [parseFloat(properties[0].lon), parseFloat(properties[0].lat)],
+                offset: [0, -15]
+            });
+
+            console.log(document.querySelectorAll('toolTitle button'));
+            $('.toolTitle').on('click', 'button', (event) => {
+                alert();
+            });
+            // console.log(document.querySelectorAll('toolTitle button'));
+            $('.toolTitle').on('click', 'button', (event) => {
+                alert();
+            }); */
+        }
+    }
+    // communication widget...
+
+    // let commEle = document.getElementById("widgetComm");
+    // console.log(commEle);
+    // setTimeout(function () {
+
+    //     // commEle.setAttribute('data',
+    //     //     '{"type": "Sender", "data": [{"id": 1, "commDataMsg" :"", "commDataTime": ""}]}'
+    //     // );
+
+    //     setTimeout(function () {
+    //         commEle.setAttribute('data',
+    //             '{"type": "receiver", "data": [{"id": 2, "commDataMsg" :"ashwani", "commDataTime": "31-12-2020 :00:00"}]}'
+    //         )
+    //     }, 1000)
+    // }, 1000)
+
+    // Have to uncomment while commiting the code.
+
+
+    /* var searchdropdown = document.querySelector('#t-searchdropdown');
+    setTimeout(function () {
+        searchdropdown.setAttribute('option-data', '[ {"id":"1",  "value":"1", "name":" Automobiles"}, {"id":"2",  "value":"2", "name":"Film & Animation"}, {"id":"3",  "value":"3", "name":"Science & Technology"}, {"id":"4",  "value":"4", "name":"Art"}, {"id":"5",  "value":"5", "name":"Music"}, {"id":"6",  "value":"6", "name":"Travel & Events"}, {"id":"7",  "value":"7", "name":"Sports"}, {"id":"8",  "value":"8", "name":"Sports"}, {"id":"9",  "value":"9", "name":"News & Politics"}, {"id":"10", "vlaue":"10", "name":"Tutorials"} ]');
+    }, 2000); */
+
+    /* var dropdown = document.querySelector('#dropdownId');
+    setTimeout(function () {
+        dropdown.setAttribute('option-data', '[ {"id":"1",  "value":"1", "name":" Automobiles"}, {"id":"2",  "value":"2", "name":"Film & Animation"}, {"id":"3",  "value":"3", "name":"Science & Technology"}, {"id":"4",  "value":"4", "name":"Art"}, {"id":"5",  "value":"5", "name":"Music"}, {"id":"6",  "value":"6", "name":"Travel & Events"}, {"id":"7",  "value":"7", "name":"Sports"}, {"id":"8",  "value":"8", "name":"Sports"}, {"id":"9",  "value":"9", "name":"News & Politics"}, {"id":"10", "vlaue":"10", "name":"Tutorials"} ]');
+    }, 2000); */
+
+
+    // var checkboxId = document.querySelector('#checkboxId');
+    // setTimeout(function () {
+    //     checkboxId.setAttribute('data', '[{"id":"1","name":"Checkbox 1","value":"Checbox1"},{"id":"2","name":"Checkbox 2","value":"Checbox2"}, {"id":"3","name":"Checkbox 3","value":"Checbox3","disabled":"true"}]');
+    // }, 2000);
+
+
+    // var element = document.querySelector('#mapWidgetId');
+    // setTimeout(function () {
+    //     element.setAttribute('data', '{ "type": "categoryList", "data": [{ "id": 1, "layerName":"layer1", "imageUrl": "https://trinityiotandaiplatformd.blob.core.windows.net/trinityiccc/16/deviceType/Camera_workingIcon.png", "name": "Camera" }, { "id": 2, "layerName":"layer2", "imageUrl": "https://trinityiotandaiplatformd.blob.core.windows.net/trinityiccc/49658/category/Environment.png", "name": "Environment" } ] }');
+    //     setTimeout(function () {
+    //         element.setAttribute('data', '{ "type": "assetData", "data": { "layer1": { "features": [{ "deviceId": 45, "cameraId": 1, "deviceUrl": "http://10.9.76.169:8084/TrinityLiveStream/plexonics/?CameraId=19", "latitude": 12.982734, "longitude": 77.591348, "deviceLocation": "53/23, Fakir Sahib St, Subba Road Avenue, Kalmandapam, Royapuram, Chennai", "deviceName": "SWM Box2 Sheik maistry", "macId": "1", "deviceType": 1, "categoryId": 1, "jurisdictionId": 5, "deviceStatus": 1, "deviceUpdatedDate": "14-12-2020 17:46:22", "cameraType": 1, "locationType": 1, "layoutType": null, "layoutSubId": null, "layoutId": null, "layoutLatitude": null, "layoutLongitude": null, "layoutImageUrl": null, "workingIcon": "https://trinityiotandaiplatformd.blob.core.windows.net/trinityiccc/16/deviceType/Camera_workingIcon.png", "notWorkingIcon": "https://trinityiotandaiplatformd.blob.core.windows.net/trinityiccc/16/deviceType/Camera_notWorkingIcon.png", "isLiveStreamRequired": true, "isTrackRequired": false, "isTripRequired": false, "isDetailsRequired": false, "isLayoutRequired": false, "vendorCode": "PLE", "vendorId": 1052, "apiDetails": null, "speed": null, "dataToFill": null, "profileDetails": null, "vmsProfileId": 2, "companyCode": "csc", "companyId": 16, "siteId": 37, "id": "1", "siteName": "ROYAPURAM", "jurisdictionName": "50", "img_url": "https://trinityiotandaiplatformd.blob.core.windows.net/trinityiccc/16/deviceType/Camera_workingIcon.png", "label": "SWM Box2 Sheik maistry", "lat": 12.982734, "lon": 77.591348 } ] }, "layer2": { "features": [{ "deviceId": 45, "cameraId": 1, "deviceUrl": "http://10.9.76.169:8084/TrinityLiveStream/plexonics/?CameraId=19", "latitude": 12.969850, "longitude": 77.627232, "deviceLocation": "53/23, Fakir Sahib St, Subba Road Avenue, Kalmandapam, Royapuram, Chennai", "deviceName": "SWM Box2 Sheik maistry", "macId": "2", "deviceType": 1, "categoryId": 2, "jurisdictionId": 5, "deviceStatus": 1, "deviceUpdatedDate": "14-12-2020 17:46:22", "cameraType": 1, "locationType": 1, "layoutType": null, "layoutSubId": null, "layoutId": null, "layoutLatitude": null, "layoutLongitude": null, "layoutImageUrl": null, "workingIcon": "https://trinityiotandaiplatformd.blob.core.windows.net/trinityiccc/49658/category/Environment.png", "notWorkingIcon": "https://trinityiotandaiplatformd.blob.core.windows.net/trinityiccc/49658/category/Environment.png", "isLiveStreamRequired": true, "isTrackRequired": false, "isTripRequired": false, "isDetailsRequired": false, "isLayoutRequired": false, "vendorCode": "PLE", "vendorId": 1052, "apiDetails": null, "speed": null, "dataToFill": null, "profileDetails": null, "vmsProfileId": 2, "companyCode": "csc", "companyId": 16, "siteId": 37, "id": "2", "siteName": "ROYAPURAM", "jurisdictionName": "50", "img_url": "https://trinityiotandaiplatformd.blob.core.windows.net/trinityiccc/49658/category/Environment.png", "label": "SWM Box2 Sheik maistry", "lat": 12.969850, "lon": 77.627232 } ] } } }');
+    //     }, 1000);
+    // }, 1000);
+
+    // setTimeout(function () {
+    //     element.setAttribute('data', '{ "type": "departmentList", "data": [{ "id": 3, "layerName":"layerDepartment3", "imageUrl": "https://trinityiotandaiplatformd.blob.core.windows.net/trinityiccc/16/deviceType/Camera_workingIcon.png", "name": "Department 1" }, { "id": 4, "layerName":"layerDepartment4", "imageUrl": "https://trinityiotandaiplatformd.blob.core.windows.net/trinityiccc/49658/category/Environment.png", "name": "Department 2" } ] }');
+    //     setTimeout(function () {
+    //         element.setAttribute('data', '{ "type": "departmentData", "data": { "layerDepartment3": { "features": [{ "id": "3", "img_url": "https://trinityiotandaiplatformd.blob.core.windows.net/trinityiccc/49658/category/Flood.png", "label": "SWM Box2 Sheik maistry", "lat": 12.999469269081256, "lon": 77.64281417996007 } ] }, "layerDepartment4": { "features": [{ "id": "4", "img_url": "https://trinityiotandaiplatformd.blob.core.windows.net/trinityiccc/49658/category/Rain%20Gauge.png", "label": "SWM Box2 Sheik maistry", "lat": 13.000257155957069, "lon": 77.5956038845961 } ] } } }');
+    //     }, 1000);
+    // }, 2000);
+
+    getOverlayFeatureDetails = (ids, coords, layerName, properties, mapObject) => {
+        console.log(ids, coords, layerName, properties, mapObject);
+
+        var popuphtml = "<div class='trinityTooltip'>" +
+            "<div class='toolTitle'>" +
+            "<label>Details</label>" +
+            // "<div class='tooltipClose'><i class='far fa-window-close'></i></div>" +
+            "<button>X</button>" +
+            "</div>" +
+            "<div class='toolContent'><div class='toolSplit'>" +
+            "<table><colgroup><col style='width:30%'><col style='width:3%'><col style='width:67%'></colgroup>" +
+            "<tr class='border_bottom'><td><label>Name</label></td><td><label>:</label></td><td><label>" +
+            properties[0].label + "</label></td></tr>" +
+            "<tr class='border_bottom'><td><label>Name</label></td><td><label>:</label></td><td><label>" +
+            properties[0].label + "</label></td></tr>" +
+            "<tr class='border_bottom'><td><label>Name</label></td><td><label>:</label></td><td><label>" +
+            properties[0].label + "</label></td></tr>" +
+            "<tr class='border_bottom'><td><label>Name</label></td><td><label>:</label></td><td><label>" +
+            properties[0].label + "</label></td></tr>" +
+            "<tr class='border_bottom'><td><label>Name</label></td><td><label>:</label></td><td><label>" + properties[0].label + "</label></td></tr>" +
+            "<tr class='border_bottom'><td><label>Id</label></td><td><label>:</label></td><td><label>" + properties[0].id + "</label></td></tr>" +
+            "<tr class='border_bottom'><td><label>Latitide</label></td><td><label>:</label></td><td><label>" + properties[0].lat + "</label></td></tr>" +
+            "<tr class='border_bottom'><td><label>Longitude</label></td><td><label>:</label></td><td><label>" + properties[0].lon + "</label></td></tr>" +
+            // "<tr class='border_no_bottom'><td><label>" + this._translate.instant('Location') + "</label></td><td><label>:</label></td><td><label>" + this.showLocation(property.location) + "</label></td></tr>" +
+            "</table>" +
+            "</div></div></div>";
+        tmpl.Tooltip.add({
+            map: mapObject,
+            html: popuphtml,
+            coordinate: [parseFloat(properties[0].lon), parseFloat(properties[0].lat)],
+            offset: [0, -15]
+        });
+
+        console.log(document.querySelectorAll('toolTitle button'));
+        $('.toolTitle').on('click', 'button', (event) => {
+            /* $('.leaflet-popup-content-wrapper').fadeOut(300, function () {
+                          $(this).remove();
+                      }); */
+            alert();
+        });
+        // console.log(document.querySelectorAll('toolTitle button'));
+        $('.toolTitle').on('click', 'button', (event) => {
+            /* $('.leaflet-popup-content-wrapper').fadeOut(300, function () {
+                          $(this).remove();
+                      }); */
+            alert();
+        });
+
+
+    }
+
+    function notification() {
+        const notify = document.querySelector('.notify');
+        if (notify.getAttribute('view') == 'true') {
+            notify.setAttribute('view', "false");
+        } else {
+            notify.setAttribute('view', "true");
+        }
+    }
+
+    function getToggled() {
+        console.log("x");
+    }
+
+    function onCheckHandler(event) {
+        console.log("onCheckHandler -> ", event);
+    }
+
+    // inputtextarea callback    
+    document.addEventListener('tinputtextarea', function (e) {
+        console.log("tinputtextarea", e);
+    });
+
+    // header callback
+    // document.addEventListener('theader', function (e) {
+    //     // console.log("theader", e);
+    // });
+
+    buttonClick = () => {
+        alert("CLICKED");
+    };
+
+    // components callback
+
+    // pagination callback    
+    document.addEventListener('tpagination', function (e) {
+        console.log("tpagination", e);
+    });
+
+    // Accordian callback..
+    document.addEventListener("taccordian", function (e) {
+        console.log("taccordian", e);
+        //  window[e.detail.method](e.detail.params);
+    });
+
+    // checkbox callback..
+    document.addEventListener('tcheckbox', (e) => {
+        console.log('tcheckbox', e);
+    })
+
+    // toggleswitch callback
+    document.addEventListener('ttoggleswitch', function (e) {
+        console.log('ttoggleswitch', e);
+    });
+
+    document.addEventListener('taccordion', function (e) {
+        console.log('taccordion', e);
+    });
+
+    // radio group callback
+    document.addEventListener('tradiogroup', (e) => {
+        console.log('tradiogroup', e);
+    })
+
+    // colorpicker callback
+    document.addEventListener('tcolorpicker', function (e) {
+        console.log('tcolorpicker', e);
+    })
+
+    // carousel callback.
+    document.addEventListener('tcarousel', function (e) {
+        // once start it will be giving the callback automaticcally.
+        // console.log("tcarousel", e);
+    });
+
+    // inputtext callback    
+    document.addEventListener('tinputtext', function (e) {
+        console.log("tinputtext", e);
+    });
+
+    // inputtext callback    
+    document.addEventListener('tbutton', function (e) {
+        console.log("tbutton", e);
+    });
+
+    // dialog callback
+    document.addEventListener('tdialog', function (e) {
+        console.log("tdialog", e);
+    });
+
+    // rating control callback
+    document.addEventListener("tratingcontrol", function (e) {
+        console.log("tratingcontrol", e);
+    });
+
+    // multiselect callback
+    document.addEventListener('tmultiselect', function (e) {
+        console.log("tmultiselect", e);
+    });
+
+    gettsearchtext = (params) => {
+        console.log("gettsearchtext -> ", params);
+    };
+
+    gettsidebarcallback = (params) => {
+        console.log("gettsidebarcallback -> ", params);
+    };
+
+    // dropdown callback.
+    document.addEventListener('tdropdown', function (e) {
+        console.log("tdropdown", e);
+    });
+
+    // searchdropdown callback
+    document.addEventListener("tsearchdropdown", function (e) {
+        console.log("tsearchdropdown", e);
+        // window[e.detail.method](e.detail.params);
+    });
+
+    // notification callback.
+    document.addEventListener("tnotification", function (e) {
+        console.log("tnotification", e);
+    });
+
+    // listbox callback
+    document.addEventListener("tlistbox", function (e) {
+        // console.log('tlistbox', e);
+    });
+
+    //  datepicker
+    document.addEventListener("tdatepicker", function (e) {
+        console.log("tdatepicker", e);
+    });
+
+    // rating control callback
+    document.addEventListener("tratingcontrol", function (e) {
+        console.log("tratingcontrol", e);
+    });
+
+    // widgets callback.
+    // communication callback.
+    document.addEventListener('tcommunication', function (e) {
+        // window[e.detail.method](e.detail.params);
+        console.log("tcommunication", e);
+    });
+
+    // text callback.
+    document.addEventListener('ttext', function (e) {
+        console.log("ttext", e);
+    });
+
+    // tabular callback.
+    document.addEventListener('ttabular', function (e) {
+        console.log("ttabular", e);
+    });
+
+    // tabular callback.
+    document.addEventListener('tcamera', function (e) {
+        console.log("tcamera", e);
+    });
+
+    // tabular callback.
+    document.addEventListener('tdashboard', function (e) {
+        console.log("tdashboard", e);
+    });
+
+
+    //pagination callback
+    var page = document.querySelector("#page");
+    setTimeout(() => {
+        //   page.setAttribute('theme','light');
+        //   page.setAttribute('lang',"ar");
+    }, 5000);
+
+</script>
+
+</html>

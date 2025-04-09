@@ -1,0 +1,848 @@
+/* @import url("http://192.168.1.165:8989/trinityAPI/v3.0/trinity.css");
+@import url("http://192.168.1.165:8989/trinityAPI/v3.0/ol3gm.css"); */
+@import url("./mapPopup.css");
+@import "../../../assets/variable.scss";
+
+.dark {
+    .search-wrapper .controls1 {
+        color: $dark-text-color !important;
+        background-color: $dark-map-btn-bg-color !important;
+    }
+    .topLeftTopMenus button,
+    .topRightMenus button {
+        background-color: $dark-map-btn-bg-color !important;
+    }
+    .ol-control {
+        background-color: $dark-map-btn-bg-color !important;
+        button {
+            color: $dark-text-color !important;
+        }
+    }
+    .menus {
+        left: 8px;
+        background-color: $dark-map-btn-bg-color !important;
+    }
+    /* .commonCheckbox:before {
+        background-color: $dark-accordion-btn-bg-color !important;
+    } */
+    .layerSwitcher {
+        background-color: $dark-map-panel-bg-color !important;
+        border-color: $dark-map-panel-border-color !important;
+        .layerSwitcherHeader label,
+        .layerSwitcherBody label {
+            color: $dark-text-color !important;
+        }
+    }
+    .mapType {
+        background-color: $dark-map-panel-bg-color !important;
+        color: $dark-text-color !important;
+    }
+    .map-widget__dropdown {
+        background-color: $dark-map-panel-bg-color !important;
+        color: $dark-text-color !important;
+    }
+    .map-widget__dropdown-list-item {
+        color: $dark-text-color !important;
+    }
+    .layerRoadBlock {
+        background-color: $dark-map-panel-bg-color !important;
+        border-color: $dark-map-panel-border-color !important;
+        .layerRoadBlockHeader label {
+            color: $dark-text-color !important;
+        }
+        .layerRoadBlockBody {
+            label,
+            table {
+                color: $dark-text-color !important;
+            }
+        }
+    }
+    .layerDistance {
+        background-color: $dark-map-panel-bg-color !important;
+        border-color: $dark-map-panel-border-color !important;
+        .layerDistanceHeader label,
+        .layerDistanceBody label {
+            color: $dark-text-color !important;
+        }
+    }
+
+    .checkbox-container .checkmark {
+        border-color: $dark-text-color !important;
+    }
+    .checkbox-container .checkmark:after {
+        background-color: $dark-text-color !important;
+    }
+}
+
+.light {
+    .search-wrapper .controls1 {
+        color: $light-text-color !important;
+        background-color: $light-map-btn-bg-color !important;
+    }
+    .topLeftTopMenus button,
+    .topRightMenus button {
+        background-color: $light-map-btn-bg-color !important;
+    }
+    .ol-control {
+        background-color: $light-map-btn-bg-color !important;
+        button {
+            color: $light-text-color !important;
+        }
+    }
+    .menus {
+        background-color: $light-map-btn-bg-color !important;
+    }
+    /* .commonCheckbox:before {
+        background-color: $dark-accordion-btn-bg-color !important;
+    } */
+    .layerSwitcher {
+        background-color: $light-map-panel-bg-color !important;
+        border-color: $light-map-panel-border-color !important;
+        .layerSwitcherHeader label,
+        .layerSwitcherBody label {
+            color: $light-text-color !important;
+        }
+    }
+    .mapType {
+        background-color: $light-map-panel-bg-color !important;
+        color: $light-text-color !important;
+    }
+    .map-widget__dropdown {
+        background-color: $light-map-panel-bg-color !important;
+        color: $light-text-color !important;
+    }
+    .map-widget__dropdown-list-item {
+        color: $light-text-color !important;
+    }
+    .layerRoadBlock {
+        background-color: $light-map-panel-bg-color !important;
+        border-color: $light-map-panel-border-color !important;
+        .layerRoadBlockHeader label {
+            color: $light-text-color !important;
+        }
+        .layerRoadBlockBody {
+            label,
+            table {
+                color: $light-text-color !important;
+            }
+        }
+    }
+    .layerDistance {
+        background-color: $light-map-panel-bg-color !important;
+        border-color: $light-map-panel-border-color !important;
+        .layerDistanceHeader label,
+        .layerDistanceBody label {
+            color: $light-text-color !important;
+        }
+    }
+    .checkbox-container .checkmark {
+        border-color: $light-text-color !important;
+    }
+    .checkbox-container .checkmark:after {
+        background-color: $light-text-color !important;
+    }
+}
+
+.t-widget-map {
+    background-color: #404040;
+    height: 100%;
+    width: 100%;
+    /* height: 37rem;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    display: flex;
+    overflow-y: auto;
+    position: relative; */
+}
+
+/* .t-widget-map .zoomControl {
+    position: absolute;
+    width: 1.5rem;
+    height: 5rem;
+    top: 1em;
+    left: 1em;
+    background-color: #404040;
+    z-index: 1;
+} */
+
+/* .t-widget-map .menus {
+    position: absolute;
+    width: 1.75em;
+    height: 5em;
+    top: 7em;
+    left: 1em;
+    background-color: #404040;
+    z-index: 1;
+    text-align: center;
+}
+
+.t-widget-map .menus img {
+    width: 70%;
+} */
+
+.t-widget-map .menus {
+    position: absolute;
+    top: 6.5em;
+    left: 1em;
+    border-radius: 0;
+    width: 1.5em;
+    text-align: center;
+    padding: 2px;
+    background-color: #404040;
+    z-index: 1;
+    border: 1px solid #000;
+}
+
+.t-widget-map .menus button {
+    padding: 0;
+    color: #fff;
+    font-size: 1.14em;
+    text-decoration: none;
+    text-align: center;
+    line-height: 0.4em;
+    border: none;
+    width: 100%;
+    height: 25px;
+    outline: none;
+    margin: 0;
+    font-weight: 400;
+    background-color: transparent;
+}
+
+.t-widget-map .menus button:not(:last-child) {
+    border-bottom: 1px solid #525252;
+}
+
+.t-widget-map .menus button img {
+    width: 70%;
+}
+/* .t-widget-map .menus button:not(:last-child) {
+    border-bottom: 1px solid #525252 !important;
+} */
+.t-widget-map .topLeftTopMenus {
+    position: absolute;
+    top: 0.5em;
+    left: 226px;
+    border-radius: 0;
+    text-align: center;
+    background-color: transparent;
+    z-index: 1;
+}
+.t-widget-map .topLeftTopMenus button {
+    padding: 0;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    line-height: 0.4em;
+    border: 1px solid #000;
+    width: 25px;
+    height: 25px;
+    outline: none;
+    margin: 0;
+    background-color: #404040;
+    /* cursor: pointer; */
+}
+.t-widget-map .topLeftTopMenus button img {
+    width: 60%;
+}
+
+.t-widget-map .topRightMenus {
+    position: absolute;
+    top: 0.5em;
+    right: 1em;
+    border-radius: 0;
+    text-align: center;
+    background-color: transparent;
+    z-index: 1;
+}
+.t-widget-map .topRightMenus button {
+    padding: 0;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    border: 1px solid #000;
+    width: 25px;
+    height: 25px;
+    outline: none;
+    margin: 0;
+    background-color: #404040;
+    /* cursor: pointer; */
+}
+.t-widget-map .topRightMenus button img {
+    width: 50%;
+}
+
+.ol-control {
+    left: 8px;
+    top: 2.5em;
+    left: 1em;
+    background-color: #404040;
+    border-radius: 0;
+    width: 1.5em;
+    text-align: center;
+    border: 1px solid #000;
+}
+.ol-control:hover {
+    background-color: #404040;
+}
+
+.ol-control button {
+    background-color: transparent;
+    width: 100%;
+    height: 25px;
+    outline: none;
+    margin: 0;
+    font-weight: normal;
+}
+.ol-control button:focus,
+.ol-control button:hover {
+    background-color: transparent;
+}
+
+.ol-control .ol-zoom-in {
+    border-bottom: 1px solid #525252 !important;
+}
+
+.ol-attribution,
+.ol-map-btn,
+.ol-sat-btn {
+    display: none;
+}
+
+.search-wrapper {
+    left: 1em;
+    background-color: transparent;
+}
+.search-wrapper .controls1 {
+    left: 1em;
+    background-color: #404040;
+    border: 0;
+    border-radius: 0;
+    font-size: 12px;
+    color: #fff;
+    width: 150px;
+    height: 25px;
+    border: 1px solid #000;
+}
+.search-wrapper .controls1:focus {
+    box-shadow: none;
+}
+.close-icon {
+    padding: 0;
+}
+
+/* Map Type */
+.mapType {
+    position: fixed;
+    color: #fff;
+    z-index: 1;
+    width: 300px;
+    height: 120px;
+    background-color: #262626;
+    top: 35%;
+    left: 39%;
+    padding: 10px;
+    border: 1px solid #383838;
+    box-shadow: 0 0 3px 0px #000;
+    display: none;
+}
+
+.mapTypeHeader {
+    display: flex;
+    border-bottom: 1px solid grey;
+    padding-bottom: 5px;
+}
+
+.mapTypeHeader label {
+    width: 80%;
+    font-size: 12px;
+    line-height: 1.5;
+    padding-top: 3px;
+}
+
+.mapTypeHeader .mapTypeClose {
+    width: 20%;
+    text-align: right;
+}
+
+.mapTypeHeader button {
+    padding: 0;
+    color: grey;
+    font-size: 12px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 0.4em;
+    border: none;
+    width: 20px;
+    height: 20px;
+    outline: none;
+    margin: 0;
+    font-weight: 400;
+    background-color: #404040;
+    /* cursor: pointer; */
+}
+.mapTypeHeader button:hover {
+    color: #fff;
+}
+
+.mapTypeBody {
+    display: flex;
+    text-align: center;
+    margin-top: 5px;
+}
+.mapTypeContent {
+    width: 70px;
+    height: 50px;
+    margin: 0 5px;
+}
+
+.mapTypeContent:hover {
+    /*  cursor: pointer; */
+    box-shadow: 0px 0px 2px #404040;
+}
+
+.mapTypeContent img {
+    width: 100%;
+}
+
+.mapTypeContent label {
+    font-size: 10px;
+}
+
+/* LayerSwitcher */
+.layerSwitcher {
+    position: fixed;
+    z-index: 1;
+    width: 150px;
+    height: auto;
+    min-height: 100px;
+    background-color: #262626;
+    top: 30%;
+    left: 39%;
+    padding: 10px;
+    border: 1px solid #383838;
+    box-shadow: 0 0 3px 0px #000;
+    display: none;
+}
+
+.layerSwitcherHeader {
+    display: flex;
+    border-bottom: 1px solid grey;
+    padding-bottom: 5px;
+}
+
+.layerSwitcherHeader label {
+    width: 80%;
+    font-size: 12px;
+    color: #fff;
+    line-height: 1.5;
+    padding-top: 3px;
+}
+
+.layerSwitcherHeader .layerSwitcherClose {
+    width: 20%;
+    text-align: right;
+}
+
+.layerSwitcherHeader button {
+    padding: 0;
+    color: grey;
+    font-size: 12px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 0.4em;
+    border: none;
+    width: 20px;
+    height: 20px;
+    outline: none;
+    margin: 0;
+    font-weight: 400;
+    background-color: #404040;
+    /* cursor: pointer; */
+}
+.layerSwitcherHeader button:hover {
+    color: #fff;
+}
+
+.layerSwitcherBody {
+    margin-top: 5px;
+}
+
+.layerSwitcherBody .ListDiv {
+    display: flex;
+}
+
+.layerSwitcherBody label {
+    font-size: 1.8vh;
+    color: #fff;
+}
+
+.layerSwitcherBody img {
+    height: 17px;
+    margin: 0 5px;
+}
+
+.layerSwitcherBody .layerListCheckbox {
+    padding: 0 5px;
+    width: 10%;
+}
+
+/* layerDistance starts */
+.layerDistance {
+    position: fixed;
+    z-index: 1;
+    width: 210px;
+    height: auto;
+    min-height: 100px;
+    background-color: #262626;
+    top: 30%;
+    left: 39%;
+    padding: 10px;
+    border: 1px solid #383838;
+    box-shadow: 0 0 3px 0px #000;
+    display: none;
+}
+
+.layerDistanceHeader {
+    display: flex;
+    border-bottom: 1px solid grey;
+    padding-bottom: 5px;
+}
+
+.layerDistanceHeader label {
+    width: 80%;
+    font-size: 12px;
+    color: #fff;
+    line-height: 1.5;
+    padding-top: 3px;
+}
+
+.layerDistanceHeader .layerDistanceClose {
+    width: 20%;
+    text-align: right;
+}
+
+.layerDistanceHeader button {
+    padding: 0;
+    color: grey;
+    font-size: 12px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 0.4em;
+    border: none;
+    width: 20px;
+    height: 20px;
+    outline: none;
+    margin: 0;
+    font-weight: 400;
+    background-color: #404040;
+    /* cursor: pointer; */
+}
+.layerDistanceHeader button:hover {
+    color: #fff;
+}
+
+.layerDistanceBody {
+    margin-top: 5px;
+}
+
+.layerDistanceBody table {
+    width: 100%;
+    color: #fff;
+    font-size: 1.7vh;
+}
+
+.layerDistanceBody .label {
+    color: #fff;
+    font-size: 1.7vh;
+}
+/* layerDistance ends */
+
+/* layerRoadBlock starts */
+.layerRoadBlock {
+    position: fixed;
+    z-index: 1;
+    width: 210px;
+    height: auto;
+    min-height: 100px;
+    background-color: #262626;
+    top: 30%;
+    left: 39%;
+    padding: 10px;
+    border: 1px solid #383838;
+    box-shadow: 0 0 3px 0px #000;
+    display: none;
+}
+
+.layerRoadBlockHeader {
+    display: flex;
+    border-bottom: 1px solid grey;
+    padding-bottom: 5px;
+}
+
+.layerRoadBlockHeader label {
+    width: 80%;
+    font-size: 12px;
+    color: #fff;
+    line-height: 1.5;
+    padding-top: 3px;
+}
+
+.layerRoadBlockHeader .layerRoadBlockClose {
+    width: 20%;
+    text-align: right;
+}
+
+.layerRoadBlockHeader button {
+    padding: 0;
+    color: grey;
+    font-size: 12px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 0.4em;
+    border: none;
+    width: 20px;
+    height: 20px;
+    outline: none;
+    margin: 0;
+    font-weight: 400;
+    background-color: #404040;
+    /* cursor: pointer; */
+}
+.layerRoadBlockHeader button:hover {
+    color: #fff;
+}
+
+.layerRoadBlockBody {
+    margin-top: 5px;
+}
+
+.layerRoadBlockBody table {
+    width: 100%;
+    color: #fff;
+    font-size: 1.7vh;
+}
+.layerRoadBlockBody .label {
+    color: #fff;
+    font-size: 1.7vh;
+}
+.layerRoadBlockBody .roadBlockMessage {
+    width: 100%;
+    background-color: #404040;
+    color: grey;
+    border: 1px solid #212121;
+    outline: none;
+}
+.layerRoadBlockBody .buttonArea {
+    width: 100%;
+    text-align: right;
+}
+
+.commonCheckbox {
+    position: relative;
+    cursor: pointer;
+}
+.commonCheckbox:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+}
+.commonCheckbox:checked:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+}
+.commonCheckbox:checked:after {
+    content: "";
+    display: block;
+    width: 3px;
+    height: 3px;
+    border: solid #fff;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    background-color: #fff;
+}
+/* layerRoadBlock ends */
+
+.displayNone {
+    display: none;
+}
+.displayBlock {
+    display: block !important;
+}
+
+// checkbox
+.checkbox-container {
+    font-family: "trinity", "Open Sans";
+    display: block;
+    position: relative;
+    width: auto !important;
+    margin: 0 0.8rem 1.2rem 0;
+    cursor: pointer;
+    font-size: 12px;
+    color: #fff;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkbox-container .checkmark {
+    position: absolute;
+    top: 1px;
+    left: 0;
+    height: 13px;
+    width: 13px;
+    background-color: transparent;
+    border: 1px solid #ffffff;
+    border-radius: 2px;
+}
+
+.checkbox-container .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.checkbox-container .checkmark:after {
+    left: 3px;
+    top: 3px;
+    width: 7px;
+    height: 7px;
+    background-color: #fff;
+}
+
+.map-widget-resize {
+    width: 40% !important;
+    height: 40vh !important;
+}
+
+.map-widget {
+    position: relative;
+    height: 100vh; //-webkit-fill-available;
+    width: 100%;
+    background-color: #242522;
+    font-family: "trinity", "Open Sans";
+
+    &__hr {
+        border: 1px solid #5f605d;
+        width: 99%;
+    }
+
+    // dropdown.
+    &__dropdown {
+        display: none;
+        padding: 15px;
+        background-color: #242522;
+        border: 1px solid #5f605d;
+        box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.6);
+        box-sizing: border-box;
+        width: 145px;
+        height: auto;
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        z-index: 2;
+        color: #fff;
+
+        &-heading {
+            padding-bottom: 8px;
+            font-size: 12px;
+            border-bottom: 1.7px solid #5f605d;
+            margin: 0;
+            font-family: "trinity-semibold", "Open Sans";
+        }
+
+        &-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        &-list-item {
+            position: relative;
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            font-family: "trinity", "Open Sans";
+            color: #bfbfbf;
+            cursor: default;
+
+            &:nth-child(1) {
+                padding-top: 5px;
+            }
+
+            &:nth-child(3) {
+                border-bottom: 1.7px solid #5f605d;
+                padding-bottom: 5px;
+            }
+
+            &:nth-child(4) {
+                padding-top: 5px;
+            }
+        }
+
+        &-list-item:hover {
+            color: #fff;
+        }
+
+        &-list-item-icon {
+            padding-right: 8px;
+            padding-top: 5px;
+        }
+
+        &-toggle {
+            height: 25px;
+            width: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 3px;
+            cursor: pointer;
+            position: relative;
+            background-color: #404040;
+            border: 1px solid #000;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+
+    &__section {
+        height: 90%;
+
+        &-frame {
+            width: 100%;
+            height: 100%;
+        }
+
+        &-frame > img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}

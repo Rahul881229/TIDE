@@ -1,0 +1,121 @@
+@import "../../assets/variable";
+/* .t-sidebar {
+    width: 3vw;
+    height: 100%;
+    border-right: 1px solid #707070;
+} */
+/* .t-sidebar {
+    width: 100%;
+    height: 100%;
+    background-color: #262626;
+    border-right: 1px solid #707070;
+} */
+
+.dark {
+    .sideButton label {
+        color: $dark-text-color !important;
+    }
+    .sideButton:hover {
+        background-color: $dark-bg-color !important;
+        border-color: $light-bg-color !important;
+    }
+}
+
+.light {
+    .sideButton label {
+        color: $light-text-color !important;
+    }
+    .sideButton:hover {
+        background-color: $light-bg-color !important;
+        border-color: $dark-bg-color !important;
+    }
+}
+
+.t-sidebar .t-sidebarPanel {
+    position: relative;
+    min-width: auto;
+    /* background-color: #404040; */
+    z-index: 1;
+    font-family: "trinity", "Open Sans";
+}
+
+.t-sidebar .sideButton {
+    /* width: 100%;
+    padding: 5px 0;
+    cursor: pointer;
+    text-align: center;
+    height: 4vh; */
+    width: auto;
+    padding: 5px 8px;
+    cursor: pointer;
+    height: 3vh;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    flex-direction: row;
+    font-family: "trinity", "Open Sans";
+}
+
+.t-sidebar .sideButton:hover {
+    background-color: #404040;
+    border: 1px solid #404040;
+}
+
+.t-sidebar .sideButton img {
+    height: 100%;
+}
+
+.t-sidebar .sideButton label {
+    cursor: pointer;
+    color: #fff;
+    font-size: 1.8vh;
+    padding-left: 5px;
+    display: none;
+}
+
+/* sidebarList */
+.t-sidebarList {
+    width: 100%;
+    /* background-color: #262626; */
+    /* border-right : 1px solid #707070; */
+}
+
+.t-sidebarList .t-sidebarPanel {
+    position: relative;
+    min-width: auto;
+    /* background-color: #404040; */
+    z-index: 1;
+}
+
+.t-sidebarList .sideButton {
+    /* width: 100%;
+    padding: 5px 0;
+    cursor: pointer;
+    text-align: center;
+    height: 4vh; */
+    width: auto;
+    padding: 5px 8px;
+    cursor: pointer;
+    height: 3vh;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    flex-direction: row;
+}
+
+.t-sidebarList .sideButton:hover {
+    background-color: #404040;
+    border: 1px solid #404040;
+}
+
+.t-sidebarList .sideButton img {
+    height: 100%;
+}
+
+.t-sidebarList .sideButton label {
+    cursor: pointer;
+    color: #fff;
+    font-size: 1.8vh;
+    padding-left: 5px;
+    display: none;
+}

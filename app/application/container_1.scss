@@ -1,0 +1,46 @@
+.dark {
+    .sidebar {
+        background-color: #262626 !important;
+    }
+}
+
+.light {
+    .sidebar {
+        background-color: #fff !important;
+    }
+}
+
+.t-container {
+    display: flex;
+    width: 100%;
+}
+.t-container .sidebar {
+    width: 50px;
+    transition: 0.5s;
+    // height: 92%;
+    // width: 50px;
+    // position: absolute;
+    // z-index: 2;
+    // top: 6vh;
+    // left: 0;
+    // transition: 0.5s;
+    // overflow: hidden;
+    // white-space: nowrap;
+    // background-color: #262626;
+    // border-right: 1px solid hsla(0, 0%, 54.9%, 0.4);
+    // border-top: 1px solid hsla(0, 0%, 54.9%, 0.4);
+    // border-bottom: 1px solid hsla(0, 0%, 54.9%, 0.4);
+}
+.t-container .layout {
+    width: 100%;
+    // padding: 5px;
+    // margin-left: 50px;
+    // transition: margin-left 0.5s;
+}
+
+.t-container .sidebar.sidebarHide {
+    display: none;
+}
+.t-container .layout.sidebarHide {
+    margin-left: 0px;
+}

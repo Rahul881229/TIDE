@@ -90,8 +90,10 @@ import WebPortal1 from './webportal/weportal1'
 import WebPortal2 from './webportal/weportal2'
 import WebPortal3 from './webportal/weportal3'
 import WebPortal4 from './webportal/weportal4'
+import TToggle from '../app/toggel/ttoggel'// DONE    BY ME 
+import TPILL from './tpill/tpill';// DONE  BY ME 
 
-// widget..
+// widget
 import WidgetMap from './widget/map/widgetmap';
 import WidgetCamera from './widget/camera/widgetcamera';
 import WidgetDashboard from './widget/dashboard/widgetdashboard';
@@ -126,10 +128,11 @@ import MultiDropdownChips from './dropdown/multi-dropdown-chips';
 import ScheduleCalendar from './schedulecalendar/schedulecalendar';
 import fileUpload from './fileupload/fileupload';
 import ScreenDetails from './widget/screenDetails/screenDetails';
+import TImageUpload from './imageownupload/image-upload_1';
 
 
 
-
+customElements.get('t-image-upload')||customElements.define('t-image-upload',TImageUpload)
 customElements.get('t-screen-details') || customElements.define('t-screen-details', ScreenDetails);
 customElements.get('t-fileupload') || customElements.define('t-fileupload', fileUpload);
 customElements.get('t-timeline') || customElements.define('t-timeline', TimelineComponent);
@@ -245,4 +248,6 @@ customElements.get('t-cprogress-bar') || customElements.define('t-cprogress-bar'
 customElements.get('t-field-card') || customElements.define('t-field-card',FieldCard);
 customElements.get('t-calendar') || customElements.define('t-calendar',ScheduleCalendar);
 customElements.get('t-multidropdown-chips') || customElements.define('t-multidropdown-chips',MultiDropdownChips);
+customElements.get('t-toggle') || customElements.define('t-toggle',TToggle);//FROM ME 
+customElements.get('t-pill') || customElements.define('t-pill',TPILL);// FROM ME 
 

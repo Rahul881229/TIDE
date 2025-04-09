@@ -1,0 +1,133 @@
+@import "../../../assets/variable";
+
+.dashboard-widget {
+  position: relative;
+  height: 90vh;
+  width: 100%;
+  background-color: #404040;
+  color: $text-primary-color;
+  font-size: 14px;
+  font-family: "trinity", "Open Sans";
+
+  &__header {
+    &-wrap {
+      display: flex;
+      height: 5vh;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &-heading {
+      text-transform: capitalize;
+    }
+  }
+
+  // dropdown.
+  &__dropdown {
+    display: none;
+    padding: 17px;
+    background-color: #404040;
+    border: 1px solid #5f605d;
+    box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.6);
+    box-sizing: border-box;
+    width: 145px;
+    height: 190px;
+    position: absolute;
+    right: 26px;
+    top: 20px;
+    z-index: 2;
+    color: #fff;
+
+    &-heading {
+      padding-bottom: 8px;
+      font-size: 15px;
+      border-bottom: 1.7px solid #5f605d;
+      margin: 0;
+      font-family: "trinity-semibold", "Open Sans"; 
+    }
+
+    &-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    &-list-item {
+      position: relative;
+      display: flex;
+      cursor: pointer;
+      text-transform: capitalize;
+      align-items: center;
+      font-size: 14px;
+      font-family: "trinity-light", "Open Sans";
+
+      &:nth-child(1) {
+        padding-top: 5px;
+      }
+
+      &:nth-child(3) {
+        border-bottom: 1.7px solid #5f605d;
+        padding-bottom: 5px;
+      }
+
+      &:nth-child(4) {
+        padding-top: 5px;
+      }
+    }
+
+    &-list-item-icon {
+      padding-right: 8px;
+      padding-top: 5px;
+    }
+
+    &-toggle {
+      height: 25px;
+      width: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 3px;
+      cursor: pointer;
+      position: relative;
+      background-color: #595a58;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__section {
+    height: 93%;
+
+    &-frame {
+      width: 100%;
+      height: 100%;
+    }
+
+    &-frame > img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.dropdown-active {
+  display: block;
+}
+
+.dashboard-widget-minimize {
+  width: 40%;
+  height: 40vh;
+}
+
+.dashboard-widget-fullscreen {
+  width: 100%;
+  height: 90vh;
+}
+
+.dropdown-toggle-icon {
+}
+
+.right-arr {
+}
