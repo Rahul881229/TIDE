@@ -545,3 +545,336 @@ class DropDown extends HTMLElement {
 }
 // customElements.get('t-dropdown') || customElements.define('t-dropdown', DropDown);
 export default DropDown;
+ //new modified one 😂😂😂😂😂😂😂😂😂😂😂😂😂
+import styles from "./dropdown.scss";
+
+class DropDown extends HTMLElement {
+  selectText = "Select";
+  placeholderInput = "Search";
+  dropheight = "15vh";
+  noData = "No Data";
+  optionData = [];
+  focusedOptionIndex = 0;
+  objectkey = "";
+  #internals = this.attachInternals();
+  static formAssociated = true;
+
+  static observedAttributes = [
+    "placeholder",
+    "position",
+    "option-data",
+    "search",
+    "theme",
+    "lang",
+    "selected",
+    "disabled",
+    "dropheight",
+    "value",
+    "select-text"
+  ];
+
+  get form() {
+    return this.#internals.form;
+  }
+
+  get name() {
+    return this.getAttribute("name");
+  }
+
+  get type() {
+    return this.localName;
+  }
+
+  get validity() {
+    return this.#internals.validity;
+  }
+
+  get validationMessage() {
+    return this.#internals.validationMessage;
+  }
+
+  get willValidate() {
+    return this.#internals.willValidate;
+  }
+
+  constructor() {
+    super();
+
+    // Handle language
+    let lang = "";
+    this.selectText = this.getAttribute("select-text") || "Select ";
+    if (this.getAttribute("lang") === "ar") {
+      lang = 'dir="rtl" lang="ar"';
+
+    }
+
+    // Set dropheight if present
+    if (this.hasAttribute("dropheight")) {
+      this.dropheight = this.getAttribute("dropheight");
+    }
+
+    // Handle width size
+    let inputWidth = "";
+    if (this.hasAttribute("sm") || this.hasAttribute("small")) {
+      inputWidth = "sm";
+    } else if (this.hasAttribute("lg") || this.hasAttribute("large")) {
+      inputWidth = "lg";
+    }
+
+    // Get placeholder from attribute
+    this.placeholderInput = this.getAttribute("placeholder") || "Search";
+
+    // Create template
+    const template = document.createElement("template");
+    template.innerHTML = `
+      <style>${styles.toString()}</style>
+      <div class="dropdown ${inputWidth}" style="width:${
+      this.getAttribute("customwidth") || ""
+    } !important; min-width:${this.getAttribute("customwidth")}" ${lang}>
+        <div class="select">
+          <span class="selected">${this.selectText}</span>
+          <div class="caret"></div>
+        </div>
+        <div class="menu">
+      <img  style="margin-left:90%;"class="search-icon-bottom" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAF3SURBVHjapNS/S5VxFMfx17UbSiGVgkguLaKN5VAKoVNOrYIYDf0FouLQL3CozTs09Qc0yB1b2nIQESxChwIHBaGW5FKCDv7ox3IuPNj9PvdRP8s5nO+X9/N5znPOU6rVajLqwSQeojtqe6jiNdY1USkDnMDbzNkqfuM2WqP2FK/ygC0RxzKwx7iIOxhCGx7gB15irpnDDtRt9mMjcfdynPXgFtZSDp9F/igHBvsYjfxNnsN9lDN9aqavuImr2G3k8BI+K673EXvzPsrBKYCHES+kgH9iNIpqJOJWCriAdgwXgHXiLjaxkwI+j7wa/czTOxxhPG+wt/AEXTE2Qw3u9WE5zn7hY5HVm8OLyL9gCccYwGDUf+Ja7PRE7Pl2Cgj3YtDvn3jwJ8zGeC3GpsBfzKCSAtZ1BTeiJd9jj+u6jm8oZWrTdWg50YrdnF/V0QkYzEestDi9dsKRBtCp1CsX0VTG2X+rdxZVGjj9UHY+VTJ/8hWM/RsAM4VbrfI/eqUAAAAASUVORK5CYII=">
+          <input class="search-input-box" type="text" placeholder="${this.placeholderInput}" />
+          <ul style="max-height:${this.dropheight}"></ul>
+        </div>
+      </div>
+    `;
+
+    // Attach shadow DOM
+    this.attachShadow({ mode: "open" });
+    this.shadowRoot.appendChild(template.content.cloneNode(true));
+
+    const dropdown = this.shadowRoot.querySelector(".dropdown");
+    const menu = dropdown.querySelector(".menu");
+    const select = dropdown.querySelector(".select");
+    const caret = dropdown.querySelector(".caret");
+
+    dropdown.tabindex = 0;
+
+    // Toggle open
+    select.addEventListener("click", () => {
+      let checkDisabled = /true/.test(this.getAttribute("disabled"));
+      if (!checkDisabled) {
+        select.classList.toggle("select-clicked");
+        caret.classList.toggle("caret-rotate");
+        menu.classList.toggle("menu-open");
+
+        if (menu.classList.contains("menu-open")) {
+          const searchBox = dropdown.querySelector(".search-input-box");
+          searchBox.focus();
+        }
+      }
+    });
+
+    // Close on outside click
+    document.addEventListener("click", (event) => {
+      if (!this.contains(event.target)) {
+        select.classList.remove("select-clicked");
+        caret.classList.remove("caret-rotate");
+        menu.classList.remove("menu-open");
+      }
+    });
+
+    // Keyboard navigation
+    const searchBox = dropdown.querySelector(".search-input-box");
+    searchBox.addEventListener("keydown", (event) => {
+      switch (event.key) {
+        case "ArrowDown":
+          event.preventDefault();
+          this.navigateOptions("next");
+          break;
+        case "ArrowUp":
+          event.preventDefault();
+          this.navigateOptions("prev");
+          break;
+        case "Enter":
+          event.preventDefault();
+          this.selectOption();
+          break;
+      }
+    });
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (name === "placeholder") {
+      this.placeholderInput = newValue || "Search";
+      const input = this.shadowRoot?.querySelector(".search-input-box");
+      if (input) input.setAttribute("placeholder", this.placeholderInput);
+    }
+  }
+
+  get value() {
+    const dropdown = this.shadowRoot.querySelector(".dropdown");
+    const options = dropdown.querySelectorAll(".menu li");
+    let keyObject = JSON.parse(this.getAttribute("option-keys"));
+    for (const element of options) {
+      if (element.classList.contains("active")) {
+        for (const data of this.optionData) {
+          if (element.getAttribute("value") == data[keyObject.value]) {
+            return data;
+          }
+        }
+      }
+    }
+    return "";
+  }
+
+  set value(newValue) {
+    this.applySelectedValue(newValue);
+  }
+
+  navigateOptions(direction) {
+    const dropdown = this.shadowRoot.querySelector(".dropdown");
+    const options = dropdown.querySelectorAll(".menu li");
+    const visibleOptions = Array.from(options).filter(
+      (option) => option.style.display !== "none"
+    );
+    if (visibleOptions.length === 0) return;
+
+    if (direction === "next") {
+      this.focusedOptionIndex =
+        (this.focusedOptionIndex + 1) % visibleOptions.length;
+    } else if (direction === "prev") {
+      this.focusedOptionIndex =
+        (this.focusedOptionIndex - 1 + visibleOptions.length) %
+        visibleOptions.length;
+    }
+
+    options.forEach((option) => option.classList.remove("focused"));
+    visibleOptions[this.focusedOptionIndex].classList.add("focused");
+  }
+
+  selectOption() {
+    const dropdown = this.shadowRoot.querySelector(".dropdown");
+    const options = dropdown.querySelectorAll(".menu li");
+    const visibleOptions = Array.from(options).filter(
+      (option) => option.style.display !== "none"
+    );
+
+    if (
+      visibleOptions.length === 0 ||
+      this.focusedOptionIndex < 0 ||
+      this.focusedOptionIndex >= visibleOptions.length
+    )
+      return;
+
+    const selectedOption = visibleOptions[this.focusedOptionIndex];
+    selectedOption.click();
+  }
+
+  applySelectedValue(newValue) {
+    const dropdown = this.shadowRoot.querySelector(".dropdown");
+    const options = dropdown.querySelectorAll(".menu li");
+    const selected = dropdown.querySelector(".selected");
+    selected.innerText = this.selectText;
+
+    if (newValue) {
+      for (const element of options) {
+        element.classList.remove("active");
+        if (newValue == element.getAttribute("value")) {
+          element.classList.add("active");
+          selected.innerText = element.innerText;
+          break;
+        }
+      }
+    } else {
+      selected.innerText = this.selectText;
+    }
+  }
+
+  disabledElement(newValue) {
+    const dropdown = this.shadowRoot.querySelector(".dropdown");
+    const select = dropdown.querySelector(".select");
+    newValue = /true/.test(newValue);
+    if (newValue) {
+      select.classList.add("disabled");
+    } else {
+      select.classList.remove("disabled");
+    }
+  }
+
+  addingOption(optionData) {
+    const dropdown = this.shadowRoot.querySelector(".dropdown");
+    const menuUl = dropdown.querySelector(".menu ul");
+    const selected = dropdown.querySelector(".selected");
+    const caret = dropdown.querySelector(".caret");
+    const select = dropdown.querySelector(".select");
+
+    menuUl.innerHTML = null;
+    let keyObject = JSON.parse(this.getAttribute("option-keys"));
+    this.objectkey = keyObject["value"];
+
+    if (optionData.length > 0) {
+      optionData.forEach((element) => {
+        let elementli = document.createElement("li");
+        elementli.setAttribute("value", element[keyObject.value]);
+        elementli.innerText = element[keyObject.label];
+        elementli.setAttribute("title", element[keyObject.label]);
+        if (element[keyObject.value] == this.getAttribute("selected")) {
+          elementli.classList.add("active");
+          selected.innerText = element[keyObject.label];
+        }
+
+        elementli.addEventListener("click", () => {
+          let status = true;
+          if (elementli.classList.contains("active")) {
+            if (this.getAttribute("deselect") === "false") {
+              selected.innerText = elementli.innerText;
+              status = false;
+              select.classList.remove("select-clicked");
+              elementli.classList.add("active");
+              caret.classList.remove("caret-rotate");
+              this.shadowRoot.querySelector(".menu").classList.remove("menu-open");
+              return;
+            }
+            selected.innerText = this.selectText;
+            status = false;
+          } else {
+            selected.innerText = elementli.innerText;
+            menuUl.querySelectorAll("li").forEach((li) =>
+              li.classList.remove("active")
+            );
+          }
+
+          select.classList.remove("select-clicked");
+          caret.classList.remove("caret-rotate");
+          this.shadowRoot.querySelector(".menu").classList.remove("menu-open");
+          elementli.classList.toggle("active");
+
+          if (status) {
+            const selectedEvent = new CustomEvent("selected", {
+              detail: {
+                value: elementli.getAttribute("value"),
+                text: elementli.innerText,
+              },
+              bubbles: true,
+              composed: true,
+            });
+            this.dispatchEvent(selectedEvent);
+          }
+        });
+
+        menuUl.appendChild(elementli);
+      });
+    } else {
+      let elementDiv = document.createElement("div");
+      elementDiv.className = "noData";
+      elementDiv.innerHTML = this.noData;
+      menuUl.appendChild(elementDiv);
+    }
+
+    this.optionData = optionData;
+  }
+}
+
+export default DropDown;
+
+
+
+
+
+
+
